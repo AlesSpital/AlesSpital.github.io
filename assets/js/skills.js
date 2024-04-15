@@ -25,19 +25,19 @@ var skills = [
 	"Game Development",
 	"UI/UX Designing",
 	"Agile Development",
-	"Computer Networking",
-    "React Native",
+	"Comp. Networking",
     "TensorFlow",
     "PyTorch",
     "Data Science",
     "Data Analysis",
     "Git",
     "RESTful APIs",
-    "Cross-platform Development",
     "Video Editing",
     "3D Modeling",
     "3D Animation",
-    "Photo Editing"
+    "Photo Editing",
+    "Laravel",
+    "Teaching"
 ]
 
 let cols = Math.floor(skills.length / 6)+1;
