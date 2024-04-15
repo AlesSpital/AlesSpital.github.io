@@ -40,8 +40,8 @@ var skills = [
     "Photo Editing"
 ]
 
-let cols = Math.floor(skills.length / 6);
-for(let i = 0; i < skills.length; i++ ){
+let cols = Math.floor(skills.length / 6)+1;
+for(let i = 0; i < skills.length; ){
 	let content = '<div class="col-sm-2">';
     content += '<ul>';
     for (let j = 0; j < cols && i < skills.length; j++) {
