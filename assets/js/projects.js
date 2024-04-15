@@ -11,7 +11,7 @@ var projects = [
 },
 { 
 	Filter: "filter-games",
-	Title: "<b>The Arena:</b> Immerse yourself in the adrenaline-fueled world of Arena Clash, a mobile game that pits you against formidable adversaries in intense battles. Engage in thrilling arena combat where your objective is simple yet challenging: obliterate all enemies standing in your path. <br><b>Link:</b><a href='https://play.google.com/store/apps/details?id=com.CriticalGlitch.Void'> Google Play</a>",
+	Title: "<b>The Arena:</b> Immerse yourself in the adrenaline-fueled world of Arena Clash, a mobile game that pits you against formidable adversaries in intense battles. Engage in thrilling arena combat where your objective is simple yet challenging: obliterate all enemies standing in your path. <br><b>Link:</b><a href='https://play.google.com/store/apps/details?id=com.CriticalGlitch.TheArena'> Google Play</a>",
 	Image: "assets/img/portfolio/thearena.jpg"
 },
 { 
