@@ -25,7 +25,7 @@ var jobs = [
 	Location: "Mega M d.o.o., Velenje, Slovenia",
 	Desc: [
 	"Designed and developed an online shopping platform that made it easier to order products.",
-	"Created a mobile application for the well-known grocery chain Jager that provides users with up-to-date information on loyalty points and discount prices, increasing user happiness and engagement."
+	"Created a mobile application for the well-known grocery chain that provides users with up-to-date information on loyalty points and discount prices, increasing user happiness and engagement."
 	]
 }];
 //alert(jobs[0].Desc[0]);
