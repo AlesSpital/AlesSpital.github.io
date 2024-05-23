@@ -5,6 +5,11 @@ var projects = [
 	Image: "assets/img/portfolio/arnet.jpg"
 },
 { 
+	Filter: "filter-arvr",
+	Title: "<b>AR Tourist Guide:</b> The AR Tourist Guide created as a Bachelor's Degree Thesis for the Slovenian municipality of Šoštanj is a cutting-edge application designed to enhance tourists' understanding of local history and culture by visualizing the former appearance of the submerged village of Družmirje. <b>*Only in Slovenian!*</b><br><b>Link:</b><a href='https://dk.um.si/Dokument.php?id=145960'> DKUM (Bachelor's Degree Thesis)</a></br>This product is not accessible to the public.",
+	Image: "assets/img/portfolio/artouristguide.png"
+},
+{ 
 	Filter: "filter-games",
 	Title: "<b>Echoes of Etra:</b> Witness the birth of an epic tale in Echoes of Etra, a riveting RPG game developed by the talented students of Electrical and Computer School, School Center Velenje, Slovenia. Immerse yourself in a world torn between mortals and Gods, where the fate of humanity hangs in the balance.<br><b>Trailer:</b><a href='https://youtu.be/byq_hVzCsZA?si=p9StZG92jRCq2R1Q'> YouTube </a><br><b>DEMO:</b><a href='https://drive.google.com/file/d/1NezLAz30O-LDiyqCaF3XH9QalngPJ1uI/view?usp=sharing'> Google Drive </a>",
 	Image: "assets/img/portfolio/eoe.jpg"
@@ -29,6 +34,16 @@ var projects = [
 	Title: "A wide range of digital art, encompassing 3D renders and video edits, is accessible on my <b>Instagram:</b><a href='https://www.instagram.com/alesspital/'>@alesspital</a>",
 	Image: "assets/img/portfolio/digart.jpg"
 },
+{ 
+	Filter: "filter-3Dart",
+	Title: "A wide range of digital art, encompassing 3D renders and video edits, is accessible on my <b>Instagram:</b><a href='https://www.instagram.com/alesspital/'>@alesspital</a>",
+	Image: "assets/img/portfolio/3Ddancer.jpg"
+},
+{ 
+	Filter: "filter-3Dart",
+	Title: "A wide range of digital art, encompassing 3D renders and video edits, is accessible on my <b>Instagram:</b><a href='https://www.instagram.com/alesspital/'>@alesspital</a>",
+	Image: "assets/img/portfolio/photoart.jpg"
+}
 /*
 { 
 	Filter: "filter-arvr",
