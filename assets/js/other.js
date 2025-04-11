@@ -1,5 +1,16 @@
 var jobs = [
-{
+	/*
+	{
+		Title: "Beekeeping Field Worker",
+		Years: "January 2025",
+		Desc: "SJA Honey, New Zealend",
+		Points: [
+			"Erasmus Student Exchange Program Participant",
+			"Contributed to the design and development of an online platform for an electronic device retailer."
+		]
+	},
+	*/
+	{
 	Title: "Web Developer Intern",
 	Years: "April 2015",
 	Desc: "bits & bytes, Malta",

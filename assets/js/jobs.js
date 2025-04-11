@@ -1,7 +1,7 @@
 var jobs = [
 {
 	Title: "High School Professor of Computer Science",
-	Years: "2021 - Present",
+	Years: "2021 - 2024",
 	Location: "School Center Velenje, Velenje, Slovenia",
 	Desc: [
 	"Taught a diverse array of subjects, encompassing Artificial Intelligence, Web Development, Multimedia, and Computer Networks.",
