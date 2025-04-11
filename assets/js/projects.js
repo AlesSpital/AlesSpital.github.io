@@ -37,7 +37,7 @@ var projects = [
 { 
 	Filter: "filter-3Dart",
 	Title: "A wide range of digital art, encompassing 3D renders and video edits, is accessible on my <b>Instagram:</b><a href='https://www.instagram.com/alesspital/'>@alesspital</a>",
-	Image: "assets/img/portfolio/pot.jpg"
+	Image: "assets/img/portfolio/pot_img.jpg"
 },
 { 
 	Filter: "filter-3Dart",
