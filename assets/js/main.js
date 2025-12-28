@@ -32,11 +32,26 @@
     });
   };
 
+  const initChapterTracker = () => {
+    const chapters = ['#hero', '#projects', '#story', '#experience', '#skills', '#contact'];
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          select('.nav-links a.active')?.classList.remove('active');
+          const link = select(`.nav-links a[href="${'#' + entry.target.id}"]`);
+          link?.classList.add('active');
+        }
+      });
+    }, { threshold: 0.4 });
+
+    chapters.forEach((id) => {
+      const el = select(id);
+      if (el) observer.observe(el);
+    });
+  };
+
   document.addEventListener('DOMContentLoaded', () => {
     initNav();
-  });
-
-  document.addEventListener('projectsRendered', () => {
-    // Refresh any scroll animations if present
+    initChapterTracker();
   });
 })();
