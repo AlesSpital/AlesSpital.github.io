@@ -1,67 +1,211 @@
-var projects = [
-{ 
-	Filter: "filter-arvr",
-	Title: "<b>ARnet:</b> ARnet offers a variety of features that users can take advantage of to simulate and learn about computer networks in augmented reality. The application provides users with basic information about the structure of the network, including topology, device types and their functions. <b>*Only in Slovenian!*</b><br><b>Link:</b><a href='https://play.google.com/store/apps/details?id=com.CriticalGlitch.ARnet'> Google Play</a>",
-	Image: "assets/img/portfolio/arnet.jpg"
-},
-{ 
-	Filter: "filter-arvr",
-	Title: "<b>AR Tourist Guide:</b> The AR Tourist Guide created as a Bachelor's Degree Thesis for the Slovenian municipality of Šoštanj is a cutting-edge application designed to enhance tourists' understanding of local history and culture by visualizing the former appearance of the submerged village of Družmirje. <b>*Only in Slovenian!*</b><br><b>Link:</b><a href='https://dk.um.si/Dokument.php?id=145960'> DKUM (Bachelor's Degree Thesis)</a></br>This product is not accessible to the public.",
-	Image: "assets/img/portfolio/artouristguide.png"
-},
-{ 
-	Filter: "filter-games",
-	Title: "<b>Echoes of Etra:</b> Witness the birth of an epic tale in Echoes of Etra, a riveting RPG game developed by the talented students of Electrical and Computer School, School Center Velenje, Slovenia. Immerse yourself in a world torn between mortals and Gods, where the fate of humanity hangs in the balance.<br><b>Trailer:</b><a href='https://youtu.be/byq_hVzCsZA?si=p9StZG92jRCq2R1Q'> YouTube </a><br><b>DEMO:</b><a href='https://drive.google.com/file/d/1NezLAz30O-LDiyqCaF3XH9QalngPJ1uI/view?usp=sharing'> Google Drive </a>",
-	Image: "assets/img/portfolio/eoe.jpg"
-},
-{ 
-	Filter: "filter-games",
-	Title: "<b>The Arena:</b> Immerse yourself in the adrenaline-fueled world of Arena Clash, a mobile game that pits you against formidable adversaries in intense battles. Engage in thrilling arena combat where your objective is simple yet challenging: obliterate all enemies standing in your path. <br><b>Link:</b><a href='https://play.google.com/store/apps/details?id=com.CriticalGlitch.TheArena'> Google Play</a>",
-	Image: "assets/img/portfolio/thearena.jpg"
-},
-{ 
-	Filter: "filter-games",
-	Title: "<b>Void:</b> Prepare your fingers for an quite simple and interesting game, where you need to use your brain and tapping skills to stay alive as long as you can! You are set in to the situation where you as a player (a circle) are being drawned into the Void. <br><b>Link:</b><a href='https://play.google.com/store/apps/details?id=com.CriticalGlitch.Void'> Google Play</a>",
-	Image: "assets/img/portfolio/thevoid.jpg"
-},
-{ 
-	Filter: "filter-games",
-	Title: "<b>Spez Shooter:</b> Prepare your fingers for an quite simple and interesting game, where you need to use your brain and tapping skills to stay alive as long as you can! You are set in to the situation where you as a player (a circle) are being drawned into the Void. <br><b>Link:</b><a href='https://play.google.com/store/apps/details?id=com.CriticalGlitch.SpezShooter'> Google Play</a>",
-	Image: "assets/img/portfolio/spezshooter.jpg"
-},
-{ 
-	Filter: "filter-3Dart",
-	Title: "A wide range of digital art, encompassing 3D renders and video edits, is accessible on my <b>Instagram:</b><a href='https://www.instagram.com/alesspital/'>@alesspital</a>",
-	Image: "assets/img/portfolio/digart.jpg"
-},
-{ 
-	Filter: "filter-3Dart",
-	Title: "A wide range of digital art, encompassing 3D renders and video edits, is accessible on my <b>Instagram:</b><a href='https://www.instagram.com/alesspital/'>@alesspital</a>",
-	Image: "assets/img/portfolio/pot_img.jpg"
-},
-{ 
-	Filter: "filter-3Dart",
-	Title: "A wide range of digital art, encompassing 3D renders and video edits, is accessible on my <b>Instagram:</b><a href='https://www.instagram.com/alesspital/'>@alesspital</a>",
-	Image: "assets/img/portfolio/photoart.jpg"
-}
-/*
-{ 
-	Filter: "filter-arvr",
-	Title: "VR/AR app",
-	Image: "assets/img/portfolio/portfolio-1.jpg"
-},
-*/
-]
+(function () {
+  const DATA_URL = (() => {
+    if (document.currentScript && document.currentScript.src) {
+      return new URL('../data/projects.json', document.currentScript.src).href;
+    }
+    return 'assets/data/projects.json';
+  })();
+  const projectList = document.getElementById('project-list');
+  const filterList = document.getElementById('portfolio-flters');
+  const statsList = document.getElementById('portfolio-stats');
+  const spotlightContainer = document.getElementById('project-spotlight');
+  const categoryMap = new Map();
+  let projects = [];
+  let categories = [];
 
-for(let i = 0; i < projects.length; i++ ){
-	let content = '<div class="col-lg-4 col-md-6 portfolio-item '+projects[i].Filter+'">';
-	content += '<div class="portfolio-wrap">'
-	content += '<img src="'+projects[i].Image+'" class="img-fluid" alt="">'
-	content += '<div class="portfolio-links">'
-	content += '<a href="'+projects[i].Image+'" data-gallery="portfolioGallery" class="portfolio-lightbox" title="'+projects[i].Title+'"><i class="bx bx-plus"></i></a>'
-        //content += '<a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>'
-    content += '</div>'
-    content += '</div>'
-    content += '</div>';
-    $("#project-list").append(content);
-}
+  const createElement = (tag, className, textContent) => {
+    const el = document.createElement(tag);
+    if (className) el.className = className;
+    if (textContent) el.textContent = textContent;
+    return el;
+  };
+
+  const renderFilters = () => {
+    if (!filterList) return;
+    filterList.innerHTML = '';
+
+    const allFilter = createElement('li', 'filter-active');
+    allFilter.dataset.filter = '*';
+    allFilter.textContent = 'All';
+    filterList.appendChild(allFilter);
+
+    categories.forEach((category) => {
+      const item = createElement('li');
+      item.dataset.filter = `.filter-${category.id}`;
+      item.dataset.category = category.id;
+      item.style.setProperty('--chip-color', category.color || '#f9a946');
+      item.innerHTML = `<span class="dot"></span>${category.label}`;
+      filterList.appendChild(item);
+    });
+  };
+
+  const renderStats = () => {
+    if (!statsList) return;
+    statsList.innerHTML = '';
+
+    const totals = categories.map((category) => {
+      return {
+        ...category,
+        count: projects.filter((project) => project.category === category.id).length
+      };
+    });
+
+    const allCount = createElement('span', 'stat-chip');
+    allCount.innerHTML = `<span class="dot" style="--dot-color:#f9a946"></span>All <small>${projects.length}</small>`;
+    statsList.appendChild(allCount);
+
+    totals.forEach((category) => {
+      const chip = createElement('span', 'stat-chip');
+      chip.style.setProperty('--dot-color', category.color || '#f9a946');
+      chip.innerHTML = `<span class="dot"></span>${category.label} <small>${category.count}</small>`;
+      statsList.appendChild(chip);
+    });
+  };
+
+  const buildLinks = (links) => {
+    if (!links || !links.length) return null;
+
+    const container = createElement('div', 'project-links');
+    links.forEach((link) => {
+      const anchor = createElement('a');
+      anchor.href = link.url;
+      anchor.target = '_blank';
+      anchor.rel = 'noopener';
+      anchor.innerHTML = `<i class="bx ${link.icon || 'bx-link-external'}"></i><span>${link.label}</span>`;
+      container.appendChild(anchor);
+    });
+    return container;
+  };
+
+  const buildBadges = (project) => {
+    const badgeRow = createElement('div', 'project-badges');
+    const category = categoryMap.get(project.category);
+    if (category) {
+      const chip = createElement('span', 'badge badge-category', category.label);
+      chip.style.setProperty('--badge-accent', category.color || '#f9a946');
+      badgeRow.appendChild(chip);
+    }
+
+    (project.tags || []).slice(0, 3).forEach((tag) => {
+      const chip = createElement('span', 'badge', tag);
+      badgeRow.appendChild(chip);
+    });
+
+    return badgeRow;
+  };
+
+  const buildProjectCard = (project, index) => {
+    const column = createElement('div', `col-lg-4 col-md-6 portfolio-item filter-${project.category}`);
+    column.dataset.project = project.slug || project.title;
+    column.dataset.aos = 'fade-up';
+    column.dataset.aosDelay = 100 + index * 30;
+
+    const wrap = createElement('div', 'portfolio-wrap enhanced');
+    const media = createElement('div', 'portfolio-media');
+    const img = createElement('img', 'img-fluid');
+    img.src = project.cover;
+    img.alt = project.title;
+    media.appendChild(img);
+    media.appendChild(buildBadges(project));
+
+    const content = createElement('div', 'portfolio-meta');
+    const title = createElement('h4', null, project.title);
+    const summary = createElement('p', null, project.summary);
+    content.appendChild(title);
+    content.appendChild(summary);
+
+    const links = createElement('div', 'portfolio-links');
+    const lightboxLink = createElement('a');
+    lightboxLink.href = project.cover;
+    lightboxLink.dataset.gallery = 'portfolioGallery';
+    lightboxLink.className = 'portfolio-lightbox';
+    lightboxLink.title = project.summary || project.title;
+    lightboxLink.innerHTML = '<i class="bx bx-plus"></i>';
+    links.appendChild(lightboxLink);
+
+    const externalLinks = buildLinks(project.links);
+    if (externalLinks) {
+      externalLinks.querySelectorAll('a').forEach((anchor) => {
+        const action = anchor.cloneNode(true);
+        action.classList.add('project-action');
+        links.appendChild(action);
+      });
+    }
+
+    wrap.appendChild(media);
+    wrap.appendChild(content);
+    wrap.appendChild(links);
+    column.appendChild(wrap);
+    return column;
+  };
+
+  const renderProjects = () => {
+    if (!projectList) return;
+    projectList.innerHTML = '';
+    projects.forEach((project, index) => {
+      projectList.appendChild(buildProjectCard(project, index));
+    });
+  };
+
+  const renderSpotlight = () => {
+    if (!spotlightContainer || !projects.length) return;
+
+    const spotlight = projects.find((project) => project.featured) || projects[0];
+    const category = categoryMap.get(spotlight.category);
+
+    spotlightContainer.innerHTML = '';
+
+    const textColumn = createElement('div', 'col-lg-6 col-md-6 spotlight-copy');
+    const kicker = createElement('p', 'eyebrow', `${category ? category.label : 'Spotlight'} • Signature Work`);
+    const title = createElement('h3', null, spotlight.title);
+    const summary = createElement('p', 'lead', spotlight.summary);
+    const badges = buildBadges(spotlight);
+    const links = buildLinks(spotlight.links);
+
+    textColumn.appendChild(kicker);
+    textColumn.appendChild(title);
+    textColumn.appendChild(summary);
+    textColumn.appendChild(badges);
+    if (links) {
+      links.classList.add('spotlight-links');
+      textColumn.appendChild(links);
+    }
+
+    const mediaColumn = createElement('div', 'col-lg-6 col-md-6 spotlight-visual');
+    const frame = createElement('div', 'spotlight-frame');
+    const img = createElement('img');
+    img.src = spotlight.cover;
+    img.alt = `${spotlight.title} cover art`;
+    frame.appendChild(img);
+    mediaColumn.appendChild(frame);
+
+    spotlightContainer.appendChild(textColumn);
+    spotlightContainer.appendChild(mediaColumn);
+  };
+
+  const loadProjects = async () => {
+    try {
+      const response = await fetch(DATA_URL);
+      const payload = await response.json();
+      categories = payload.categories || [];
+      projects = payload.projects || [];
+      categories.forEach((category) => categoryMap.set(category.id, category));
+
+      renderFilters();
+      renderProjects();
+      renderSpotlight();
+      renderStats();
+
+      document.dispatchEvent(new CustomEvent('portfolioContentReady'));
+    } catch (error) {
+      console.error('Unable to load projects.json', error);
+      if (projectList) {
+        const alert = createElement('p', 'text-danger');
+        alert.textContent = 'Projects failed to load. Please refresh the page.';
+        projectList.appendChild(alert);
+      }
+    }
+  };
+
+  document.addEventListener('DOMContentLoaded', loadProjects);
+})();

@@ -163,37 +163,61 @@
   /**
    * Porfolio isotope and filter
    */
-  window.addEventListener('load', () => {
-    let portfolioContainer = select('.portfolio-container');
-    if (portfolioContainer) {
-      let portfolioIsotope = new Isotope(portfolioContainer, {
+  let portfolioIsotope;
+  let portfolioLightbox;
+
+  const initPortfolioIsotope = () => {
+    const portfolioContainer = select('.portfolio-container');
+    if (!portfolioContainer) return;
+
+    if (!portfolioIsotope) {
+      portfolioIsotope = new Isotope(portfolioContainer, {
         itemSelector: '.portfolio-item'
       });
-
-      let portfolioFilters = select('#portfolio-flters li', true);
-
-      on('click', '#portfolio-flters li', function(e) {
-        e.preventDefault();
-        portfolioFilters.forEach(function(el) {
-          el.classList.remove('filter-active');
-        });
-        this.classList.add('filter-active');
-
-        portfolioIsotope.arrange({
-          filter: this.getAttribute('data-filter')
-        });
-        portfolioIsotope.on('arrangeComplete', function() {
-          AOS.refresh()
-        });
-      }, true);
+    } else {
+      portfolioIsotope.reloadItems();
+      const active = select('#portfolio-flters li.filter-active');
+      portfolioIsotope.arrange({
+        filter: active ? active.getAttribute('data-filter') : '*'
+      });
     }
+  };
 
+  const bindPortfolioFilters = () => {
+    const portfolioFilters = select('#portfolio-flters li', true);
+    if (!portfolioFilters || !portfolioFilters.length) return;
+
+    portfolioFilters.forEach((filterEl) => {
+      filterEl.addEventListener('click', function(e) {
+        e.preventDefault();
+        portfolioFilters.forEach((el) => el.classList.remove('filter-active'));
+        this.classList.add('filter-active');
+        initPortfolioIsotope();
+      });
+    });
+  };
+
+  document.addEventListener('portfolioContentReady', () => {
+    bindPortfolioFilters();
+    initPortfolioIsotope();
+    if (portfolioLightbox && portfolioLightbox.destroy) {
+      portfolioLightbox.destroy();
+    }
+    portfolioLightbox = GLightbox({
+      selector: '.portfolio-lightbox'
+    });
+    AOS.refresh();
+  });
+
+  window.addEventListener('load', () => {
+    initPortfolioIsotope();
+    bindPortfolioFilters();
   });
 
   /**
    * Initiate portfolio lightbox 
    */
-  const portfolioLightbox = GLightbox({
+  portfolioLightbox = GLightbox({
     selector: '.portfolio-lightbox'
   });
 
