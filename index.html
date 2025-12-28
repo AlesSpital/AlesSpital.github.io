@@ -1,303 +1,199 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-
-  <title>Aleš Spital</title>
-  <meta content="" name="description">
-  <meta content="" name="keywords">
-
-  <!-- Favicons -->
+  <title>Aleš Spital • Immersive Developer & XR Engineer</title>
+  <meta name="description" content="Portfolio of Aleš Spital – XR/AR/VR developer, game maker, and creative technologist building immersive experiences, interactive art, and performant web products.">
+  <meta name="keywords" content="Aleš Spital, XR, AR, VR, Unity, Game Developer, Portfolio, Creative Technologist, WebXR, 3D">
+  <meta property="og:title" content="Aleš Spital • Immersive Developer & XR Engineer">
+  <meta property="og:description" content="Showcasing AR/VR builds, games, interactive art, and video work with a modern immersive web experience.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://alesspital.github.io/">
+  <meta property="og:image" content="assets/img/profile-img.jpg">
   <link href="assets/img/favicon.png" rel="icon">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
-
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
-
-  <!-- Vendor CSS Files -->
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <link href="assets/vendor/aos/aos.css" rel="stylesheet">
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
   <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-
-  <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
-
-  <!-- =======================================================
-  * Template Name: iPortfolio
-  * Template URL: https://bootstrapmade.com/iportfolio-bootstrap-portfolio-websites-template/
-  * Updated: Mar 17 2024 with Bootstrap v5.3.3
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
 </head>
 
 <body>
-
-  <!-- ======= Mobile nav toggle button ======= -->
-  <i class="bi bi-list mobile-nav-toggle d-xl-none"></i>
-
-  <!-- ======= Header ======= -->
-  <header id="header">
-    <div class="d-flex flex-column">
-
-      <div class="profile">
-        <img src="assets/img/profile-img.jpg" alt="" class="img-fluid rounded-circle">
-        <h1 class="text-light"><a href="index.html">Aleš Spital</a></h1>
-        <div class="social-links mt-3 text-center">
-          <!--<a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>-->
-          <a href="mailto:ales.spital@gmail.com" class="gmail"><i class="bx bxl-gmail"></i></a>
-          <a href="https://www.facebook.com/ales.spital/" class="facebook"><i class="bx bxl-facebook"></i></a>
-          <a href="https://www.instagram.com/alesspital/" class="instagram"><i class="bx bxl-instagram"></i></a>
-          <a href="https://github.com/AlesSpital" class="github"><i class="bx bxl-github"></i></a>
-          <!--<a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>-->
-          <a href="https://www.linkedin.com/in/ales-spital/" class="linkedin"><i class="bx bxl-linkedin"></i></a>
-        </div>
+  <header class="site-header">
+    <div class="brand">
+      <div class="avatar">
+        <img src="assets/img/profile-img.jpg" alt="Portrait of Aleš Spital">
       </div>
-
-      <nav id="navbar" class="nav-menu navbar">
-        <ul>
-          <li><a href="#portfolio" class="nav-link scrollto"><i class="bx bx-book-content"></i> <span>Projects</span></a></li>
-          <!--<li><a href="#hero" class="nav-link scrollto active"><i class="bx bx-home"></i> <span>Home</span></a></li>-->
-          <li><a href="#about" class="nav-link scrollto"><i class="bx bx-user"></i> <span>About</span></a></li>
-          <li><a href="#resume" class="nav-link scrollto"><i class="bx bx-file-blank"></i> <span>Resume</span></a></li>
-          <!--<li><a href="#services" class="nav-link scrollto"><i class="bx bx-server"></i> <span>Services</span></a></li>-->
-          <li><a href="#contact" class="nav-link scrollto"><i class="bx bx-envelope"></i> <span>Contact</span></a></li>
-        </ul>
-      </nav><!-- .nav-menu -->
-    </div>
-  </header><!-- End Header -->
-
-  <main id="main">
-    <!-- ======= Portfolio Section ======= -->
-    <section id="portfolio" class="portfolio section-bg">
-      <div class="container">
-
-        <div class="section-title">
-          <h2>Projects</h2>
-          <p>Below, I am pleased to showcase a selection of my projects, which demonstrate my creativity across diverse domains of digital creation. These projects span a spectrum of technological platforms, including mobile applications integrating augmented reality/virtual reality (AR/VR), captivating mobile games, immersive PC gaming experiences, and intricate digital artworks.</p>
-        </div>
-
-        <div class="portfolio-showcase" data-aos="fade-up">
-          <div class="showcase-visual">
-            <canvas id="showcase-canvas" aria-hidden="true"></canvas>
-            <div class="showcase-glow"></div>
-          </div>
-          <div class="showcase-copy">
-            <p class="eyebrow">Modular gallery</p>
-            <h3>Curated highlights powered by JSON</h3>
-            <p>Drop new projects, art pieces, videos, and experiments into a single JSON file and watch the showcase reorganize itself with fresh filters, stats, and links.</p>
-            <div class="portfolio-stats" id="portfolio-stats"></div>
-          </div>
-        </div>
-
-        <div class="row gy-4 align-items-center project-spotlight" id="project-spotlight" data-aos="fade-up" data-aos-delay="50"></div>
-
-        <div class="row" data-aos="fade-up">
-          <div class="col-lg-12 d-flex justify-content-center">
-            <ul id="portfolio-flters">
-              <li data-filter="*" class="filter-active">All</li>
-              <li data-filter=".filter-arvr">AR/VR</li>
-              <li data-filter=".filter-games">GAMES</li>
-              <li data-filter=".filter-3Dart">DIGITAL ART</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="row portfolio-container" id="project-list" data-aos="fade-up" data-aos-delay="100">
-
-
-        </div>
-
-      </div>
-    </section><!-- End Portfolio Section -->
-
-    <!-- ======= About Section ======= -->
-    <section id="about" class="about">
-      <div class="container">
-
-        <div class="section-title">
-          <h2>About</h2>
-          <p>I am a dynamic recent graduate with a master's degree in computer science, driven by a profound enthusiasm for pioneering innovative and creative digital solutions to propel the advancement of humanity. Beyond contributing to societal progress, I am equally passionate about leveraging technology to create captivating entertainment experiences that resonate with audiences worldwide. In the face of seemingly insurmountable challenges, I am dedicated to forging pathways of opportunity and progress, believing that where the future appears uncertain, we have the power to craft realms of endless possibilities.</p>
-        </div>
-
-        <div class="row">
-          <div class="col-lg-4" data-aos="fade-right">
-            <img src="assets/img/profile-img.jpg" class="img-fluid" alt="">
-          </div>
-          <div class="col-lg-8 pt-4 pt-lg-0 content" data-aos="fade-left">
-            <h3>Software Developer.</h3>
-            <p class="fst-italic">
-              My primary expertise lies in software engineering, yet I am always open to embracing diverse challenges and extracting valuable experiences from life's opportunities. I firmly believe that every endeavor holds the potential for personal growth and skill development. Moreover, I recognize the significance of collaborative vision-sharing as a pivotal aspect of driving innovation and achieving shared objectives.
-            </p>
-            <div class="row">
-              <div class="col-lg-6">
-                <ul>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Birthday:</strong> <span>21 March 1997</span></li>
-                  <!--<li><i class="bi bi-chevron-right"></i> <strong>Website:</strong> <span>www.example.com</span></li>-->
-                  <!--<li><i class="bi bi-chevron-right"></i> <strong>Phone:</strong> <span>+123 456 7890</span></li>-->
-                  <li><i class="bi bi-chevron-right"></i> <strong>City:</strong> <span>Velenje, Slovenia</span></li>
-                </ul>
-              </div>
-              <div class="col-lg-6">
-                <ul>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Age:</strong> <span>28</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Degree:</strong> <span>Master's Degree in Computer Science </span></li>
-                  <!--<li><i class="bi bi-chevron-right"></i> <strong>PhEmailone:</strong> <span>email@example.com</span></li>-->
-                  <!--<li><i class="bi bi-chevron-right"></i> <strong>Freelance:</strong> <span>Available</span></li>-->
-                </ul>
-              </div>
-            </div>
-            <p>
-              In the nascent stages of my professional career, I bring a fresh perspective enriched with creativity and an innovative mindset. I firmly believe that my ability to think outside the box and approach challenges from unconventional angles can offer substantial value to any organization or project. Presently, my focus is dedicated to delving deeper into the realm of AR/VR development, recognizing its profound capacity to revolutionize industries and redefine human interaction with technology. I am captivated by the prospect of crafting immersive experiences that transcend boundaries, enabling individuals to explore new worlds and share meaningful connections. As I embark on this journey, I am driven by an unwavering commitment to continuous learning, embracing each obstacle as an opportunity for growth, and striving for excellence in all endeavors.
-            </p>
-          </div>
-        </div>
-
-      </div>
-    </section><!-- End About Section -->
-
-    </section><!-- End Facts Section -->
-
-    <!-- ======= Skills Section ======= -->
-    <section id="skills" class="skills section-bg about">
-      <div class="container">
-
-        <div class="section-title">
-          <h2>Skills</h2>
-          
-          <p>I present a selection of skills cultivated over years of project-based experience, spanning a diverse spectrum of computer science expertise. I am committed to continual growth and eagerly anticipate expanding my knowledge further.</p>
-        </div>
-
-        <div class="row skills-content content">
-            <div class="row" id="skill-list">
-
-            </div>
-        </div>
-
-      </div>
-    </section><!-- End Skills Section -->
-
-    <!-- ======= Resume Section ======= -->
-    <section id="resume" class="resume">
-      <div class="container">
-
-        <div class="section-title">
-          <h2>Resume</h2>
-          <!--<p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>-->
-        </div>
-
-        <div class="row">
-          <div class="col-lg-6" id="job-list" data-aos="fade-up" data-aos-delay="100">
-            <h3 class="resume-title">Professional Experience</h3>
-          </div>
-          <div class="col-lg-6" id="other-list" data-aos="fade-up">
-            <h3 class="resume-title">Education</h3>
-            <div class="resume-item">
-              <h4>Master of Computer Science and Information Technologies</h4>
-              <h5>2020 - 2024</h5>
-              <p><em>Faculty of Electrical Engineering, Computer Science and Informatics in Maribor, Slovenia</em></p>
-
-            </div>
-            <div class="resume-item">
-              <h4>Bachelor of Computer Science and Information Technologies</h4>
-              <h5>2016 - 2020</h5>
-              <p><em>Faculty of Electrical Engineering, Computer Science and Informatics in Maribor, Slovenia</em></p>
-
-            </div>
-
-            <h3 class="resume-title">Other</h3>
-          </div>
-        </div>
-
-      </div>
-    </section><!-- End Resume Section -->
-    <!-- ======= Contact Section ======= -->
-    <section id="contact" class="contact">
-      <div class="container">
-
-        <div class="section-title">
-          <h2>Contact</h2>
-          <p>Please do not hesitate to reach out to me via the provided contact links should you have any inquiries. I look forward to the opportunity to discuss further.</p>
-        </div>
-
-        <div class="row" data-aos="fade-in">
-
-          <div class="col-lg-12 d-flex align-items-stretch">
-            <div class="info">
-              <div class="row">
-                <div class="email col-md-4">
-                  <i class="bi bi-envelope"></i>
-                  <h4>Email:</h4>
-                  <p><a href="mailto:ales.spital@gmail.com" class="gmail">ales.spital@gmail.com</a></p>
-                </div>
-
-                <div class="linkedin col-md-4">
-                  <i class="bi bi-linkedin"></i>
-                  <h4>LinkedIn:</h4>
-                  <p><a href="https://www.linkedin.com/in/ales-spital/">@ales-spital</a></p>
-                </div>
-
-                <div class="github col-md-4">
-                  <i class="bi bi-github"></i>
-                  <h4>GitHub:</h4>
-                  <p><a href="https://github.com/AlesSpital">@AlesSpital</a></p>
-                </div>
-              </div>
-            </div>
-
-          </div>
-
-        </div>
-
-      </div>
-    </section><!-- End Contact Section -->
-
-  </main><!-- End #main -->
-
-  <!-- ======= Footer ======= -->
-  <footer id="footer">
-    <div class="container">
-      <div class="copyright">
-        &copy; Copyright <strong><span>Aleš Spital</span></strong>
-      </div>
-      <div class="credits">
-        <!-- All the links in the footer should remain intact. -->
-        <!-- You can delete the links only if you purchased the pro version. -->
-        <!-- Licensing information: https://bootstrapmade.com/license/ -->
-        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/iportfolio-bootstrap-portfolio-websites-template/ -->
-        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+      <div>
+        <p class="eyebrow">XR / Games / Creative Tech</p>
+        <h1>Aleš Spital</h1>
       </div>
     </div>
-  </footer><!-- End  Footer -->
+    <nav class="nav-links" aria-label="Primary">
+      <a href="#hero">Home</a>
+      <a href="#projects">Projects</a>
+      <a href="#experience">Experience</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <button class="nav-toggle" aria-label="Toggle navigation"><i class="bi bi-list"></i></button>
+  </header>
 
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <main>
+    <section id="hero" class="hero">
+      <canvas id="hero-canvas" aria-hidden="true"></canvas>
+      <div class="hero-content" data-aos="fade-up">
+        <p class="eyebrow">Creative Technologist • XR & Games</p>
+        <h2>Building immersive worlds that stay fast, playful, and human.</h2>
+        <p class="lead">I prototype and ship XR/AR/VR products, mobile and PC games, and interactive art—combining technical depth with vibrant visuals and strong UX.</p>
+        <div class="hero-actions">
+          <a class="btn primary" href="#projects">View Projects</a>
+          <a class="btn ghost" href="#contact">Hire Me</a>
+        </div>
+        <div class="hero-stats">
+          <div>
+            <span class="stat-value">7+</span>
+            <span class="stat-label">Platforms shipped</span>
+          </div>
+          <div>
+            <span class="stat-value">AR/VR</span>
+            <span class="stat-label">Classroom & field-ready</span>
+          </div>
+          <div>
+            <span class="stat-value">Game Jams</span>
+            <span class="stat-label">Rapid prototyping mindset</span>
+          </div>
+        </div>
+      </div>
+    </section>
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-  <script src="assets/js/jobs.js"></script>
-  <script src="assets/js/skills.js"></script>
-  <script src="assets/js/other.js"></script>
-  <script src="assets/js/projects.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/three@0.161.0/build/three.min.js"></script>
-  <script src="assets/js/showcase.js"></script>
-  <!-- Vendor JS Files -->
-  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
-  <script src="assets/vendor/aos/aos.js"></script>
+    <section id="about" class="panel">
+      <div class="section-title" data-aos="fade-up">
+        <p class="eyebrow">About</p>
+        <h3>Engineer, artist, mentor.</h3>
+        <p class="muted">I blend software engineering with interactive storytelling. From teaching AI and networking to building XR trainers and indie games, I love crafting experiences that feel tactile, responsive, and purposeful.</p>
+      </div>
+      <div class="grid two-col" data-aos="fade-up" data-aos-delay="50">
+        <div class="card glass">
+          <h4>What drives me</h4>
+          <p>I build to spark curiosity. Whether it's an AR lab for students, a rapid-fire mobile game, or a cinematic edit, I care about atmosphere, flow, and usability.</p>
+          <ul class="checklist">
+            <li>Immersive, performant experiences</li>
+            <li>Elegant pipelines and rapid iteration</li>
+            <li>Clear communication with teams & stakeholders</li>
+          </ul>
+        </div>
+        <div class="card glass">
+          <h4>Focus areas</h4>
+          <ul class="tag-list">
+            <li>XR / AR / VR</li>
+            <li>Unity & C#</li>
+            <li>Gameplay engineering</li>
+            <li>Realtime 3D art</li>
+            <li>ML-powered tools</li>
+            <li>Education tech</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="panel">
+      <div class="section-title" data-aos="fade-up">
+        <p class="eyebrow">Projects</p>
+        <h3>XR builds, games, and interactive art.</h3>
+        <p class="muted">Curated highlights with dynamic filtering. Edit <code>assets/js/projects.js</code> to add or update entries—everything reflows automatically.</p>
+      </div>
+
+      <div id="project-featured"></div>
+
+      <div class="filters" id="project-filters" data-aos="fade-up"></div>
+      <div class="project-grid" id="projects-grid" data-aos="fade-up" data-aos-delay="50"></div>
+    </section>
+
+    <section id="experience" class="panel">
+      <div class="section-title" data-aos="fade-up">
+        <p class="eyebrow">Experience</p>
+        <h3>Mentoring, engineering, and hands-on delivery.</h3>
+        <p class="muted">From teaching computer science to shipping AR learning tools and games, I pair pedagogy with production.</p>
+      </div>
+      <div class="grid two-col">
+        <div>
+          <h4 class="subheading">Core Roles</h4>
+          <div id="experience-primary" class="timeline"></div>
+        </div>
+        <div>
+          <h4 class="subheading">Side Work & Freelance</h4>
+          <div id="experience-secondary" class="card-stack"></div>
+          <h4 class="subheading mt-4">Education</h4>
+          <div class="tagged-card">
+            <p class="eyebrow">2020 - 2024</p>
+            <h4>Master of Computer Science and Information Technologies</h4>
+            <p class="muted">Faculty of Electrical Engineering, Computer Science and Informatics, Maribor, Slovenia</p>
+          </div>
+          <div class="tagged-card">
+            <p class="eyebrow">2016 - 2020</p>
+            <h4>Bachelor of Computer Science and Information Technologies</h4>
+            <p class="muted">Faculty of Electrical Engineering, Computer Science and Informatics, Maribor, Slovenia</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills" class="panel">
+      <div class="section-title" data-aos="fade-up">
+        <p class="eyebrow">Skills</p>
+        <h3>Tools, engines, and workflows I ship with.</h3>
+      </div>
+      <div id="skill-cloud" class="skill-cloud" data-aos="fade-up" data-aos-delay="50"></div>
+    </section>
+
+    <section id="contact" class="panel contact">
+      <div class="section-title" data-aos="fade-up">
+        <p class="eyebrow">Contact</p>
+        <h3>Let’s build something bold.</h3>
+        <p class="muted">I’m available for XR/AR/VR, game development, and immersive web engagements.</p>
+      </div>
+      <div class="contact-grid" data-aos="fade-up" data-aos-delay="50">
+        <a class="contact-card" href="mailto:ales.spital@gmail.com">
+          <i class="bx bxl-gmail"></i>
+          <div>
+            <p class="eyebrow">Email</p>
+            <h4>ales.spital@gmail.com</h4>
+          </div>
+        </a>
+        <a class="contact-card" href="https://www.linkedin.com/in/ales-spital/" target="_blank" rel="noopener">
+          <i class="bx bxl-linkedin"></i>
+          <div>
+            <p class="eyebrow">LinkedIn</p>
+            <h4>@ales-spital</h4>
+          </div>
+        </a>
+        <a class="contact-card" href="https://github.com/AlesSpital" target="_blank" rel="noopener">
+          <i class="bx bxl-github"></i>
+          <div>
+            <p class="eyebrow">GitHub</p>
+            <h4>@AlesSpital</h4>
+          </div>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>© Aleš Spital — Crafted with code, color, and curiosity.</p>
+  </footer>
+
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
   <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="assets/vendor/typed.js/typed.umd.js"></script>
-  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
-
-  <!-- Template Main JS File -->
+  <script src="https://cdn.jsdelivr.net/npm/three@0.161.0/build/three.min.js"></script>
+  <script src="assets/js/projects.js"></script>
+  <script src="assets/js/jobs.js"></script>
+  <script src="assets/js/other.js"></script>
+  <script src="assets/js/skills.js"></script>
+  <script src="assets/js/showcase.js"></script>
   <script src="assets/js/main.js"></script>
-
 </body>
-
 </html>

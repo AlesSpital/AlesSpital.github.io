@@ -1,5 +1,5 @@
 (function () {
-  const canvas = document.getElementById('showcase-canvas');
+  const canvas = document.getElementById('hero-canvas');
   if (!canvas || typeof THREE === 'undefined') return;
 
   let renderer;

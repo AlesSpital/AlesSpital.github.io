@@ -1,211 +1,254 @@
 (function () {
-  const DATA_URL = (() => {
-    if (document.currentScript && document.currentScript.src) {
-      return new URL('../data/projects.json', document.currentScript.src).href;
-    }
-    return 'assets/data/projects.json';
-  })();
-  const projectList = document.getElementById('project-list');
-  const filterList = document.getElementById('portfolio-flters');
-  const statsList = document.getElementById('portfolio-stats');
-  const spotlightContainer = document.getElementById('project-spotlight');
-  const categoryMap = new Map();
-  let projects = [];
-  let categories = [];
+  const projectData = {
+    categories: [
+      { id: 'arvr', label: 'AR / VR', color: '#7af0c5' },
+      { id: 'games', label: 'Games', color: '#8ea2ff' },
+      { id: 'digital-art', label: 'Digital Art', color: '#ffd890' },
+      { id: 'video', label: 'Video', color: '#7cc7ff' },
+      { id: 'experiments', label: 'Labs', color: '#ff9ad9' }
+    ],
+    projects: [
+      {
+        title: 'Echoes of Etra',
+        slug: 'echoes-of-etra',
+        category: 'games',
+        summary: 'Original RPG built with students that pits mortals against mythic powers.',
+        cover: 'assets/img/portfolio/eoe.jpg',
+        featured: true,
+        links: [
+          { label: 'Trailer', url: 'https://youtu.be/byq_hVzCsZA?si=p9StZG92jRCq2R1Q', icon: 'bxl-youtube' },
+          { label: 'Download', url: 'https://drive.google.com/file/d/1NezLAz30O-LDiyqCaF3XH9QalngPJ1uI/view?usp=sharing', icon: 'bx-download' }
+        ],
+        tags: ['RPG', 'Unity', 'Team Lead']
+      },
+      {
+        title: 'ARnet',
+        slug: 'arnet',
+        category: 'arvr',
+        summary: 'An AR networking trainer that lets students explore topology, routing, and addressing.',
+        cover: 'assets/img/portfolio/arnet.jpg',
+        links: [
+          { label: 'Google Play', url: 'https://play.google.com/store/apps/details?id=com.CriticalGlitch.ARnet', icon: 'bx-link-external' }
+        ],
+        tags: ['Augmented Reality', 'Education', 'Unity']
+      },
+      {
+        title: 'AR Tourist Guide',
+        slug: 'ar-tourist-guide',
+        category: 'arvr',
+        summary: 'Immersive guide that reconstructs the submerged village of Družmirje for visitors.',
+        cover: 'assets/img/portfolio/artouristguide.png',
+        links: [
+          { label: 'Read Thesis', url: 'https://dk.um.si/Dokument.php?id=145960', icon: 'bx-book' }
+        ],
+        tags: ['AR', 'Cultural Heritage', 'Mobile']
+      },
+      {
+        title: 'The Arena',
+        slug: 'the-arena',
+        category: 'games',
+        summary: 'Mobile arena battles with fast combat loops and punchy effects.',
+        cover: 'assets/img/portfolio/thearena.jpg',
+        links: [
+          { label: 'Google Play', url: 'https://play.google.com/store/apps/details?id=com.CriticalGlitch.TheArena', icon: 'bx-link-external' }
+        ],
+        tags: ['Mobile', 'Action', 'Unity']
+      },
+      {
+        title: 'Void',
+        slug: 'void',
+        category: 'games',
+        summary: 'Minimalist survival game about avoiding the pull of the void.',
+        cover: 'assets/img/portfolio/thevoid.jpg',
+        links: [
+          { label: 'Google Play', url: 'https://play.google.com/store/apps/details?id=com.CriticalGlitch.Void', icon: 'bx-link-external' }
+        ],
+        tags: ['Arcade', 'Android', 'Quick Play']
+      },
+      {
+        title: 'Spez Shooter',
+        slug: 'spez-shooter',
+        category: 'games',
+        summary: 'Reflex-focused tap shooter built for pick-up-and-play sessions.',
+        cover: 'assets/img/portfolio/spezshooter.jpg',
+        links: [
+          { label: 'Google Play', url: 'https://play.google.com/store/apps/details?id=com.CriticalGlitch.SpezShooter', icon: 'bx-link-external' }
+        ],
+        tags: ['Shooter', 'Mobile', 'Fast Loop']
+      },
+      {
+        title: 'Digital Art Gallery',
+        slug: 'digital-art',
+        category: 'digital-art',
+        summary: 'A rotating collection of 3D renders, digital paintings, and motion edits.',
+        cover: 'assets/img/portfolio/digart.jpg',
+        links: [
+          { label: 'Instagram', url: 'https://www.instagram.com/alesspital/', icon: 'bxl-instagram' }
+        ],
+        tags: ['3D', 'Color', 'Compositing']
+      },
+      {
+        title: 'Cinematic Reel',
+        slug: 'cinematic-reel',
+        category: 'video',
+        summary: 'Selected video edits and VFX-driven cuts crafted for social campaigns.',
+        cover: 'assets/img/portfolio/photoart.jpg',
+        links: [
+          { label: 'Watch', url: 'https://www.instagram.com/alesspital/', icon: 'bxl-instagram' }
+        ],
+        tags: ['Video', 'Editing', 'Sound Design']
+      },
+      {
+        title: 'XR Interaction Labs',
+        slug: 'xr-labs',
+        category: 'experiments',
+        summary: 'Playable prototypes exploring tactile interactions across VR and AR platforms.',
+        cover: 'assets/img/portfolio/pot_img.jpg',
+        links: [],
+        tags: ['Prototype', 'Interaction Design', 'Rapid Iteration']
+      }
+    ]
+  };
 
-  const createElement = (tag, className, textContent) => {
+  const categoriesById = new Map();
+  projectData.categories.forEach((cat) => categoriesById.set(cat.id, cat));
+
+  const projectGrid = document.getElementById('projects-grid');
+  const filterList = document.getElementById('project-filters');
+  const featuredArea = document.getElementById('project-featured');
+  let iso;
+
+  const createEl = (tag, className, text) => {
     const el = document.createElement(tag);
     if (className) el.className = className;
-    if (textContent) el.textContent = textContent;
+    if (text) el.textContent = text;
     return el;
+  };
+
+  const buildBadges = (project) => {
+    const wrap = createEl('div', 'project-badges');
+    const category = categoriesById.get(project.category);
+    if (category) {
+      const badge = createEl('span', 'badge badge-category', category.label);
+      badge.style.setProperty('--badge-accent', category.color || '#f9a946');
+      wrap.appendChild(badge);
+    }
+    (project.tags || []).forEach((tag) => wrap.appendChild(createEl('span', 'badge', tag)));
+    return wrap;
+  };
+
+  const buildLinks = (links, className = 'project-links') => {
+    if (!links || !links.length) return null;
+    const wrap = createEl('div', className);
+    links.forEach((link) => {
+      const anchor = createEl('a');
+      anchor.href = link.url;
+      anchor.target = '_blank';
+      anchor.rel = 'noopener';
+      anchor.innerHTML = `<i class="bx ${link.icon || 'bx-link-external'}"></i><span>${link.label}</span>`;
+      wrap.appendChild(anchor);
+    });
+    return wrap;
+  };
+
+  const buildCard = (project, index) => {
+    const card = createEl('div', `project-card filter-${project.category}`);
+    card.dataset.aos = 'fade-up';
+    card.dataset.aosDelay = 80 + index * 20;
+
+    const media = createEl('div', 'project-media');
+    const img = createEl('img');
+    img.src = project.cover;
+    img.alt = project.title;
+    media.appendChild(img);
+
+    const body = createEl('div', 'project-body');
+    body.appendChild(buildBadges(project));
+    body.appendChild(createEl('h3', null, project.title));
+    body.appendChild(createEl('p', 'muted', project.summary));
+    const links = buildLinks(project.links);
+    if (links) body.appendChild(links);
+
+    card.appendChild(media);
+    card.appendChild(body);
+    return card;
+  };
+
+  const renderProjects = () => {
+    if (!projectGrid) return;
+    projectGrid.innerHTML = '';
+    projectData.projects.forEach((project, idx) => {
+      projectGrid.appendChild(buildCard(project, idx));
+    });
+
+    if (typeof Isotope !== 'undefined' && projectGrid.children.length) {
+      iso = new Isotope(projectGrid, {
+        itemSelector: '.project-card',
+        layoutMode: 'fitRows'
+      });
+    }
   };
 
   const renderFilters = () => {
     if (!filterList) return;
     filterList.innerHTML = '';
+    const all = createEl('button', 'active');
+    all.dataset.filter = '*';
+    all.innerHTML = '<span class="dot" style="--dot-color:#f9a946"></span>All';
+    filterList.appendChild(all);
 
-    const allFilter = createElement('li', 'filter-active');
-    allFilter.dataset.filter = '*';
-    allFilter.textContent = 'All';
-    filterList.appendChild(allFilter);
-
-    categories.forEach((category) => {
-      const item = createElement('li');
-      item.dataset.filter = `.filter-${category.id}`;
-      item.dataset.category = category.id;
-      item.style.setProperty('--chip-color', category.color || '#f9a946');
-      item.innerHTML = `<span class="dot"></span>${category.label}`;
-      filterList.appendChild(item);
-    });
-  };
-
-  const renderStats = () => {
-    if (!statsList) return;
-    statsList.innerHTML = '';
-
-    const totals = categories.map((category) => {
-      return {
-        ...category,
-        count: projects.filter((project) => project.category === category.id).length
-      };
+    projectData.categories.forEach((category) => {
+      const btn = createEl('button');
+      btn.dataset.filter = `.filter-${category.id}`;
+      btn.style.setProperty('--dot-color', category.color || '#f9a946');
+      btn.innerHTML = `<span class="dot"></span>${category.label}`;
+      filterList.appendChild(btn);
     });
 
-    const allCount = createElement('span', 'stat-chip');
-    allCount.innerHTML = `<span class="dot" style="--dot-color:#f9a946"></span>All <small>${projects.length}</small>`;
-    statsList.appendChild(allCount);
-
-    totals.forEach((category) => {
-      const chip = createElement('span', 'stat-chip');
-      chip.style.setProperty('--dot-color', category.color || '#f9a946');
-      chip.innerHTML = `<span class="dot"></span>${category.label} <small>${category.count}</small>`;
-      statsList.appendChild(chip);
-    });
-  };
-
-  const buildLinks = (links) => {
-    if (!links || !links.length) return null;
-
-    const container = createElement('div', 'project-links');
-    links.forEach((link) => {
-      const anchor = createElement('a');
-      anchor.href = link.url;
-      anchor.target = '_blank';
-      anchor.rel = 'noopener';
-      anchor.innerHTML = `<i class="bx ${link.icon || 'bx-link-external'}"></i><span>${link.label}</span>`;
-      container.appendChild(anchor);
-    });
-    return container;
-  };
-
-  const buildBadges = (project) => {
-    const badgeRow = createElement('div', 'project-badges');
-    const category = categoryMap.get(project.category);
-    if (category) {
-      const chip = createElement('span', 'badge badge-category', category.label);
-      chip.style.setProperty('--badge-accent', category.color || '#f9a946');
-      badgeRow.appendChild(chip);
-    }
-
-    (project.tags || []).slice(0, 3).forEach((tag) => {
-      const chip = createElement('span', 'badge', tag);
-      badgeRow.appendChild(chip);
-    });
-
-    return badgeRow;
-  };
-
-  const buildProjectCard = (project, index) => {
-    const column = createElement('div', `col-lg-4 col-md-6 portfolio-item filter-${project.category}`);
-    column.dataset.project = project.slug || project.title;
-    column.dataset.aos = 'fade-up';
-    column.dataset.aosDelay = 100 + index * 30;
-
-    const wrap = createElement('div', 'portfolio-wrap enhanced');
-    const media = createElement('div', 'portfolio-media');
-    const img = createElement('img', 'img-fluid');
-    img.src = project.cover;
-    img.alt = project.title;
-    media.appendChild(img);
-    media.appendChild(buildBadges(project));
-
-    const content = createElement('div', 'portfolio-meta');
-    const title = createElement('h4', null, project.title);
-    const summary = createElement('p', null, project.summary);
-    content.appendChild(title);
-    content.appendChild(summary);
-
-    const links = createElement('div', 'portfolio-links');
-    const lightboxLink = createElement('a');
-    lightboxLink.href = project.cover;
-    lightboxLink.dataset.gallery = 'portfolioGallery';
-    lightboxLink.className = 'portfolio-lightbox';
-    lightboxLink.title = project.summary || project.title;
-    lightboxLink.innerHTML = '<i class="bx bx-plus"></i>';
-    links.appendChild(lightboxLink);
-
-    const externalLinks = buildLinks(project.links);
-    if (externalLinks) {
-      externalLinks.querySelectorAll('a').forEach((anchor) => {
-        const action = anchor.cloneNode(true);
-        action.classList.add('project-action');
-        links.appendChild(action);
-      });
-    }
-
-    wrap.appendChild(media);
-    wrap.appendChild(content);
-    wrap.appendChild(links);
-    column.appendChild(wrap);
-    return column;
-  };
-
-  const renderProjects = () => {
-    if (!projectList) return;
-    projectList.innerHTML = '';
-    projects.forEach((project, index) => {
-      projectList.appendChild(buildProjectCard(project, index));
-    });
-  };
-
-  const renderSpotlight = () => {
-    if (!spotlightContainer || !projects.length) return;
-
-    const spotlight = projects.find((project) => project.featured) || projects[0];
-    const category = categoryMap.get(spotlight.category);
-
-    spotlightContainer.innerHTML = '';
-
-    const textColumn = createElement('div', 'col-lg-6 col-md-6 spotlight-copy');
-    const kicker = createElement('p', 'eyebrow', `${category ? category.label : 'Spotlight'} • Signature Work`);
-    const title = createElement('h3', null, spotlight.title);
-    const summary = createElement('p', 'lead', spotlight.summary);
-    const badges = buildBadges(spotlight);
-    const links = buildLinks(spotlight.links);
-
-    textColumn.appendChild(kicker);
-    textColumn.appendChild(title);
-    textColumn.appendChild(summary);
-    textColumn.appendChild(badges);
-    if (links) {
-      links.classList.add('spotlight-links');
-      textColumn.appendChild(links);
-    }
-
-    const mediaColumn = createElement('div', 'col-lg-6 col-md-6 spotlight-visual');
-    const frame = createElement('div', 'spotlight-frame');
-    const img = createElement('img');
-    img.src = spotlight.cover;
-    img.alt = `${spotlight.title} cover art`;
-    frame.appendChild(img);
-    mediaColumn.appendChild(frame);
-
-    spotlightContainer.appendChild(textColumn);
-    spotlightContainer.appendChild(mediaColumn);
-  };
-
-  const loadProjects = async () => {
-    try {
-      const response = await fetch(DATA_URL);
-      const payload = await response.json();
-      categories = payload.categories || [];
-      projects = payload.projects || [];
-      categories.forEach((category) => categoryMap.set(category.id, category));
-
-      renderFilters();
-      renderProjects();
-      renderSpotlight();
-      renderStats();
-
-      document.dispatchEvent(new CustomEvent('portfolioContentReady'));
-    } catch (error) {
-      console.error('Unable to load projects.json', error);
-      if (projectList) {
-        const alert = createElement('p', 'text-danger');
-        alert.textContent = 'Projects failed to load. Please refresh the page.';
-        projectList.appendChild(alert);
+    filterList.addEventListener('click', (e) => {
+      if (e.target.closest('button')) {
+        const target = e.target.closest('button');
+        filterList.querySelectorAll('button').forEach((btn) => btn.classList.remove('active'));
+        target.classList.add('active');
+        const filterValue = target.dataset.filter;
+        if (iso) {
+          iso.arrange({ filter: filterValue });
+        } else {
+          document.querySelectorAll('#projects-grid .project-card').forEach((card) => {
+            if (filterValue === '*' || card.matches(filterValue)) card.style.display = '';
+            else card.style.display = 'none';
+          });
+        }
       }
-    }
+    });
   };
 
-  document.addEventListener('DOMContentLoaded', loadProjects);
+  const renderFeatured = () => {
+    if (!featuredArea) return;
+    const featured = projectData.projects.find((p) => p.featured) || projectData.projects[0];
+    if (!featured) return;
+    const category = categoriesById.get(featured.category);
+    featuredArea.innerHTML = `
+      <div class="featured-card" data-aos="fade-up">
+        <div class="featured-meta">
+          <p class="eyebrow">${category ? category.label : 'Signature'} • Spotlight</p>
+          <h2>${featured.title}</h2>
+          <p class="lead">${featured.summary}</p>
+          ${buildBadges(featured).outerHTML}
+          ${(buildLinks(featured.links, 'featured-links') || { outerHTML: '' }).outerHTML}
+        </div>
+        <div class="featured-visual">
+          <div class="glow"></div>
+          <img src="${featured.cover}" alt="${featured.title} cover art" />
+        </div>
+      </div>
+    `;
+  };
+
+  document.addEventListener('DOMContentLoaded', () => {
+    renderFilters();
+    renderProjects();
+    renderFeatured();
+    document.dispatchEvent(new CustomEvent('portfolioContentReady'));
+  });
 })();
