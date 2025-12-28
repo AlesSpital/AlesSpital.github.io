@@ -4,14 +4,14 @@
 
   let renderer;
   const scene = new THREE.Scene();
-  const camera = new THREE.PerspectiveCamera(55, 1, 0.1, 1000);
-  camera.position.set(0, 0, 70);
+  const camera = new THREE.PerspectiveCamera(55, 1, 0.1, 1200);
+  camera.position.set(0, 0, 80);
 
   const resize = () => {
     const parent = canvas.parentElement;
     if (!parent) return;
     const { clientWidth, clientHeight } = parent;
-    const height = Math.max(clientHeight, 260);
+    const height = Math.max(clientHeight, 360);
     renderer.setSize(clientWidth, height, false);
     camera.aspect = clientWidth / height;
     camera.updateProjectionMatrix();
@@ -24,56 +24,49 @@
     return;
   }
 
-  const ambient = new THREE.AmbientLight(0xffffff, 0.4);
-  const point = new THREE.PointLight(0xf9a946, 1.4, 200, 2);
-  point.position.set(-20, 30, 60);
-  const rim = new THREE.PointLight(0x7af0c5, 0.8, 200, 2);
-  rim.position.set(30, -10, 40);
-  scene.add(ambient);
-  scene.add(point);
-  scene.add(rim);
+  const ambient = new THREE.AmbientLight(0xffffff, 0.42);
+  const key = new THREE.PointLight(0xffd166, 1.3, 400, 2);
+  key.position.set(-30, 30, 80);
+  const rim = new THREE.PointLight(0x7ef2d1, 1.0, 380, 2);
+  rim.position.set(40, -10, 70);
+  scene.add(ambient, key, rim);
 
   const swirl = new THREE.Group();
   const materials = [
-    new THREE.MeshStandardMaterial({ color: 0xf9a946, metalness: 0.35, roughness: 0.4 }),
-    new THREE.MeshStandardMaterial({ color: 0x1f3b65, metalness: 0.25, roughness: 0.35 }),
-    new THREE.MeshStandardMaterial({ color: 0xffffff, metalness: 0.1, roughness: 0.8 })
+    new THREE.MeshStandardMaterial({ color: 0xffd166, metalness: 0.35, roughness: 0.42 }),
+    new THREE.MeshStandardMaterial({ color: 0x7ef2d1, metalness: 0.25, roughness: 0.35 }),
+    new THREE.MeshStandardMaterial({ color: 0x7bd7ff, metalness: 0.2, roughness: 0.6 })
   ];
 
   const seeds = [];
-  for (let i = 0; i < 90; i++) {
+  for (let i = 0; i < 120; i++) {
     const material = materials[i % materials.length];
-    const geometry = new THREE.IcosahedronGeometry(0.8 + Math.random() * 0.4, 0);
+    const geometry = new THREE.IcosahedronGeometry(0.8 + Math.random() * 0.6, 0);
     const mesh = new THREE.Mesh(geometry, material);
-    mesh.position.set((Math.random() - 0.5) * 70, (Math.random() - 0.5) * 40, (Math.random() - 0.5) * 30);
+    mesh.position.set((Math.random() - 0.5) * 80, (Math.random() - 0.5) * 50, (Math.random() - 0.5) * 50);
     mesh.rotation.set(Math.random() * Math.PI, Math.random() * Math.PI, Math.random() * Math.PI);
     mesh.userData.wave = Math.random() * Math.PI * 2;
-    mesh.userData.radius = 40 + Math.random() * 12;
     seeds.push(mesh);
     swirl.add(mesh);
   }
-
   scene.add(swirl);
 
   let pointerX = 0;
   let pointerY = 0;
-
   const onPointerMove = (event) => {
     const rect = canvas.getBoundingClientRect();
-    pointerX = ((event.clientX - rect.left) / rect.width - 0.5) * Math.PI * 0.15;
-    pointerY = ((event.clientY - rect.top) / rect.height - 0.5) * Math.PI * 0.1;
+    pointerX = ((event.clientX - rect.left) / rect.width - 0.5) * 0.25;
+    pointerY = ((event.clientY - rect.top) / rect.height - 0.5) * 0.18;
   };
 
   const animate = () => {
     requestAnimationFrame(animate);
-    swirl.rotation.y += 0.0011;
-    swirl.rotation.x += 0.0004;
-    swirl.rotation.y += pointerX * 0.001;
-    swirl.rotation.x += pointerY * 0.001;
+    swirl.rotation.y += 0.0015 + pointerX * 0.03;
+    swirl.rotation.x += 0.0007 + pointerY * 0.03;
 
     seeds.forEach((mesh, index) => {
-      mesh.userData.wave += 0.005 + index * 0.00001;
-      mesh.position.y = Math.sin(mesh.userData.wave) * 0.6;
+      mesh.userData.wave += 0.006 + index * 0.00001;
+      mesh.position.y = Math.sin(mesh.userData.wave) * 0.8;
       mesh.position.x *= 0.999;
       mesh.position.z *= 0.999;
     });

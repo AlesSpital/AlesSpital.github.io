@@ -1,16 +1,13 @@
 (function () {
-  "use strict";
-
   const select = (el, all = false) => {
     el = el.trim();
-    if (all) return [...document.querySelectorAll(el)];
-    return document.querySelector(el);
+    return all ? [...document.querySelectorAll(el)] : document.querySelector(el);
   };
 
   const smoothScroll = (hash) => {
     const el = select(hash);
     if (!el) return;
-    const top = el.offsetTop - 60;
+    const top = el.offsetTop - 50;
     window.scrollTo({ top, behavior: 'smooth' });
   };
 
@@ -22,31 +19,24 @@
       toggle.innerHTML = navLinks?.classList.contains('open') ? '<i class="bi bi-x-lg"></i>' : '<i class="bi bi-list"></i>';
     });
 
-    select('.nav-links', true).forEach((nav) => {
-      nav.querySelectorAll('a').forEach((link) => {
-        link.addEventListener('click', (e) => {
+    navLinks?.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', (e) => {
+        const href = link.getAttribute('href');
+        if (href && href.startsWith('#')) {
           e.preventDefault();
-          const href = link.getAttribute('href');
-          if (href && href.startsWith('#')) smoothScroll(href);
-          navLinks?.classList.remove('open');
+          smoothScroll(href);
+          navLinks.classList.remove('open');
           toggle.innerHTML = '<i class="bi bi-list"></i>';
-        });
+        }
       });
     });
   };
 
-  document.addEventListener('portfolioContentReady', () => {
-    if (window.AOS) AOS.refresh();
+  document.addEventListener('DOMContentLoaded', () => {
+    initNav();
   });
 
-  window.addEventListener('load', () => {
-    initNav();
-    if (window.AOS) {
-      AOS.init({
-        duration: 800,
-        easing: 'ease-out',
-        once: true
-      });
-    }
+  document.addEventListener('projectsRendered', () => {
+    // Refresh any scroll animations if present
   });
 })();

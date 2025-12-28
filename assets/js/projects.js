@@ -1,113 +1,132 @@
 (function () {
   const projectData = {
     categories: [
-      { id: 'arvr', label: 'AR / VR', color: '#7af0c5' },
-      { id: 'games', label: 'Games', color: '#8ea2ff' },
-      { id: 'digital-art', label: 'Digital Art', color: '#ffd890' },
-      { id: 'video', label: 'Video', color: '#7cc7ff' },
-      { id: 'experiments', label: 'Labs', color: '#ff9ad9' }
+      { id: 'xr-app', label: 'XR Apps', color: '#7ef2d1' },
+      { id: 'vr-app', label: 'VR Apps', color: '#9eb5ff' },
+      { id: 'mobile-games', label: 'Mobile Games', color: '#f5c06a' },
+      { id: 'pc-games', label: 'PC Games', color: '#ff9ad9' },
+      { id: 'art-3d', label: '3D Art', color: '#7bd7ff' },
+      { id: 'art-2d', label: '2D / Motion', color: '#f38fbf' },
+      { id: 'teaching', label: 'Teaching', color: '#9ff08f' }
     ],
     projects: [
       {
-        title: 'Echoes of Etra',
-        slug: 'echoes-of-etra',
-        category: 'games',
-        summary: 'Original RPG built with students that pits mortals against mythic powers.',
-        cover: 'assets/img/portfolio/eoe.jpg',
-        featured: true,
-        links: [
-          { label: 'Trailer', url: 'https://youtu.be/byq_hVzCsZA?si=p9StZG92jRCq2R1Q', icon: 'bxl-youtube' },
-          { label: 'Download', url: 'https://drive.google.com/file/d/1NezLAz30O-LDiyqCaF3XH9QalngPJ1uI/view?usp=sharing', icon: 'bx-download' }
-        ],
-        tags: ['RPG', 'Unity', 'Team Lead']
-      },
-      {
         title: 'ARnet',
         slug: 'arnet',
-        category: 'arvr',
-        summary: 'An AR networking trainer that lets students explore topology, routing, and addressing.',
+        category: 'xr-app',
+        summary: 'AR networking trainer that visualizes topology, routing, and addressing concepts.',
         cover: 'assets/img/portfolio/arnet.jpg',
-        deprecated: true,
+        featured: true,
+        status: 'active',
         links: [
           { label: 'Google Play', url: 'https://play.google.com/store/apps/details?id=com.CriticalGlitch.ARnet', icon: 'bx-link-external' }
         ],
-        tags: ['Augmented Reality', 'Education', 'Unity']
+        tags: ['AR', 'Education', 'Unity']
       },
       {
         title: 'AR Tourist Guide',
         slug: 'ar-tourist-guide',
-        category: 'arvr',
-        summary: 'Immersive guide that reconstructs the submerged village of Družmirje for visitors.',
+        category: 'xr-app',
+        summary: 'Rebuilds the submerged village of Družmirje through location-based AR storytelling.',
         cover: 'assets/img/portfolio/artouristguide.png',
-        deprecated: true,
+        status: 'archived',
         links: [
-          { label: 'Read Thesis', url: 'https://dk.um.si/Dokument.php?id=145960', icon: 'bx-book' }
+          { label: 'Thesis', url: 'https://dk.um.si/Dokument.php?id=145960', icon: 'bx-book' }
         ],
-        tags: ['AR', 'Cultural Heritage', 'Mobile']
-      },
-      {
-        title: 'The Arena',
-        slug: 'the-arena',
-        category: 'games',
-        summary: 'Mobile arena battles with fast combat loops and punchy effects.',
-        cover: 'assets/img/portfolio/thearena.jpg',
-        links: [
-          { label: 'Google Play', url: 'https://play.google.com/store/apps/details?id=com.CriticalGlitch.TheArena', icon: 'bx-link-external' }
-        ],
-        tags: ['Mobile', 'Action', 'Unity']
-      },
-      {
-        title: 'Void',
-        slug: 'void',
-        category: 'games',
-        summary: 'Minimalist survival game about avoiding the pull of the void.',
-        cover: 'assets/img/portfolio/thevoid.jpg',
-        links: [
-          { label: 'Google Play', url: 'https://play.google.com/store/apps/details?id=com.CriticalGlitch.Void', icon: 'bx-link-external' }
-        ],
-        tags: ['Arcade', 'Android', 'Quick Play']
-      },
-      {
-        title: 'Spez Shooter',
-        slug: 'spez-shooter',
-        category: 'games',
-        summary: 'Reflex-focused tap shooter built for pick-up-and-play sessions.',
-        cover: 'assets/img/portfolio/spezshooter.jpg',
-        links: [
-          { label: 'Google Play', url: 'https://play.google.com/store/apps/details?id=com.CriticalGlitch.SpezShooter', icon: 'bx-link-external' }
-        ],
-        tags: ['Shooter', 'Mobile', 'Fast Loop']
-      },
-      {
-        title: 'Digital Art Gallery',
-        slug: 'digital-art',
-        category: 'digital-art',
-        summary: 'A rotating collection of 3D renders, digital paintings, and motion edits.',
-        cover: 'assets/img/portfolio/digart.jpg',
-        links: [
-          { label: 'Instagram', url: 'https://www.instagram.com/alesspital/', icon: 'bxl-instagram' }
-        ],
-        tags: ['3D', 'Color', 'Compositing']
-      },
-      {
-        title: 'Cinematic Reel',
-        slug: 'cinematic-reel',
-        category: 'video',
-        summary: 'Selected video edits and VFX-driven cuts crafted for social campaigns.',
-        cover: 'assets/img/portfolio/photoart.jpg',
-        links: [
-          { label: 'Watch', url: 'https://www.instagram.com/alesspital/', icon: 'bxl-instagram' }
-        ],
-        tags: ['Video', 'Editing', 'Sound Design']
+        tags: ['AR', 'Heritage', 'Mobile']
       },
       {
         title: 'XR Interaction Labs',
         slug: 'xr-labs',
-        category: 'experiments',
-        summary: 'Playable prototypes exploring tactile interactions across VR and AR platforms.',
+        category: 'vr-app',
+        summary: 'Prototypes exploring tactile interactions across VR and AR platforms.',
         cover: 'assets/img/portfolio/pot_img.jpg',
+        status: 'active',
         links: [],
-        tags: ['Prototype', 'Interaction Design', 'Rapid Iteration']
+        tags: ['Prototype', 'Interaction Design']
+      },
+      {
+        title: 'Echoes of Etra',
+        slug: 'echoes-of-etra',
+        category: 'pc-games',
+        summary: 'Student-led RPG where mortals face mythic powers; built end-to-end with a team.',
+        cover: 'assets/img/portfolio/eoe.jpg',
+        status: 'archived',
+        links: [
+          { label: 'Trailer', url: 'https://youtu.be/byq_hVzCsZA?si=p9StZG92jRCq2R1Q', icon: 'bxl-youtube' },
+          { label: 'Demo', url: 'https://drive.google.com/file/d/1NezLAz30O-LDiyqCaF3XH9QalngPJ1uI/view?usp=sharing', icon: 'bx-download' }
+        ],
+        tags: ['RPG', 'Unity', 'Team Lead']
+      },
+      {
+        title: 'The Arena',
+        slug: 'the-arena',
+        category: 'mobile-games',
+        summary: 'Fast-loop mobile arena battles with tactile combat and punchy VFX.',
+        cover: 'assets/img/portfolio/thearena.jpg',
+        status: 'active',
+        links: [
+          { label: 'Google Play', url: 'https://play.google.com/store/apps/details?id=com.CriticalGlitch.TheArena', icon: 'bx-link-external' }
+        ],
+        tags: ['Action', 'Unity', 'Mobile']
+      },
+      {
+        title: 'Void',
+        slug: 'void',
+        category: 'mobile-games',
+        summary: 'Minimalist survival tapper about resisting gravitational pull.',
+        cover: 'assets/img/portfolio/thevoid.jpg',
+        status: 'archived',
+        links: [
+          { label: 'Google Play', url: 'https://play.google.com/store/apps/details?id=com.CriticalGlitch.Void', icon: 'bx-link-external' }
+        ],
+        tags: ['Arcade', 'Android']
+      },
+      {
+        title: 'Spez Shooter',
+        slug: 'spez-shooter',
+        category: 'mobile-games',
+        summary: 'Reflex-driven shooter built for quick sessions and leaderboard chases.',
+        cover: 'assets/img/portfolio/spezshooter.jpg',
+        status: 'archived',
+        links: [
+          { label: 'Google Play', url: 'https://play.google.com/store/apps/details?id=com.CriticalGlitch.SpezShooter', icon: 'bx-link-external' }
+        ],
+        tags: ['Shooter', 'Mobile']
+      },
+      {
+        title: 'Digital Art Gallery',
+        slug: 'digital-art',
+        category: 'art-3d',
+        summary: 'Gallery of 3D renders, lighting explorations, and color studies.',
+        cover: 'assets/img/portfolio/digart.jpg',
+        status: 'active',
+        links: [
+          { label: 'Instagram', url: 'https://www.instagram.com/alesspital/', icon: 'bxl-instagram' }
+        ],
+        tags: ['3D', 'Lighting']
+      },
+      {
+        title: 'Cinematic Reel',
+        slug: 'cinematic-reel',
+        category: 'art-2d',
+        summary: 'Motion edits and VFX-driven shorts crafted for social campaigns.',
+        cover: 'assets/img/portfolio/photoart.jpg',
+        status: 'active',
+        links: [
+          { label: 'Watch', url: 'https://www.instagram.com/alesspital/', icon: 'bxl-instagram' }
+        ],
+        tags: ['Video', 'VFX']
+      },
+      {
+        title: 'Teaching Tracks',
+        slug: 'teaching-tracks',
+        category: 'teaching',
+        summary: 'Curriculum and AR labs for AI, networking, and multimedia courses.',
+        cover: 'assets/img/portfolio/pot_img.jpg',
+        status: 'active',
+        links: [],
+        tags: ['Teaching', 'AR Labs', 'AI']
       }
     ]
   };
@@ -119,9 +138,8 @@
   const filterList = document.getElementById('project-filters');
   const featuredArea = document.getElementById('project-featured');
   const loadMoreBtn = document.getElementById('projects-load-more');
-  let iso;
   let visibleCount = 6;
-  const step = 6;
+  const step = 4;
 
   const createEl = (tag, className, text) => {
     const el = document.createElement(tag);
@@ -138,9 +156,8 @@
       badge.style.setProperty('--badge-accent', category.color || '#f9a946');
       wrap.appendChild(badge);
     }
-    if (project.deprecated) {
-      const badge = createEl('span', 'badge badge-deprecated', 'Legacy');
-      wrap.appendChild(badge);
+    if (project.status === 'archived') {
+      wrap.appendChild(createEl('span', 'badge badge-archived', 'Archived'));
     }
     (project.tags || []).forEach((tag) => wrap.appendChild(createEl('span', 'badge', tag)));
     return wrap;
@@ -161,10 +178,7 @@
   };
 
   const buildCard = (project, index) => {
-    const card = createEl('div', `project-card filter-${project.category} ${project.deprecated ? 'is-legacy' : ''}`);
-    card.dataset.aos = 'fade-up';
-    card.dataset.aosDelay = 80 + (index % 6) * 20;
-
+    const card = createEl('div', `project-card filter-${project.category} ${project.status === 'archived' ? 'is-legacy' : ''}`);
     const media = createEl('div', 'project-media');
     const img = createEl('img');
     img.src = project.cover;
@@ -183,26 +197,19 @@
     return card;
   };
 
+  const updateLoadMore = () => {
+    if (!loadMoreBtn) return;
+    loadMoreBtn.style.display = visibleCount >= projectData.projects.length ? 'none' : 'inline-flex';
+  };
+
   const renderProjects = () => {
     if (!projectGrid) return;
-    if (iso) {
-      iso.destroy();
-      iso = undefined;
-    }
     projectGrid.innerHTML = '';
     projectData.projects.slice(0, visibleCount).forEach((project, idx) => {
       projectGrid.appendChild(buildCard(project, idx));
     });
-
-    if (typeof Isotope !== 'undefined' && projectGrid.children.length) {
-      iso = new Isotope(projectGrid, {
-        itemSelector: '.project-card',
-        layoutMode: 'fitRows'
-      });
-    }
-
     updateLoadMore();
-    if (window.AOS) AOS.refresh();
+    document.dispatchEvent(new CustomEvent('projectsRendered'));
   };
 
   const renderFilters = () => {
@@ -222,21 +229,15 @@
     });
 
     filterList.addEventListener('click', (e) => {
-      if (e.target.closest('button')) {
-        const target = e.target.closest('button');
-        filterList.querySelectorAll('button').forEach((btn) => btn.classList.remove('active'));
-        target.classList.add('active');
-        const filterValue = target.dataset.filter;
-        if (iso) {
-          iso.arrange({ filter: filterValue });
-        } else {
-          document.querySelectorAll('#projects-grid .project-card').forEach((card) => {
-            if (filterValue === '*' || card.matches(filterValue)) card.style.display = '';
-            else card.style.display = 'none';
-          });
-        }
-        if (window.AOS) AOS.refresh();
-      }
+      const target = e.target.closest('button');
+      if (!target) return;
+      filterList.querySelectorAll('button').forEach((btn) => btn.classList.remove('active'));
+      target.classList.add('active');
+      const filterValue = target.dataset.filter;
+      document.querySelectorAll('#projects-grid .project-card').forEach((card) => {
+        if (filterValue === '*' || card.matches(filterValue)) card.classList.remove('hidden');
+        else card.classList.add('hidden');
+      });
     });
   };
 
@@ -246,9 +247,9 @@
     if (!featured) return;
     const category = categoriesById.get(featured.category);
     featuredArea.innerHTML = `
-      <div class="featured-card" data-aos="fade-up">
+      <div class="featured-card">
         <div class="featured-meta">
-          <p class="eyebrow">${category ? category.label : 'Signature'} • Spotlight</p>
+          <p class="eyebrow">${category ? category.label : 'Spotlight'} • Hero Project</p>
           <h2>${featured.title}</h2>
           <p class="lead">${featured.summary}</p>
           ${buildBadges(featured).outerHTML}
@@ -262,26 +263,14 @@
     `;
   };
 
+  loadMoreBtn?.addEventListener('click', () => {
+    visibleCount = Math.min(projectData.projects.length, visibleCount + step);
+    renderProjects();
+  });
+
   document.addEventListener('DOMContentLoaded', () => {
     renderFilters();
     renderProjects();
     renderFeatured();
-    document.dispatchEvent(new CustomEvent('portfolioContentReady'));
-  });
-
-  const updateLoadMore = () => {
-    if (!loadMoreBtn) return;
-    if (visibleCount >= projectData.projects.length) {
-      loadMoreBtn.style.display = 'none';
-    } else {
-      loadMoreBtn.style.display = 'inline-flex';
-    }
-  };
-
-  loadMoreBtn?.addEventListener('click', () => {
-    visibleCount = Math.min(projectData.projects.length, visibleCount + step);
-    renderProjects();
-    if (iso) iso.arrange();
-    if (window.AOS) AOS.refresh();
   });
 })();
