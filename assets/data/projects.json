@@ -1,0 +1,119 @@
+{
+  "categories": [
+    { "id": "arvr", "label": "AR/VR", "color": "#6ce0b5" },
+    { "id": "games", "label": "Games", "color": "#9fa6ff" },
+    { "id": "digital-art", "label": "Digital Art", "color": "#f7d188" },
+    { "id": "video", "label": "Video", "color": "#7cc7ff" },
+    { "id": "experiments", "label": "Labs", "color": "#f59ac5" }
+  ],
+  "projects": [
+    {
+      "title": "Echoes of Etra",
+      "slug": "echoes-of-etra",
+      "category": "games",
+      "summary": "Original RPG built with students that pits mortals against mythic powers.",
+      "cover": "assets/img/portfolio/eoe.jpg",
+      "mediaType": "image",
+      "featured": true,
+      "links": [
+        { "label": "Trailer", "url": "https://youtu.be/byq_hVzCsZA?si=p9StZG92jRCq2R1Q", "icon": "bxl-youtube" },
+        { "label": "Download", "url": "https://drive.google.com/file/d/1NezLAz30O-LDiyqCaF3XH9QalngPJ1uI/view?usp=sharing", "icon": "bx-download" }
+      ],
+      "tags": ["RPG", "Unity", "Team Lead"]
+    },
+    {
+      "title": "ARnet",
+      "slug": "arnet",
+      "category": "arvr",
+      "summary": "An AR networking trainer that lets students explore topology, routing, and addressing.",
+      "cover": "assets/img/portfolio/arnet.jpg",
+      "mediaType": "image",
+      "links": [
+        { "label": "Google Play", "url": "https://play.google.com/store/apps/details?id=com.CriticalGlitch.ARnet", "icon": "bx-link-external" }
+      ],
+      "tags": ["Augmented Reality", "Education", "Unity"]
+    },
+    {
+      "title": "AR Tourist Guide",
+      "slug": "ar-tourist-guide",
+      "category": "arvr",
+      "summary": "Immersive guide that reconstructs the submerged village of Družmirje for visitors.",
+      "cover": "assets/img/portfolio/artouristguide.png",
+      "mediaType": "image",
+      "links": [
+        { "label": "Read Thesis", "url": "https://dk.um.si/Dokument.php?id=145960", "icon": "bx-book" }
+      ],
+      "tags": ["AR", "Cultural Heritage", "Mobile"]
+    },
+    {
+      "title": "The Arena",
+      "slug": "the-arena",
+      "category": "games",
+      "summary": "Mobile arena battles with fast combat loops and punchy effects.",
+      "cover": "assets/img/portfolio/thearena.jpg",
+      "mediaType": "image",
+      "links": [
+        { "label": "Google Play", "url": "https://play.google.com/store/apps/details?id=com.CriticalGlitch.TheArena", "icon": "bx-link-external" }
+      ],
+      "tags": ["Mobile", "Action", "Unity"]
+    },
+    {
+      "title": "Void",
+      "slug": "void",
+      "category": "games",
+      "summary": "Minimalist survival game about avoiding the pull of the void.",
+      "cover": "assets/img/portfolio/thevoid.jpg",
+      "mediaType": "image",
+      "links": [
+        { "label": "Google Play", "url": "https://play.google.com/store/apps/details?id=com.CriticalGlitch.Void", "icon": "bx-link-external" }
+      ],
+      "tags": ["Arcade", "Android", "Quick Play"]
+    },
+    {
+      "title": "Spez Shooter",
+      "slug": "spez-shooter",
+      "category": "games",
+      "summary": "Reflex-focused tap shooter built for pick-up-and-play sessions.",
+      "cover": "assets/img/portfolio/spezshooter.jpg",
+      "mediaType": "image",
+      "links": [
+        { "label": "Google Play", "url": "https://play.google.com/store/apps/details?id=com.CriticalGlitch.SpezShooter", "icon": "bx-link-external" }
+      ],
+      "tags": ["Shooter", "Mobile", "Fast Loop"]
+    },
+    {
+      "title": "Digital Art Gallery",
+      "slug": "digital-art",
+      "category": "digital-art",
+      "summary": "A rotating collection of 3D renders, digital paintings, and motion edits.",
+      "cover": "assets/img/portfolio/digart.jpg",
+      "mediaType": "image",
+      "links": [
+        { "label": "Instagram", "url": "https://www.instagram.com/alesspital/", "icon": "bxl-instagram" }
+      ],
+      "tags": ["3D", "Color", "Compositing"]
+    },
+    {
+      "title": "Cinematic Reel",
+      "slug": "cinematic-reel",
+      "category": "video",
+      "summary": "Selected video edits and VFX-driven cuts crafted for social campaigns.",
+      "cover": "assets/img/portfolio/photoart.jpg",
+      "mediaType": "image",
+      "links": [
+        { "label": "Watch", "url": "https://www.instagram.com/alesspital/", "icon": "bxl-instagram" }
+      ],
+      "tags": ["Video", "Editing", "Sound Design"]
+    },
+    {
+      "title": "XR Interaction Labs",
+      "slug": "xr-labs",
+      "category": "experiments",
+      "summary": "Playable prototypes exploring tactile interactions across VR and AR platforms.",
+      "cover": "assets/img/portfolio/pot_img.jpg",
+      "mediaType": "image",
+      "links": [],
+      "tags": ["Prototype", "Interaction Design", "Rapid Iteration"]
+    }
+  ]
+}

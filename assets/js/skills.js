@@ -1,53 +1,18 @@
-var skills = [
-	"Unity",
-	"C#",
-	"VR/AR",
-	"PHP",
-	"SQL",
-	"Python",
-	"Machine Learning",
-	"JavaScript",
-	"jQuery",
-	"NodeJS",
-	"Express.js",
-	"CSS",
-	"Bootstrap",
-	"Blender",
-	"Cinema4D", 
-	"Photoshop",
-	"Premiere Pro",
-	"HTML",
-	"Xamarin",
-	"MongoDB",
-	"Mobile Development",
-	"C++",
-	"AI",
-	"Game Development",
-	"UI/UX Designing",
-	"Agile Development",
-	"Comp. Networking",
-    "TensorFlow",
-    "PyTorch",
-    "Data Science",
-    "Data Analysis",
-    "Git",
-    "RESTful APIs",
-    "Video Editing",
-    "3D Modeling",
-    "3D Animation",
-    "Photo Editing",
-    "Laravel",
-    "Teaching"
-]
+const skills = [
+  "Unity", "C#", "VR/AR", "Python", "Machine Learning", "JavaScript", "Node.js", "Express.js",
+  "CSS / SCSS", "Bootstrap", "Blender", "Cinema4D", "Photoshop", "Premiere Pro", "HTML",
+  "Xamarin", "SQL", "MongoDB", "Mobile Development", "C++", "AI", "Game Development",
+  "UI/UX Design", "Agile", "Computer Networking", "TensorFlow", "PyTorch", "Data Science",
+  "Git", "REST APIs", "Video Editing", "3D Modeling", "3D Animation", "Laravel", "Teaching"
+];
 
-let cols = Math.floor(skills.length / 6)+1;
-for(let i = 0; i < skills.length; ){
-	let content = '<div class="col-sm-2">';
-    content += '<ul>';
-    for (let j = 0; j < cols && i < skills.length; j++) {
-    	content += '<li><i class="bi bi-chevron-right"></i>'+skills[i++]+'</li>';
-    }
-    content += '</ul>';
-    content += '</div>';
-    $("#skill-list").append(content);
-}
+document.addEventListener('DOMContentLoaded', () => {
+  const target = document.getElementById('skill-cloud');
+  if (!target) return;
+  skills.forEach((skill) => {
+    const chip = document.createElement('span');
+    chip.className = 'skill-chip';
+    chip.textContent = skill;
+    target.appendChild(chip);
+  });
+});
