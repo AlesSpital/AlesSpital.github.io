@@ -27,6 +27,7 @@
         category: 'arvr',
         summary: 'An AR networking trainer that lets students explore topology, routing, and addressing.',
         cover: 'assets/img/portfolio/arnet.jpg',
+        deprecated: true,
         links: [
           { label: 'Google Play', url: 'https://play.google.com/store/apps/details?id=com.CriticalGlitch.ARnet', icon: 'bx-link-external' }
         ],
@@ -38,6 +39,7 @@
         category: 'arvr',
         summary: 'Immersive guide that reconstructs the submerged village of Družmirje for visitors.',
         cover: 'assets/img/portfolio/artouristguide.png',
+        deprecated: true,
         links: [
           { label: 'Read Thesis', url: 'https://dk.um.si/Dokument.php?id=145960', icon: 'bx-book' }
         ],
@@ -116,7 +118,10 @@
   const projectGrid = document.getElementById('projects-grid');
   const filterList = document.getElementById('project-filters');
   const featuredArea = document.getElementById('project-featured');
+  const loadMoreBtn = document.getElementById('projects-load-more');
   let iso;
+  let visibleCount = 6;
+  const step = 6;
 
   const createEl = (tag, className, text) => {
     const el = document.createElement(tag);
@@ -131,6 +136,10 @@
     if (category) {
       const badge = createEl('span', 'badge badge-category', category.label);
       badge.style.setProperty('--badge-accent', category.color || '#f9a946');
+      wrap.appendChild(badge);
+    }
+    if (project.deprecated) {
+      const badge = createEl('span', 'badge badge-deprecated', 'Legacy');
       wrap.appendChild(badge);
     }
     (project.tags || []).forEach((tag) => wrap.appendChild(createEl('span', 'badge', tag)));
@@ -152,9 +161,9 @@
   };
 
   const buildCard = (project, index) => {
-    const card = createEl('div', `project-card filter-${project.category}`);
+    const card = createEl('div', `project-card filter-${project.category} ${project.deprecated ? 'is-legacy' : ''}`);
     card.dataset.aos = 'fade-up';
-    card.dataset.aosDelay = 80 + index * 20;
+    card.dataset.aosDelay = 80 + (index % 6) * 20;
 
     const media = createEl('div', 'project-media');
     const img = createEl('img');
@@ -176,8 +185,12 @@
 
   const renderProjects = () => {
     if (!projectGrid) return;
+    if (iso) {
+      iso.destroy();
+      iso = undefined;
+    }
     projectGrid.innerHTML = '';
-    projectData.projects.forEach((project, idx) => {
+    projectData.projects.slice(0, visibleCount).forEach((project, idx) => {
       projectGrid.appendChild(buildCard(project, idx));
     });
 
@@ -187,6 +200,9 @@
         layoutMode: 'fitRows'
       });
     }
+
+    updateLoadMore();
+    if (window.AOS) AOS.refresh();
   };
 
   const renderFilters = () => {
@@ -219,6 +235,7 @@
             else card.style.display = 'none';
           });
         }
+        if (window.AOS) AOS.refresh();
       }
     });
   };
@@ -250,5 +267,21 @@
     renderProjects();
     renderFeatured();
     document.dispatchEvent(new CustomEvent('portfolioContentReady'));
+  });
+
+  const updateLoadMore = () => {
+    if (!loadMoreBtn) return;
+    if (visibleCount >= projectData.projects.length) {
+      loadMoreBtn.style.display = 'none';
+    } else {
+      loadMoreBtn.style.display = 'inline-flex';
+    }
+  };
+
+  loadMoreBtn?.addEventListener('click', () => {
+    visibleCount = Math.min(projectData.projects.length, visibleCount + step);
+    renderProjects();
+    if (iso) iso.arrange();
+    if (window.AOS) AOS.refresh();
   });
 })();
