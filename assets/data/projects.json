@@ -13,6 +13,7 @@
       {"label": "Google Play", "url": "https://play.google.com/store/apps/details?id=com.CriticalGlitch.ARnet"}
     ],
     "media": [
+      {"type": "image", "src": "assets/img/ARnet/thumbnail.png", "alt": "VR4LL 2.0 experience"}
       {"type": "image", "src": "assets/img/ARnet/1.webp", "alt": "ARnet interface"},
       {"type": "image", "src": "assets/img/ARnet/2.webp", "alt": "ARnet AR visualization"},
       {"type": "image", "src": "assets/img/ARnet/3.webp", "alt": "ARnet topology view"},
@@ -73,7 +74,6 @@
     "tools": ["Cinema 4D", "DaVinci Resolve"],
     "tags": ["Motion"],
     "media": [
-      {"type": "image", "src": "assets/img/portfolio/portfolio-7.jpg", "alt": "XR concept visuals"},
       {"type": "video", "src": "assets/vids/XRconcept/AQMy7GllHKqWJIImUvT2AVG6wO9DxfhApSQoneBkAlT5Wgyxrz1OJBrIZDcNYTSqmxWgwdP5paoJKbCap1WYzBpnkWiA6dQ8bKHNX_o.mp4", "poster": "assets/img/portfolio/portfolio-7.jpg"},
       {"type": "video", "src": "assets/vids/XRconcept/AQMZ8C6k_iIxLPVokCx8shrpiL6Fp7QckcyjfuI1tBmwoXq7H0ADPJb8vUlsGNhQP4KQ6VQUQ3vy0r3uCmncXrg2PN6d7SuNwcxjtME.mp4", "poster": "assets/img/portfolio/portfolio-7.jpg"},
       {"type": "video", "src": "assets/vids/XRconcept/AQPhk2zsMJzo7aImoWkZEIpiNer9K4vB2pxxIJXSMXouMkYhlEoZMFhRqT4jtRvs_C3qkxeK-6b-vVBRwn8dQOokOYzhJppRvhoFics.mp4", "poster": "assets/img/portfolio/portfolio-7.jpg"},
