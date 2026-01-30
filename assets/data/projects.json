@@ -74,12 +74,12 @@
     "tools": ["Cinema 4D", "DaVinci Resolve"],
     "tags": ["Motion"],
     "media": [
-      {"type": "video", "src": "assets/vids/XRconcept/AQMy7GllHKqWJIImUvT2AVG6wO9DxfhApSQoneBkAlT5Wgyxrz1OJBrIZDcNYTSqmxWgwdP5paoJKbCap1WYzBpnkWiA6dQ8bKHNX_o.mp4", "poster": "assets/img/portfolio/portfolio-7.jpg"},
-      {"type": "video", "src": "assets/vids/XRconcept/AQMZ8C6k_iIxLPVokCx8shrpiL6Fp7QckcyjfuI1tBmwoXq7H0ADPJb8vUlsGNhQP4KQ6VQUQ3vy0r3uCmncXrg2PN6d7SuNwcxjtME.mp4", "poster": "assets/img/portfolio/portfolio-7.jpg"},
-      {"type": "video", "src": "assets/vids/XRconcept/AQPhk2zsMJzo7aImoWkZEIpiNer9K4vB2pxxIJXSMXouMkYhlEoZMFhRqT4jtRvs_C3qkxeK-6b-vVBRwn8dQOokOYzhJppRvhoFics.mp4", "poster": "assets/img/portfolio/portfolio-7.jpg"},
-      {"type": "video", "src": "assets/vids/XRconcept/AQNkwXd7cIApsJZCFEtUUrmGIFcESdlXJgk8-5DPgQPxF3a1dAreoNMQK8mJtxkRAXv4Jt5iB0QiLjtwam-kiINy0EM20hLIxJVNWeU.mp4", "poster": "assets/img/portfolio/portfolio-7.jpg"},
-      {"type": "video", "src": "assets/vids/XRconcept/AQOQhz0Inc9PCZbVBVpgBGdOQ3rl5gMtkntd6pqLhnteqRecEk1lyuMLkF6M3djWJbZtdOi2YmMTT_Bhx4y0bBhB_rLt-HtwWaUO04Q.mp4", "poster": "assets/img/portfolio/portfolio-7.jpg"},
-      {"type": "video", "src": "assets/vids/XRconcept/AQMgTiSFuCe-B22weOeIX2CWxe3mHQ7LWPCeDkF72pfhOVK6yVKQH6OJ_zeyplJUBnTplSUt21sbvUfdDmRWsxSsTW30C4ikOR4w2BM.mp4", "poster": "assets/img/portfolio/portfolio-7.jpg"}
+      {"type": "video", "src": "assets/vids/XRconcept/AQMy7GllHKqWJIImUvT2AVG6wO9DxfhApSQoneBkAlT5Wgyxrz1OJBrIZDcNYTSqmxWgwdP5paoJKbCap1WYzBpnkWiA6dQ8bKHNX_o.mp4", "poster": "assets/vids/XRconcept/thumbnail.png"},
+      {"type": "video", "src": "assets/vids/XRconcept/AQMZ8C6k_iIxLPVokCx8shrpiL6Fp7QckcyjfuI1tBmwoXq7H0ADPJb8vUlsGNhQP4KQ6VQUQ3vy0r3uCmncXrg2PN6d7SuNwcxjtME.mp4", "poster": "assets/vids/XRconcept/thumbnail.png"},
+      {"type": "video", "src": "assets/vids/XRconcept/AQPhk2zsMJzo7aImoWkZEIpiNer9K4vB2pxxIJXSMXouMkYhlEoZMFhRqT4jtRvs_C3qkxeK-6b-vVBRwn8dQOokOYzhJppRvhoFics.mp4", "poster": "assets/vids/XRconcept/thumbnail.png"},
+      {"type": "video", "src": "assets/vids/XRconcept/AQNkwXd7cIApsJZCFEtUUrmGIFcESdlXJgk8-5DPgQPxF3a1dAreoNMQK8mJtxkRAXv4Jt5iB0QiLjtwam-kiINy0EM20hLIxJVNWeU.mp4", "poster": "assets/vids/XRconcept/thumbnail.png"},
+      {"type": "video", "src": "assets/vids/XRconcept/AQOQhz0Inc9PCZbVBVpgBGdOQ3rl5gMtkntd6pqLhnteqRecEk1lyuMLkF6M3djWJbZtdOi2YmMTT_Bhx4y0bBhB_rLt-HtwWaUO04Q.mp4", "poster": "assets/vids/XRconcept/thumbnail.png"},
+      {"type": "video", "src": "assets/vids/XRconcept/AQMgTiSFuCe-B22weOeIX2CWxe3mHQ7LWPCeDkF72pfhOVK6yVKQH6OJ_zeyplJUBnTplSUt21sbvUfdDmRWsxSsTW30C4ikOR4w2BM.mp4", "poster": "assets/vids/XRconcept/thumbnail.png"}
     ],
     "featured": true,
     "priority": 3
