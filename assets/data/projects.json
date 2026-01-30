@@ -4,7 +4,7 @@
     "title": "ARnet",
     "category": "XR",
     "platforms": ["Android", "XR"],
-    "thumbnail": "assets/img/portfolio/arnet.jpg",
+    "thumbnail": "assets/img/ARnet/1.webp",
     "summary": "Master's thesis AR app that lets learners build and simulate computer networks (topologies, device roles, TCP/IP, routing) in augmented reality, improving average grades by ~20%.",
     "role": "AR app developer",
     "tools": ["Unity", "C#", "AR Foundation", "ARCore", "ARKit"],
@@ -13,9 +13,11 @@
       {"label": "Google Play", "url": "https://play.google.com/store/apps/details?id=com.CriticalGlitch.ARnet"}
     ],
     "media": [
-      {"type": "image", "src": "assets/img/portfolio/arnet.jpg", "alt": "ARnet interface"},
-      {"type": "video", "src": "assets/img/portfolio/vid1.mp4", "poster": "assets/img/portfolio/arnet.jpg"},
-      {"type": "video", "src": "assets/img/portfolio/vid2.mp4", "poster": "assets/img/portfolio/arnet.jpg"}
+      {"type": "image", "src": "assets/img/ARnet/1.webp", "alt": "ARnet interface"},
+      {"type": "image", "src": "assets/img/ARnet/2.webp", "alt": "ARnet AR visualization"},
+      {"type": "image", "src": "assets/img/ARnet/3.webp", "alt": "ARnet topology view"},
+      {"type": "image", "src": "assets/img/ARnet/4.webp", "alt": "ARnet simulation"},
+      {"type": "image", "src": "assets/img/ARnet/5.webp", "alt": "ARnet learning scene"}
     ],
     "featured": true,
     "priority": 2
@@ -45,16 +47,17 @@
     "id": "vr4ll-2",
     "title": "VR4LL 2.0",
     "category": "XR",
-    "platforms": ["VR"],
-    "thumbnail": "assets/img/portfolio/portfolio-4.jpg",
-    "summary": "Co-developed an EU-funded Unity VR platform for language learning with immersive classrooms and multiplayer practice.",
-    "role": "Unity developer (multiplayer interactions)",
+    "platforms": ["Meta Quest 2+", "VR"],
+    "thumbnail": "assets/img/VR4LL/thumbnail.jpeg",
+    "summary": "Unity-based multiplayer language-learning experience for Meta Quest 2+ with synchronized interactions, shared object grabs, and guided quest-based lessons in custom-built environments.",
+    "role": "Unity XR developer — networking sync, grab sync, environment builds, and quest development",
     "tools": ["Unity", "C#"],
     "tags": ["Education", "Freelance"],
+    "links": [
+      {"label": "Website", "url": "https://vr4ll.com/"}
+    ],
     "media": [
-      {"type": "image", "src": "assets/img/portfolio/portfolio-4.jpg", "alt": "VR4LL 2.0 environment"},
-      {"type": "video", "src": "assets/img/portfolio/vid1.mp4", "poster": "assets/img/portfolio/portfolio-4.jpg"},
-      {"type": "video", "src": "assets/img/portfolio/vid2.mp4", "poster": "assets/img/portfolio/portfolio-4.jpg"}
+      {"type": "image", "src": "assets/img/VR4LL/thumbnail.jpeg", "alt": "VR4LL 2.0 experience"}
     ],
     "featured": true,
     "priority": 1
@@ -65,14 +68,18 @@
     "category": "XR",
     "platforms": ["XR"],
     "thumbnail": "assets/img/portfolio/portfolio-7.jpg",
-    "summary": "Short XR concept videos exploring cozy interactions, spatial UI, and playful simulation ideas.",
-    "role": "Concepting + prototyping",
-    "tools": ["Unity", "Blender", "Premiere Pro"],
+    "summary": "Cinema 4D CGI concept videos exploring how XR might look and feel in the near future.",
+    "role": "Concept art + CGI",
+    "tools": ["Cinema 4D", "DaVinci Resolve"],
     "tags": ["Motion"],
     "media": [
       {"type": "image", "src": "assets/img/portfolio/portfolio-7.jpg", "alt": "XR concept visuals"},
-      {"type": "video", "src": "assets/img/portfolio/vid1.mp4", "poster": "assets/img/portfolio/portfolio-7.jpg"},
-      {"type": "video", "src": "assets/img/portfolio/vid2.mp4", "poster": "assets/img/portfolio/portfolio-7.jpg"}
+      {"type": "video", "src": "assets/vids/XRconcept/AQMy7GllHKqWJIImUvT2AVG6wO9DxfhApSQoneBkAlT5Wgyxrz1OJBrIZDcNYTSqmxWgwdP5paoJKbCap1WYzBpnkWiA6dQ8bKHNX_o.mp4", "poster": "assets/img/portfolio/portfolio-7.jpg"},
+      {"type": "video", "src": "assets/vids/XRconcept/AQMZ8C6k_iIxLPVokCx8shrpiL6Fp7QckcyjfuI1tBmwoXq7H0ADPJb8vUlsGNhQP4KQ6VQUQ3vy0r3uCmncXrg2PN6d7SuNwcxjtME.mp4", "poster": "assets/img/portfolio/portfolio-7.jpg"},
+      {"type": "video", "src": "assets/vids/XRconcept/AQPhk2zsMJzo7aImoWkZEIpiNer9K4vB2pxxIJXSMXouMkYhlEoZMFhRqT4jtRvs_C3qkxeK-6b-vVBRwn8dQOokOYzhJppRvhoFics.mp4", "poster": "assets/img/portfolio/portfolio-7.jpg"},
+      {"type": "video", "src": "assets/vids/XRconcept/AQNkwXd7cIApsJZCFEtUUrmGIFcESdlXJgk8-5DPgQPxF3a1dAreoNMQK8mJtxkRAXv4Jt5iB0QiLjtwam-kiINy0EM20hLIxJVNWeU.mp4", "poster": "assets/img/portfolio/portfolio-7.jpg"},
+      {"type": "video", "src": "assets/vids/XRconcept/AQOQhz0Inc9PCZbVBVpgBGdOQ3rl5gMtkntd6pqLhnteqRecEk1lyuMLkF6M3djWJbZtdOi2YmMTT_Bhx4y0bBhB_rLt-HtwWaUO04Q.mp4", "poster": "assets/img/portfolio/portfolio-7.jpg"},
+      {"type": "video", "src": "assets/vids/XRconcept/AQMgTiSFuCe-B22weOeIX2CWxe3mHQ7LWPCeDkF72pfhOVK6yVKQH6OJ_zeyplJUBnTplSUt21sbvUfdDmRWsxSsTW30C4ikOR4w2BM.mp4", "poster": "assets/img/portfolio/portfolio-7.jpg"}
     ],
     "featured": true,
     "priority": 3
@@ -87,7 +94,7 @@
     "status": "Playable (no longer in development)",
     "statusType": "archived",
     "role": "Gameplay + UI development",
-    "tools": ["Unity", "C#", "Blender"],
+    "tools": ["Unity", "C#", "Cinema 4D"],
     "tags": ["Playable"],
     "links": [
       {"label": "Trailer", "url": "https://youtu.be/byq_hVzCsZA?si=p9StZG92jRCq2R1Q"},
@@ -168,7 +175,7 @@
     "thumbnail": "assets/img/portfolio/digart.jpg",
     "summary": "Curated 3D renders, promotional graphics, and stylized visuals across 2D/3D pipelines.",
     "role": "3D + compositing",
-    "tools": ["Cinema4D", "Photoshop", "Blender"],
+    "tools": ["Cinema 4D", "Photoshop"],
     "tags": ["3D"],
     "links": [
       {"label": "Instagram", "url": "https://www.instagram.com/alesspital/"}
@@ -186,11 +193,11 @@
     "id": "motion-reel",
     "title": "Motion & Editing Reel",
     "category": "Motion/Editing",
-    "platforms": ["Premiere Pro"],
+    "platforms": ["DaVinci Resolve"],
     "thumbnail": "assets/img/portfolio/pot.GIF",
     "summary": "Motion experiments and promo edits with CGI accents, focused on rhythm and mood.",
     "role": "Motion + editing",
-    "tools": ["Premiere Pro", "After Effects", "Blender"],
+    "tools": ["DaVinci Resolve", "Cinema 4D"],
     "tags": ["Motion", "Editing"],
     "links": [
       {"label": "Instagram", "url": "https://www.instagram.com/alesspital/"}
