@@ -67,8 +67,10 @@
    */
   const scrollto = (el) => {
     let elementPos = select(el).offsetTop
+    const header = select('#header')
+    const offset = header ? header.offsetHeight + 12 : 0
     window.scrollTo({
-      top: elementPos,
+      top: elementPos - offset,
       behavior: 'smooth'
     })
   }
@@ -165,7 +167,8 @@
    */
   window.addEventListener('load', () => {
     let portfolioContainer = select('.portfolio-container');
-    if (portfolioContainer) {
+    let portfolioSection = select('.portfolio');
+    if (portfolioContainer && portfolioSection && portfolioSection.getAttribute('data-portfolio-mode') !== 'custom') {
       let portfolioIsotope = new Isotope(portfolioContainer, {
         itemSelector: '.portfolio-item'
       });

@@ -1,52 +1,32 @@
 var jobs = [
-	/*
 	{
-		Title: "Beekeeping Field Worker",
-		Years: "January 2025",
-		Desc: "SJA Honey, New Zealend",
-		Points: [
-			"Erasmus Student Exchange Program Participant",
-			"Contributed to the design and development of an online platform for an electronic device retailer."
-		]
-	},
-	*/
-	{
-	Title: "Web Developer Intern",
-	Years: "April 2015",
-	Desc: "bits & bytes, Malta",
-	Points: [
-		"Erasmus Student Exchange Program Participant",
-		"Contributed to the design and development of an online platform for an electronic device retailer."
-	]
-},
-{
-	Title: "Freelance - Web Development",
+	Title: "Web Development Projects",
 	Years: "",
 	Desc: "",
 	Points: [
-	"Developed a diverse array of websites, including portfolios, e-commerce platforms, and blogs."
+	"Created websites, portfolios, e-commerce platforms, and blogs using Git, Node.js, EJS, Ionic, JavaScript, Bootstrap, PHP, SQL, and MongoDB."
 	]
 },
 {
-	Title: "Freelance - Video & Photo Editing",
+	Title: "Video & Photo Editing",
 	Years: "",
 	Desc: "",
 	Points: [
-	"Recorded and edited advertising and introduction assets, adeptly navigating both photo and video formats."
+	"Edited promotional materials across photo and video formats with Photoshop, Premiere Pro, After Effects, Blender, and Cinema 4D."
 	]
 },
 {
-	Title: "Mobile & PC Games Development",
+	Title: "Mobile Games & Game Jams",
 	Years: "",
 	Desc: "",
 	Points: [
-	"During my leisure time, I have undertaken the challenge of developing video games and participated in several game jams."
+	"Built and published mobile games and RPG prototypes in Unity and C#, focusing on graphics optimization and polish."
 	]
 },
 ]
 
 for(let i = 0; i < jobs.length; i++ ){
-	let content = '<div class="resume-item">';
+	let content = '<div class="resume-item tilt-card">';
     content += '<h4>'+jobs[i].Title+'</h4>';
 	if(jobs[i].Years!="")
     	content += '<h5>'+jobs[i].Years+'</h5>';

@@ -1,36 +1,62 @@
 var jobs = [
 {
+	Title: "AI Workshop Instructor & Advisor",
+	Years: "2025 - Present",
+	Location: "Telemach JobLab, Slovenia",
+	Desc: [
+	"Delivered professional AI workshops and advised schools/companies on use-case discovery, prioritization, and responsible adoption (value, feasibility, risk).",
+	"Guided participants from idea to MVP planning with practical workflows and professional usage patterns."
+	]
+},
+{
+	Title: "Unity Developer",
+	Years: "2025 - Present",
+	Location: "Freelance · Slovenia",
+	Desc: [
+	"Developed VR4LL 2.0, a Unity-based VR platform for language learning with immersive scenarios.",
+	"Built interactive flows that help learners practice in realistic, supportive environments."
+	]
+},
+{
 	Title: "High School Professor of Computer Science",
 	Years: "2021 - 2024",
 	Location: "School Center Velenje, Velenje, Slovenia",
 	Desc: [
-	"Taught a diverse array of subjects, encompassing Artificial Intelligence, Web Development, Multimedia, and Computer Networks.",
-	"Developed an augmented reality (AR) mobile application aimed at enhancing students' comprehension of IP addressing and routing within computer networks.",
-	"Engaged in collaborative efforts with European Union initiatives aimed at modernising educational systems. Facilitated the creation and delivery of specialised training sessions for educators, focusing on the integration of contemporary digital tools and technologies.",
-	"Strategically planned and executed diverse projects catering to student engagement and development, including initiatives such as Game Jam events, the creation of an RPG computer game, and the implementation of AI-assisted exam correction systems."
+	"Taught 200+ students across AI, Web Development, Multimedia, and Computer Networks with a 95% pass rate.",
+	"Collaborated on EU initiatives to train educators and expand digital competencies in education.",
+	"Organized 5+ Game Jam events and supervised an RPG game plus an AI grading assistant in Python, reducing grading time by ~20%."
 	]
 },
 {
 	Title: "Technical Assistant",
 	Years: "2019 - 2020",
-	Location: "Ministry of Public Administration Slovenia",
+	Location: "Ministry of Public Administration, Slovenia",
 	Desc: [
-	"Contributed to the modernization of IT infrastructure within Slovenian government facilities by providing strategic support and implementing innovative solutions.",
-	"Designed and developed software solutions tailored to enhance archival processes and streamline organisational efficiency."
+	"Supported modernization of IT infrastructure across 100+ government facilities, enabling up to 20% cost savings and faster service resolution.",
+	"Built Xamarin and MySQL solutions that improved archival workflows and organizational efficiency."
 	]
 },
 {
 	Title: "Software Developer Intern",
-	Years: "2019 - 2019",
+	Years: "2018 - 2019",
 	Location: "Mega M d.o.o., Velenje, Slovenia",
 	Desc: [
-	"Designed and developed an online shopping platform that made it easier to order products.",
-	"Created a mobile application for the well-known grocery chain that provides users with up-to-date information on loyalty points and discount prices, increasing user happiness and engagement."
+	"Built an online shopping platform with HTML, jQuery, and Bootstrap.",
+	"Developed a Xamarin mobile app for a national grocery chain; loyalty-point integration and discount alerts boosted engagement by ~30%."
+	]
+},
+{
+	Title: "Web Developer Intern (Erasmus exchange)",
+	Years: "Spring 2015",
+	Location: "bits & bytes, Malta",
+	Desc: [
+	"Contributed to an online retail platform for an electronics store.",
+	"Strengthened foundations in HTML, CSS, PHP, and MySQL."
 	]
 }];
 //alert(jobs[0].Desc[0]);
 for(let i = 0; i < jobs.length; i++ ){
-	let content = '<div class="resume-item">';
+	let content = '<div class="resume-item tilt-card">';
     content += '<h4>'+jobs[i].Title+'</h4>';
     content += '<h5>'+jobs[i].Years+'</h5>';
     content += '<p><em>'+jobs[i].Location+'</em></p>';

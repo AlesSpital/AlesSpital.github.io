@@ -1,53 +1,51 @@
 var skills = [
 	"Unity",
 	"C#",
-	"VR/AR",
+	"Python",
+	"C++",
+	"JavaScript",
+	"Node.js",
 	"PHP",
 	"SQL",
-	"Python",
-	"Machine Learning",
-	"JavaScript",
-	"jQuery",
-	"NodeJS",
-	"Express.js",
+	"MySQL",
+	"MongoDB",
+	"HTML",
 	"CSS",
 	"Bootstrap",
-	"Blender",
-	"Cinema4D", 
-	"Photoshop",
-	"Premiere Pro",
-	"HTML",
-	"Xamarin",
-	"MongoDB",
-	"Mobile Development",
-	"C++",
+	"React",
+	"Laravel",
+	"jQuery",
+	"EJS",
+	"Ionic",
+	"Git",
+	"AR/VR/XR",
+	"AR Foundation",
+	"ARCore",
+	"ARKit",
+	"Machine Learning",
 	"AI",
 	"Game Development",
-	"UI/UX Designing",
-	"Agile Development",
-	"Comp. Networking",
-    "TensorFlow",
-    "PyTorch",
-    "Data Science",
-    "Data Analysis",
-    "Git",
-    "RESTful APIs",
-    "Video Editing",
-    "3D Modeling",
-    "3D Animation",
-    "Photo Editing",
-    "Laravel",
-    "Teaching"
+	"Mobile Development",
+	"Computer Networks",
+	"Xamarin",
+	"Blender",
+	"Cinema 4D",
+	"Photoshop",
+	"Premiere Pro",
+	"After Effects",
+	"3D Modeling",
+	"3D Animation",
+	"Video Editing",
+	"Teaching & Workshops",
+	"AI Tools (ChatGPT, Copilot, Gemini, Claude, Poe, LumaAI)"
 ]
 
-let cols = Math.floor(skills.length / 6)+1;
-for(let i = 0; i < skills.length; ){
-	let content = '<div class="col-sm-2">';
-    content += '<ul>';
-    for (let j = 0; j < cols && i < skills.length; j++) {
-    	content += '<li><i class="bi bi-chevron-right"></i>'+skills[i++]+'</li>';
-    }
-    content += '</ul>';
-    content += '</div>';
-    $("#skill-list").append(content);
+const skillList = document.getElementById("skill-list");
+if (skillList) {
+  skills.forEach((skill) => {
+    const pill = document.createElement("span");
+    pill.className = "skill-pill";
+    pill.textContent = skill;
+    skillList.appendChild(pill);
+  });
 }
