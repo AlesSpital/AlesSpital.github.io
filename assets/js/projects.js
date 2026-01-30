@@ -6,16 +6,14 @@
   const featuredList = document.querySelector("#featured-projects");
   const featuredSwiperRoot = document.querySelector("#featured-swiper");
   const categoryList = document.querySelector("#portfolio-flters");
-  const tagList = document.querySelector("#portfolio-tags");
   const summaryEl = document.querySelector("#portfolio-summary");
 
-  if (!projectList || !categoryList || !tagList) {
+  if (!projectList || !categoryList) {
     return;
   }
 
   const state = {
-    category: "All",
-    tags: new Set()
+    category: "All"
   };
 
   let projects = [];
@@ -49,18 +47,6 @@
       item.setAttribute("data-value", category);
       item.textContent = category;
       categoryList.appendChild(item);
-    });
-
-    const tags = uniqueSorted(projects.flatMap((project) => project.tags || []));
-    tagList.innerHTML = "";
-    tags.forEach((tag) => {
-      const button = document.createElement("button");
-      button.type = "button";
-      button.className = "filter-chip";
-      button.textContent = tag;
-      button.dataset.value = tag;
-      button.setAttribute("aria-pressed", "false");
-      tagList.appendChild(button);
     });
   };
 
@@ -131,15 +117,6 @@
     meta.className = "portfolio-meta";
     meta.textContent = project.role ? `${project.role} · ${project.tools?.join(" / ") || ""}` : project.tools?.join(" / ") || "";
 
-    const tags = document.createElement("div");
-    tags.className = "portfolio-tags";
-    (project.tags || []).forEach((tag) => {
-      const chip = document.createElement("span");
-      chip.className = "tag-chip";
-      chip.textContent = tag;
-      tags.appendChild(chip);
-    });
-
     const actions = document.createElement("div");
     actions.className = "portfolio-actions";
     const button = document.createElement("button");
@@ -153,9 +130,6 @@
     body.appendChild(summary);
     if (meta.textContent.trim()) {
       body.appendChild(meta);
-    }
-    if (tags.children.length) {
-      body.appendChild(tags);
     }
     body.appendChild(actions);
 
@@ -229,9 +203,7 @@
 
     items.forEach((item) => {
       const categoryMatch = state.category === "All" || item.dataset.category === state.category;
-      const tags = (item.dataset.tags || "").split("|").filter(Boolean);
-      const tagMatch = state.tags.size === 0 || tags.some((tag) => state.tags.has(tag));
-      const show = categoryMatch && tagMatch;
+      const show = categoryMatch;
       item.classList.toggle("is-hidden", !show);
       if (show) {
         visibleCount += 1;
@@ -245,20 +217,6 @@
     state.category = category;
     categoryList.querySelectorAll("li").forEach((item) => {
       item.classList.toggle("filter-active", item.dataset.value === category);
-    });
-    applyFilters();
-  };
-
-  const toggleTag = (tag) => {
-    if (state.tags.has(tag)) {
-      state.tags.delete(tag);
-    } else {
-      state.tags.add(tag);
-    }
-    tagList.querySelectorAll("button").forEach((button) => {
-      const isActive = state.tags.has(button.dataset.value);
-      button.classList.toggle("active", isActive);
-      button.setAttribute("aria-pressed", String(isActive));
     });
     applyFilters();
   };
@@ -418,12 +376,6 @@
       setCategory(target.dataset.value);
     });
 
-    tagList.addEventListener("click", (event) => {
-      const target = event.target.closest("button");
-      if (!target) return;
-      toggleTag(target.dataset.value);
-    });
-
     const drawer = document.getElementById("project-drawer");
     if (drawer) {
       drawer.addEventListener("click", (event) => {
@@ -449,14 +401,6 @@
       }
     });
 
-    window.addEventListener("featured:select", (event) => {
-      if (!event.detail || !event.detail.id || !featuredSwiper || !featuredList) return;
-      const slides = Array.from(featuredList.querySelectorAll(".swiper-slide"));
-      const index = slides.findIndex((slide) => slide.dataset.projectId === event.detail.id);
-      if (index >= 0 && typeof featuredSwiper.slideToLoop === "function") {
-        featuredSwiper.slideToLoop(index);
-      }
-    });
   };
 
   const init = async () => {

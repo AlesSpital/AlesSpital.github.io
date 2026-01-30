@@ -1,10 +1,13 @@
 import * as THREE from "https://cdn.jsdelivr.net/npm/three@0.161.0/build/three.module.js";
+import { EffectComposer } from "https://cdn.jsdelivr.net/npm/three@0.161.0/examples/jsm/postprocessing/EffectComposer.js";
+import { RenderPass } from "https://cdn.jsdelivr.net/npm/three@0.161.0/examples/jsm/postprocessing/RenderPass.js";
+import { UnrealBloomPass } from "https://cdn.jsdelivr.net/npm/three@0.161.0/examples/jsm/postprocessing/UnrealBloomPass.js";
+import { RoomEnvironment } from "https://cdn.jsdelivr.net/npm/three@0.161.0/examples/jsm/environments/RoomEnvironment.js";
 
 (() => {
   const canvas = document.getElementById("featured-canvas");
   if (!canvas) return;
 
-  const tooltip = document.getElementById("featured-tooltip");
   const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const motionFactor = prefersReducedMotion ? 0 : 1;
 
@@ -16,211 +19,133 @@ import * as THREE from "https://cdn.jsdelivr.net/npm/three@0.161.0/build/three.m
   });
   renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.5));
   renderer.setClearColor(0x000000, 0);
+  renderer.outputColorSpace = THREE.SRGBColorSpace;
+  renderer.toneMapping = THREE.ACESFilmicToneMapping;
+  renderer.toneMappingExposure = 1.05;
+  renderer.physicallyCorrectLights = true;
 
-  const camera = new THREE.PerspectiveCamera(45, 1, 0.1, 50);
-  camera.position.set(0, 1.8, 6);
+  const camera = new THREE.PerspectiveCamera(40, 1, 0.1, 50);
+  camera.position.set(0, 1.4, 6.2);
 
-  const ambient = new THREE.AmbientLight(0xffffff, 0.85);
-  const sun = new THREE.DirectionalLight(0xffffff, 0.7);
-  sun.position.set(4, 6, 3);
-  const glow = new THREE.PointLight(0xffd7b0, 0.3, 8);
-  glow.position.set(-2, 2.6, 1.5);
-  scene.add(ambient, sun, glow);
+  const pmrem = new THREE.PMREMGenerator(renderer);
+  scene.environment = pmrem.fromScene(new RoomEnvironment(), 0.04).texture;
+  pmrem.dispose();
+
+  const ambient = new THREE.AmbientLight(0xffffff, 0.7);
+  const key = new THREE.DirectionalLight(0xffffff, 0.9);
+  key.position.set(4, 5, 3);
+  const rim = new THREE.PointLight(0xf7cfa3, 0.7, 8);
+  rim.position.set(-2.5, 2.2, 1.5);
+  scene.add(ambient, key, rim);
 
   const palette = {
-    ink: new THREE.MeshStandardMaterial({ color: 0x2d2a2a, roughness: 0.85, metalness: 0.1 }),
-    cream: new THREE.MeshStandardMaterial({ color: 0xf4efe9, roughness: 0.9 }),
-    mint: new THREE.MeshStandardMaterial({ color: 0xb8dfd2, roughness: 0.7 }),
-    peach: new THREE.MeshStandardMaterial({ color: 0xf2b6a0, roughness: 0.7 }),
-    sky: new THREE.MeshStandardMaterial({ color: 0xbfdcf3, roughness: 0.6 }),
-    gold: new THREE.MeshStandardMaterial({ color: 0xf0c88b, roughness: 0.6 })
+    wood: new THREE.MeshStandardMaterial({ color: 0xe7d0be, roughness: 0.8, metalness: 0.05 }),
+    ink: new THREE.MeshStandardMaterial({ color: 0x2d2a2a, roughness: 0.75, metalness: 0.15 }),
+    mint: new THREE.MeshStandardMaterial({ color: 0xb8dfd2, roughness: 0.65, metalness: 0.2 }),
+    glow: new THREE.MeshStandardMaterial({ color: 0xf2b6a0, roughness: 0.3, metalness: 0.5, emissive: new THREE.Color(0xf2b6a0), emissiveIntensity: 0.35 })
   };
 
-  const pickables = [];
-  const tokens = [];
-  const hoverState = { object: null };
-  const pointer = new THREE.Vector2();
-  const raycaster = new THREE.Raycaster();
-  const tempVec = new THREE.Vector3();
-  const parallax = { x: 0, y: 0, targetX: 0, targetY: 0 };
+  const platform = new THREE.Mesh(new THREE.CylinderGeometry(2.6, 2.9, 0.3, 64), palette.wood);
+  platform.position.y = -0.4;
+  scene.add(platform);
 
-  const registerPickable = (mesh, id, label) => {
-    mesh.userData.projectId = id;
-    mesh.userData.label = label;
-    mesh.userData.baseScale = mesh.scale.clone();
-    if (mesh.material && mesh.material.isMeshStandardMaterial) {
-      mesh.material = mesh.material.clone();
-      mesh.material.emissive = new THREE.Color(0x000000);
-    }
-    pickables.push(mesh);
-  };
+  const ring = new THREE.Mesh(new THREE.TorusKnotGeometry(1.2, 0.08, 140, 12), palette.glow);
+  ring.position.y = 0.5;
+  ring.rotation.x = Math.PI / 2.8;
+  scene.add(ring);
 
-  const addToken = (group, id, label) => {
-    group.userData.projectId = id;
-    group.userData.label = label;
-    group.userData.basePosition = group.position.clone();
-    group.userData.floatPhase = Math.random() * Math.PI * 2;
-    group.userData.floatAmp = 0.08 + Math.random() * 0.05;
-    group.userData.spin = (Math.random() * 0.25 + 0.12) * (Math.random() > 0.5 ? 1 : -1);
-    tokens.push(group);
+  const crystalMaterial = new THREE.MeshPhysicalMaterial({
+    color: 0xcfddea,
+    roughness: 0.2,
+    metalness: 0.15,
+    transmission: 0.35,
+    thickness: 0.6,
+    clearcoat: 0.4,
+    clearcoatRoughness: 0.35
+  });
+  const crystalGeometry = new THREE.IcosahedronGeometry(0.22, 0);
+  const crystalCount = 38;
+  const crystals = new THREE.InstancedMesh(crystalGeometry, crystalMaterial, crystalCount);
+  const crystalData = [];
+  const dummy = new THREE.Object3D();
 
-    group.traverse((child) => {
-      if (child.isMesh && child.userData.pickable) {
-        registerPickable(child, id, label);
-      }
+  for (let i = 0; i < crystalCount; i += 1) {
+    const angle = (i / crystalCount) * Math.PI * 2;
+    const radius = 0.8 + Math.random() * 1.4;
+    const height = 0.2 + Math.random() * 1.1;
+    crystalData.push({
+      angle,
+      radius,
+      height,
+      speed: 0.3 + Math.random() * 0.4,
+      spin: Math.random() * 1.2
     });
+  }
 
-    scene.add(group);
-  };
+  scene.add(crystals);
 
-  const createVrToken = () => {
-    const group = new THREE.Group();
-    const visor = new THREE.Mesh(new THREE.BoxGeometry(1.4, 0.5, 0.6), palette.ink);
-    visor.userData.pickable = true;
-    const strap = new THREE.Mesh(new THREE.BoxGeometry(1.7, 0.18, 0.15), palette.cream);
-    strap.position.y = 0.2;
-    strap.position.z = -0.15;
-    group.add(visor, strap);
-    group.position.set(-1.5, 0.5, 0);
-    addToken(group, "vr4ll-2", "VR4LL 2.0");
-  };
+  const composer = new EffectComposer(renderer);
+  const renderPass = new RenderPass(scene, camera);
+  composer.addPass(renderPass);
+  const bloomPass = new UnrealBloomPass(new THREE.Vector2(1, 1), 0.35, 0.6, 0.9);
+  composer.addPass(bloomPass);
 
-  const createArToken = () => {
-    const group = new THREE.Group();
-    const node = new THREE.Mesh(new THREE.IcosahedronGeometry(0.45, 0), palette.sky);
-    node.userData.pickable = true;
-    const ring = new THREE.Mesh(new THREE.TorusGeometry(0.6, 0.08, 12, 24), palette.mint);
-    ring.rotation.x = Math.PI / 2.6;
-    group.add(node, ring);
-    group.position.set(0.6, 0.6, 0.5);
-    addToken(group, "arnet", "ARnet");
-  };
-
-  const createConceptToken = () => {
-    const group = new THREE.Group();
-    const slate = new THREE.Mesh(new THREE.BoxGeometry(1.1, 0.7, 0.12), palette.peach);
-    slate.userData.pickable = true;
-    const top = new THREE.Mesh(new THREE.BoxGeometry(1.1, 0.2, 0.16), palette.gold);
-    top.position.y = 0.45;
-    group.add(slate, top);
-    group.position.set(1.8, 0.55, -0.4);
-    addToken(group, "xr-concepts", "XR Concept Videos");
-  };
-
-  createVrToken();
-  createArToken();
-  createConceptToken();
-
-  const updatePointer = (event) => {
-    const rect = canvas.getBoundingClientRect();
-    pointer.x = ((event.clientX - rect.left) / rect.width) * 2 - 1;
-    pointer.y = -((event.clientY - rect.top) / rect.height) * 2 + 1;
-    parallax.targetX = pointer.x;
-    parallax.targetY = pointer.y;
-  };
-
-  const setHover = (mesh) => {
-    if (hoverState.object === mesh) return;
-
-    if (hoverState.object) {
-      const prev = hoverState.object;
-      prev.scale.copy(prev.userData.baseScale);
-      if (prev.material?.emissive) {
-        prev.material.emissive.setHex(0x000000);
-      }
-    }
-
-    if (mesh) {
-      mesh.scale.copy(mesh.userData.baseScale).multiplyScalar(1.08);
-      if (mesh.material?.emissive) {
-        mesh.material.emissive.setHex(0xf2b6a0);
-      }
-    }
-
-    hoverState.object = mesh;
-    canvas.style.cursor = mesh ? "pointer" : "default";
-  };
-
+  const parallax = { x: 0, y: 0, targetX: 0, targetY: 0 };
   const onPointerMove = (event) => {
-    if (!pickables.length) return;
-    updatePointer(event);
-    raycaster.setFromCamera(pointer, camera);
-    const hits = raycaster.intersectObjects(pickables, false);
-    setHover(hits.length ? hits[0].object : null);
+    const rect = canvas.getBoundingClientRect();
+    if (!rect.width || !rect.height) return;
+    const x = (event.clientX - rect.left) / rect.width;
+    const y = (event.clientY - rect.top) / rect.height;
+    parallax.targetX = (x - 0.5) * 2;
+    parallax.targetY = (y - 0.5) * 2;
   };
 
-  const onPointerDown = (event) => {
-    if (!pickables.length) return;
-    updatePointer(event);
-    raycaster.setFromCamera(pointer, camera);
-    const hits = raycaster.intersectObjects(pickables, false);
-    if (hits.length) {
-      const projectId = hits[0].object.userData.projectId;
-      if (projectId) {
-        window.dispatchEvent(new CustomEvent("featured:select", { detail: { id: projectId } }));
-      }
-    }
-  };
-
-  const onPointerLeave = () => {
-    setHover(null);
-    parallax.targetX = 0;
-    parallax.targetY = 0;
-  };
+  window.addEventListener("pointermove", onPointerMove, { passive: true });
 
   const resize = () => {
     const { width, height } = canvas.getBoundingClientRect();
     if (!width || !height) return;
     renderer.setSize(width, height, false);
+    composer.setSize(width, height);
     camera.aspect = width / height;
     camera.updateProjectionMatrix();
   };
 
   resize();
   window.addEventListener("resize", resize);
-  canvas.addEventListener("pointermove", onPointerMove);
-  canvas.addEventListener("pointerdown", onPointerDown);
-  canvas.addEventListener("pointerleave", onPointerLeave);
 
   const clock = new THREE.Clock();
   let rafId = null;
 
   const renderFrame = (time) => {
-    parallax.x += (parallax.targetX - parallax.x) * 0.08;
-    parallax.y += (parallax.targetY - parallax.y) * 0.08;
-    const parallaxX = parallax.x * 0.45 * motionFactor;
-    const parallaxY = parallax.y * 0.35 * motionFactor;
+    parallax.x += (parallax.targetX - parallax.x) * 0.05;
+    parallax.y += (parallax.targetY - parallax.y) * 0.05;
+    const px = parallax.x * 0.35 * motionFactor;
+    const py = parallax.y * 0.25 * motionFactor;
 
-    tokens.forEach((group) => {
-      const base = group.userData.basePosition;
-      group.position.y = base.y + Math.sin(time * 0.8 + group.userData.floatPhase) * group.userData.floatAmp * motionFactor + parallaxY * 0.12;
-      group.position.x = base.x + parallaxX * 0.12;
-      group.rotation.y = time * group.userData.spin * motionFactor + parallaxX * 0.18;
-      group.rotation.x = parallaxY * 0.12;
+    ring.rotation.y = time * 0.25 * motionFactor;
+    ring.rotation.z = time * 0.15 * motionFactor;
+
+    crystalData.forEach((item, index) => {
+      const bob = Math.sin(time * item.speed + item.angle) * 0.12 * motionFactor;
+      dummy.position.set(
+        Math.cos(item.angle + time * 0.15) * item.radius + px * 0.3,
+        item.height + bob + py * 0.2,
+        Math.sin(item.angle + time * 0.15) * item.radius * 0.6
+      );
+      dummy.rotation.set(time * item.spin, time * 0.2 + item.angle, time * 0.1);
+      const scale = 0.7 + Math.sin(time * 0.4 + item.angle) * 0.08;
+      dummy.scale.setScalar(scale);
+      dummy.updateMatrix();
+      crystals.setMatrixAt(index, dummy.matrix);
     });
+    crystals.instanceMatrix.needsUpdate = true;
 
-    camera.position.x = Math.sin(time * 0.12) * 0.25 * motionFactor + parallaxX * 0.5;
-    camera.position.y = 1.8 + Math.sin(time * 0.1) * 0.08 * motionFactor + parallaxY * 0.35;
-    camera.lookAt(parallaxX * 0.2, 0.45 + parallaxY * 0.15, 0);
+    camera.position.x = px * 0.8;
+    camera.position.y = 1.4 + py * 0.4;
+    camera.lookAt(px * 0.2, 0.4 + py * 0.15, 0);
 
-    if (tooltip) {
-      if (hoverState.object) {
-        hoverState.object.getWorldPosition(tempVec);
-        tempVec.y += 0.3;
-        tempVec.project(camera);
-        const rect = canvas.getBoundingClientRect();
-        const x = (tempVec.x * 0.5 + 0.5) * rect.width;
-        const y = (-tempVec.y * 0.5 + 0.5) * rect.height;
-        tooltip.textContent = hoverState.object.userData.label || "";
-        tooltip.style.left = `${x}px`;
-        tooltip.style.top = `${y}px`;
-        tooltip.style.opacity = "1";
-      } else {
-        tooltip.style.opacity = "0";
-      }
-    }
-
-    renderer.render(scene, camera);
+    composer.render();
   };
 
   const render = () => {
