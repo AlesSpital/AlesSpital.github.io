@@ -7,19 +7,22 @@
   const featuredSwiperRoot = document.querySelector("#featured-swiper");
   const categoryList = document.querySelector("#portfolio-flters");
   const summaryEl = document.querySelector("#portfolio-summary");
+  const loadMoreButton = document.querySelector("#portfolio-load-more");
 
   if (!projectList || !categoryList) {
     return;
   }
 
+  const PAGE_SIZE = 6;
+
   const state = {
-    category: "All"
+    category: "All",
+    visibleLimit: PAGE_SIZE
   };
 
   let projects = [];
   let drawerSwiper = null;
   let featuredSwiper = null;
-  let libraryCount = 0;
 
   const normalize = (value) => String(value || "").trim();
   const getAnchorId = (project) => `project-${project.id}`;
@@ -143,7 +146,6 @@
     projectList.innerHTML = "";
 
     const sortedProjects = sortProjects(projects);
-    libraryCount = sortedProjects.length;
     sortedProjects.forEach((project) => {
       const item = createProjectCard(project);
       projectList.appendChild(item);
@@ -197,29 +199,39 @@
     }
   };
 
-  const updateSummary = (visibleCount) => {
+  const updateSummary = (visibleCount, filteredCount) => {
     if (!summaryEl) return;
-    summaryEl.textContent = `Showing ${visibleCount} of ${libraryCount} projects`;
+    summaryEl.textContent = `Showing ${visibleCount} of ${filteredCount} projects`;
   };
 
   const applyFilters = () => {
-    const items = projectList.querySelectorAll("[data-project-id]");
+    const items = Array.from(projectList.querySelectorAll("[data-project-id]"));
+    const matching = items.filter((item) => state.category === "All" || item.dataset.category === state.category);
+    const filteredCount = matching.length;
     let visibleCount = 0;
 
     items.forEach((item) => {
-      const categoryMatch = state.category === "All" || item.dataset.category === state.category;
-      const show = categoryMatch;
+      item.classList.add("is-hidden");
+    });
+
+    matching.forEach((item, index) => {
+      const show = index < state.visibleLimit;
       item.classList.toggle("is-hidden", !show);
       if (show) {
         visibleCount += 1;
       }
     });
 
-    updateSummary(visibleCount);
+    updateSummary(visibleCount, filteredCount);
+
+    if (loadMoreButton) {
+      loadMoreButton.classList.toggle("is-hidden", visibleCount >= filteredCount);
+    }
   };
 
   const setCategory = (category) => {
     state.category = category;
+    state.visibleLimit = PAGE_SIZE;
     categoryList.querySelectorAll("li").forEach((item) => {
       item.classList.toggle("filter-active", item.dataset.value === category);
     });
@@ -310,6 +322,9 @@
         video.preload = "metadata";
         video.playsInline = true;
         video.muted = true;
+        if (project.id === "xr-concepts") {
+          video.autoplay = true;
+        }
         if (media.poster) {
           video.poster = media.poster;
         }
@@ -343,6 +358,25 @@
           prevEl: drawer.querySelector(".swiper-button-prev")
         }
       });
+    }
+
+    if (project.id === "xr-concepts") {
+      const videos = Array.from(swiperRoot.querySelectorAll("video"));
+      const playActiveVideo = () => {
+        videos.forEach((video) => video.pause());
+        const activeSlide = swiperRoot.querySelector(".swiper-slide-active");
+        const activeVideo = activeSlide ? activeSlide.querySelector("video") : null;
+        if (activeVideo) {
+          activeVideo.play().catch(() => {});
+        }
+      };
+
+      if (drawerSwiper) {
+        drawerSwiper.on("slideChange", playActiveVideo);
+        requestAnimationFrame(playActiveVideo);
+      } else {
+        playActiveVideo();
+      }
     }
 
     drawer.setAttribute("aria-hidden", "false");
@@ -405,6 +439,13 @@
         portfolioSection.scrollIntoView({ behavior: "smooth" });
       }
     });
+
+    if (loadMoreButton) {
+      loadMoreButton.addEventListener("click", () => {
+        state.visibleLimit += PAGE_SIZE;
+        applyFilters();
+      });
+    }
 
   };
 
