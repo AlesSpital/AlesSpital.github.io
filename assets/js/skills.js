@@ -18,7 +18,7 @@ var skills = [
 	"EJS",
 	"Ionic",
 	"Git",
-	"AR/VR/XR",
+	"XR",
 	"AR Foundation",
 	"ARCore",
 	"ARKit",

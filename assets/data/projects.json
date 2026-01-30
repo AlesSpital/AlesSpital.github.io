@@ -2,13 +2,13 @@
   {
     "id": "arnet",
     "title": "ARnet",
-    "category": "AR/VR",
-    "platforms": ["Android", "AR"],
+    "category": "XR",
+    "platforms": ["Android", "XR"],
     "thumbnail": "assets/img/portfolio/arnet.jpg",
-    "summary": "Master's thesis AR app that lets learners build and simulate computer networks (topologies, device roles, TCP/IP, routing) in augmented reality, improving average grades by ~20%. (Slovenian only.)",
+    "summary": "Master's thesis AR app that lets learners build and simulate computer networks (topologies, device roles, TCP/IP, routing) in augmented reality, improving average grades by ~20%.",
     "role": "AR app developer",
     "tools": ["Unity", "C#", "AR Foundation", "ARCore", "ARKit"],
-    "tags": ["AR", "Education", "Networking", "Unity", "C#", "Thesis"],
+    "tags": ["Education"],
     "links": [
       {"label": "Google Play", "url": "https://play.google.com/store/apps/details?id=com.CriticalGlitch.ARnet"}
     ],
@@ -23,13 +23,15 @@
   {
     "id": "ar-tourist-guide",
     "title": "AR Tourist Guide",
-    "category": "AR/VR",
-    "platforms": ["Android", "AR"],
+    "category": "XR",
+    "platforms": ["Android", "XR"],
     "thumbnail": "assets/img/portfolio/artouristguide.png",
     "summary": "Unity AR app for the Municipality of Sostanj that reconstructs the submerged village of Druzmirje, enriching local tourism and heritage for 1,000+ visitors annually. (Slovenian only.)",
+    "status": "Deprecated",
+    "statusType": "deprecated",
     "role": "Research, 3D reconstruction, app development",
     "tools": ["Unity", "C#", "3D Modeling"],
-    "tags": ["AR", "Heritage", "Tourism", "Unity", "Research"],
+    "tags": ["Heritage"],
     "links": [
       {"label": "Thesis", "url": "https://dk.um.si/Dokument.php?id=145960"}
     ],
@@ -42,13 +44,13 @@
   {
     "id": "vr4ll-2",
     "title": "VR4LL 2.0",
-    "category": "AR/VR",
+    "category": "XR",
     "platforms": ["VR"],
     "thumbnail": "assets/img/portfolio/portfolio-4.jpg",
     "summary": "Co-developed an EU-funded Unity VR platform for language learning with immersive classrooms and multiplayer practice.",
     "role": "Unity developer (multiplayer interactions)",
     "tools": ["Unity", "C#"],
-    "tags": ["VR", "Education", "Multiplayer", "EU-funded", "Freelance"],
+    "tags": ["Education", "Freelance"],
     "media": [
       {"type": "image", "src": "assets/img/portfolio/portfolio-4.jpg", "alt": "VR4LL 2.0 environment"},
       {"type": "video", "src": "assets/img/portfolio/vid1.mp4", "poster": "assets/img/portfolio/portfolio-4.jpg"},
@@ -56,6 +58,24 @@
     ],
     "featured": true,
     "priority": 1
+  },
+  {
+    "id": "xr-concepts",
+    "title": "XR Concept Videos",
+    "category": "XR",
+    "platforms": ["XR"],
+    "thumbnail": "assets/img/portfolio/portfolio-7.jpg",
+    "summary": "Short XR concept videos exploring cozy interactions, spatial UI, and playful simulation ideas.",
+    "role": "Concepting + prototyping",
+    "tools": ["Unity", "Blender", "Premiere Pro"],
+    "tags": ["Motion"],
+    "media": [
+      {"type": "image", "src": "assets/img/portfolio/portfolio-7.jpg", "alt": "XR concept visuals"},
+      {"type": "video", "src": "assets/img/portfolio/vid1.mp4", "poster": "assets/img/portfolio/portfolio-7.jpg"},
+      {"type": "video", "src": "assets/img/portfolio/vid2.mp4", "poster": "assets/img/portfolio/portfolio-7.jpg"}
+    ],
+    "featured": true,
+    "priority": 3
   },
   {
     "id": "echoes-of-etra",
@@ -68,7 +88,7 @@
     "statusType": "archived",
     "role": "Gameplay + UI development",
     "tools": ["Unity", "C#", "Blender"],
-    "tags": ["PC", "RPG", "Unity", "Archived", "Playable"],
+    "tags": ["Playable"],
     "links": [
       {"label": "Trailer", "url": "https://youtu.be/byq_hVzCsZA?si=p9StZG92jRCq2R1Q"},
       {"label": "Demo", "url": "https://drive.google.com/file/d/1NezLAz30O-LDiyqCaF3XH9QalngPJ1uI/view?usp=sharing"}
@@ -91,7 +111,7 @@
     "statusType": "deprecated",
     "role": "Gameplay, UI, release",
     "tools": ["Unity", "C#"],
-    "tags": ["Mobile", "Action", "Unity", "Deprecated"],
+    "tags": [],
     "links": [
       {"label": "Google Play", "url": "https://play.google.com/store/apps/details?id=com.CriticalGlitch.TheArena"}
     ],
@@ -111,7 +131,7 @@
     "statusType": "deprecated",
     "role": "Gameplay + polish",
     "tools": ["Unity", "C#"],
-    "tags": ["Mobile", "Casual", "Unity", "Deprecated"],
+    "tags": [],
     "links": [
       {"label": "Google Play", "url": "https://play.google.com/store/apps/details?id=com.CriticalGlitch.Void"}
     ],
@@ -131,7 +151,7 @@
     "statusType": "deprecated",
     "role": "Gameplay + release",
     "tools": ["Unity", "C#"],
-    "tags": ["Mobile", "Arcade", "Unity", "Deprecated"],
+    "tags": [],
     "links": [
       {"label": "Google Play", "url": "https://play.google.com/store/apps/details?id=com.CriticalGlitch.SpezShooter"}
     ],
@@ -149,7 +169,7 @@
     "summary": "Curated 3D renders, promotional graphics, and stylized visuals across 2D/3D pipelines.",
     "role": "3D + compositing",
     "tools": ["Cinema4D", "Photoshop", "Blender"],
-    "tags": ["3D", "Photoshop", "C4D", "Blender"],
+    "tags": ["3D"],
     "links": [
       {"label": "Instagram", "url": "https://www.instagram.com/alesspital/"}
     ],
@@ -171,7 +191,7 @@
     "summary": "Motion experiments and promo edits with CGI accents, focused on rhythm and mood.",
     "role": "Motion + editing",
     "tools": ["Premiere Pro", "After Effects", "Blender"],
-    "tags": ["Video", "Editing", "Motion"],
+    "tags": ["Motion", "Editing"],
     "links": [
       {"label": "Instagram", "url": "https://www.instagram.com/alesspital/"}
     ],

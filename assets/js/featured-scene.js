@@ -1,10 +1,10 @@
 import * as THREE from "https://cdn.jsdelivr.net/npm/three@0.161.0/build/three.module.js";
 
 (() => {
-  const canvas = document.getElementById("hero-canvas");
+  const canvas = document.getElementById("featured-canvas");
   if (!canvas) return;
 
-  const tooltip = document.getElementById("hero-tooltip");
+  const tooltip = document.getElementById("featured-tooltip");
   const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const motionFactor = prefersReducedMotion ? 0 : 1;
 
@@ -18,7 +18,7 @@ import * as THREE from "https://cdn.jsdelivr.net/npm/three@0.161.0/build/three.m
   renderer.setClearColor(0x000000, 0);
 
   const camera = new THREE.PerspectiveCamera(45, 1, 0.1, 50);
-  camera.position.set(0, 2.2, 6.2);
+  camera.position.set(0, 1.8, 6);
 
   const ambient = new THREE.AmbientLight(0xffffff, 0.85);
   const sun = new THREE.DirectionalLight(0xffffff, 0.7);
@@ -37,15 +37,16 @@ import * as THREE from "https://cdn.jsdelivr.net/npm/three@0.161.0/build/three.m
   };
 
   const pickables = [];
-  const hoverState = { object: null };
   const tokens = [];
+  const hoverState = { object: null };
+  const pointer = new THREE.Vector2();
+  const raycaster = new THREE.Raycaster();
   const tempVec = new THREE.Vector3();
   const parallax = { x: 0, y: 0, targetX: 0, targetY: 0 };
-  const parallaxStrength = prefersReducedMotion ? 0 : 1;
 
-  const registerPickable = (mesh, label, category) => {
+  const registerPickable = (mesh, id, label) => {
+    mesh.userData.projectId = id;
     mesh.userData.label = label;
-    mesh.userData.category = category;
     mesh.userData.baseScale = mesh.scale.clone();
     if (mesh.material && mesh.material.isMeshStandardMaterial) {
       mesh.material = mesh.material.clone();
@@ -54,106 +55,61 @@ import * as THREE from "https://cdn.jsdelivr.net/npm/three@0.161.0/build/three.m
     pickables.push(mesh);
   };
 
-  const addToken = (group, label, category) => {
+  const addToken = (group, id, label) => {
+    group.userData.projectId = id;
     group.userData.label = label;
-    group.userData.category = category;
     group.userData.basePosition = group.position.clone();
     group.userData.floatPhase = Math.random() * Math.PI * 2;
-    group.userData.floatAmp = 0.08 + Math.random() * 0.06;
-    group.userData.spin = (Math.random() * 0.3 + 0.15) * (Math.random() > 0.5 ? 1 : -1);
+    group.userData.floatAmp = 0.08 + Math.random() * 0.05;
+    group.userData.spin = (Math.random() * 0.25 + 0.12) * (Math.random() > 0.5 ? 1 : -1);
     tokens.push(group);
 
     group.traverse((child) => {
       if (child.isMesh && child.userData.pickable) {
-        registerPickable(child, label, category);
+        registerPickable(child, id, label);
       }
     });
 
     scene.add(group);
   };
 
-  const createMonitorToken = () => {
+  const createVrToken = () => {
     const group = new THREE.Group();
-    const frame = new THREE.Mesh(new THREE.BoxGeometry(1.4, 0.9, 0.2), palette.ink);
-    frame.userData.pickable = true;
-    const screen = new THREE.Mesh(new THREE.BoxGeometry(1.2, 0.7, 0.05), palette.sky);
-    screen.position.z = 0.12;
-    const base = new THREE.Mesh(new THREE.BoxGeometry(0.5, 0.1, 0.4), palette.ink);
-    base.position.y = -0.55;
-    group.add(frame, screen, base);
-    group.position.set(-1.6, 0.6, 0);
-    addToken(group, "PC Games", "PC Games");
+    const visor = new THREE.Mesh(new THREE.BoxGeometry(1.4, 0.5, 0.6), palette.ink);
+    visor.userData.pickable = true;
+    const strap = new THREE.Mesh(new THREE.BoxGeometry(1.7, 0.18, 0.15), palette.cream);
+    strap.position.y = 0.2;
+    strap.position.z = -0.15;
+    group.add(visor, strap);
+    group.position.set(-1.5, 0.5, 0);
+    addToken(group, "vr4ll-2", "VR4LL 2.0");
   };
 
-  const createHandheldToken = () => {
+  const createArToken = () => {
     const group = new THREE.Group();
-    const body = new THREE.Mesh(new THREE.BoxGeometry(1.2, 0.5, 0.35), palette.mint);
-    body.userData.pickable = true;
-    const screen = new THREE.Mesh(new THREE.BoxGeometry(0.6, 0.25, 0.05), palette.sky);
-    screen.position.z = 0.2;
-    group.add(body, screen);
-    group.position.set(1.5, 0.25, 0.3);
-    addToken(group, "Mobile Games", "Mobile Games");
+    const node = new THREE.Mesh(new THREE.IcosahedronGeometry(0.45, 0), palette.sky);
+    node.userData.pickable = true;
+    const ring = new THREE.Mesh(new THREE.TorusGeometry(0.6, 0.08, 12, 24), palette.mint);
+    ring.rotation.x = Math.PI / 2.6;
+    group.add(node, ring);
+    group.position.set(0.6, 0.6, 0.5);
+    addToken(group, "arnet", "ARnet");
   };
 
-  const createPhoneToken = () => {
+  const createConceptToken = () => {
     const group = new THREE.Group();
-    const phone = new THREE.Mesh(new THREE.BoxGeometry(0.6, 0.12, 1.1), palette.ink);
-    phone.userData.pickable = true;
-    const screen = new THREE.Mesh(new THREE.BoxGeometry(0.52, 0.03, 0.9), palette.sky);
-    screen.position.y = 0.08;
-    const beam = new THREE.Mesh(
-      new THREE.ConeGeometry(0.7, 1.4, 18, 1, true),
-      new THREE.MeshStandardMaterial({
-        color: 0x9cf5ff,
-        transparent: true,
-        opacity: 0.28,
-        roughness: 0.4,
-        metalness: 0.1
-      })
-    );
-    beam.position.y = 0.9;
-    const holo = new THREE.Mesh(new THREE.IcosahedronGeometry(0.22, 0), palette.sky);
-    holo.position.y = 1.1;
-    holo.userData.holo = true;
-
-    group.add(phone, screen, beam, holo);
-    group.position.set(0, 0.2, -0.4);
-    group.userData.beam = beam;
-    group.userData.holo = holo;
-    addToken(group, "Pocket XR", "XR");
+    const slate = new THREE.Mesh(new THREE.BoxGeometry(1.1, 0.7, 0.12), palette.peach);
+    slate.userData.pickable = true;
+    const top = new THREE.Mesh(new THREE.BoxGeometry(1.1, 0.2, 0.16), palette.gold);
+    top.position.y = 0.45;
+    group.add(slate, top);
+    group.position.set(1.8, 0.55, -0.4);
+    addToken(group, "xr-concepts", "XR Concept Videos");
   };
 
-  const createArtToken = () => {
-    const group = new THREE.Group();
-    const orb = new THREE.Mesh(new THREE.DodecahedronGeometry(0.45, 0), palette.peach);
-    orb.userData.pickable = true;
-    const ring = new THREE.Mesh(new THREE.TorusGeometry(0.55, 0.08, 12, 24), palette.cream);
-    ring.rotation.x = Math.PI / 2.4;
-    group.add(orb, ring);
-    group.position.set(0.6, 0.5, 0.9);
-    addToken(group, "Digital Art", "Digital Art");
-  };
-
-  const createMotionToken = () => {
-    const group = new THREE.Group();
-    const clap = new THREE.Mesh(new THREE.BoxGeometry(1.0, 0.6, 0.15), palette.ink);
-    clap.userData.pickable = true;
-    const top = new THREE.Mesh(new THREE.BoxGeometry(1.0, 0.18, 0.18), palette.gold);
-    top.position.y = 0.4;
-    group.add(clap, top);
-    group.position.set(2.0, 0.7, -0.6);
-    addToken(group, "Motion/Editing", "Motion/Editing");
-  };
-
-  createMonitorToken();
-  createHandheldToken();
-  createPhoneToken();
-  createArtToken();
-  createMotionToken();
-
-  const raycaster = new THREE.Raycaster();
-  const pointer = new THREE.Vector2();
+  createVrToken();
+  createArToken();
+  createConceptToken();
 
   const updatePointer = (event) => {
     const rect = canvas.getBoundingClientRect();
@@ -191,9 +147,6 @@ import * as THREE from "https://cdn.jsdelivr.net/npm/three@0.161.0/build/three.m
     raycaster.setFromCamera(pointer, camera);
     const hits = raycaster.intersectObjects(pickables, false);
     setHover(hits.length ? hits[0].object : null);
-    if (prefersReducedMotion) {
-      renderStatic();
-    }
   };
 
   const onPointerDown = (event) => {
@@ -202,13 +155,10 @@ import * as THREE from "https://cdn.jsdelivr.net/npm/three@0.161.0/build/three.m
     raycaster.setFromCamera(pointer, camera);
     const hits = raycaster.intersectObjects(pickables, false);
     if (hits.length) {
-      const category = hits[0].object.userData.category;
-      if (category) {
-        window.dispatchEvent(new CustomEvent("portfolio:filter", { detail: { category } }));
+      const projectId = hits[0].object.userData.projectId;
+      if (projectId) {
+        window.dispatchEvent(new CustomEvent("featured:select", { detail: { id: projectId } }));
       }
-    }
-    if (prefersReducedMotion) {
-      renderStatic();
     }
   };
 
@@ -216,20 +166,7 @@ import * as THREE from "https://cdn.jsdelivr.net/npm/three@0.161.0/build/three.m
     setHover(null);
     parallax.targetX = 0;
     parallax.targetY = 0;
-    if (prefersReducedMotion) {
-      renderStatic();
-    }
   };
-
-  const hotspotButtons = document.querySelectorAll(".hero-hotspots button");
-  hotspotButtons.forEach((button) => {
-    button.addEventListener("click", () => {
-      const category = button.dataset.category;
-      if (category) {
-        window.dispatchEvent(new CustomEvent("portfolio:filter", { detail: { category } }));
-      }
-    });
-  });
 
   const resize = () => {
     const { width, height } = canvas.getBoundingClientRect();
@@ -245,39 +182,31 @@ import * as THREE from "https://cdn.jsdelivr.net/npm/three@0.161.0/build/three.m
   canvas.addEventListener("pointerdown", onPointerDown);
   canvas.addEventListener("pointerleave", onPointerLeave);
 
-  let rafId = null;
   const clock = new THREE.Clock();
+  let rafId = null;
 
   const renderFrame = (time) => {
     parallax.x += (parallax.targetX - parallax.x) * 0.08;
     parallax.y += (parallax.targetY - parallax.y) * 0.08;
-    const parallaxX = parallax.x * 0.45 * parallaxStrength;
-    const parallaxY = parallax.y * 0.35 * parallaxStrength;
+    const parallaxX = parallax.x * 0.45 * motionFactor;
+    const parallaxY = parallax.y * 0.35 * motionFactor;
 
     tokens.forEach((group) => {
       const base = group.userData.basePosition;
-      group.position.y = base.y + Math.sin(time * 0.8 + group.userData.floatPhase) * group.userData.floatAmp * motionFactor + parallaxY * 0.15;
+      group.position.y = base.y + Math.sin(time * 0.8 + group.userData.floatPhase) * group.userData.floatAmp * motionFactor + parallaxY * 0.12;
       group.position.x = base.x + parallaxX * 0.12;
       group.rotation.y = time * group.userData.spin * motionFactor + parallaxX * 0.18;
       group.rotation.x = parallaxY * 0.12;
-
-      if (group.userData.beam) {
-        group.userData.beam.material.opacity = 0.24 + Math.sin(time * 1.4) * 0.05 * motionFactor;
-      }
-      if (group.userData.holo) {
-        group.userData.holo.rotation.y = time * 0.6 * motionFactor;
-        group.userData.holo.position.y = 1.05 + Math.sin(time * 1.6) * 0.08 * motionFactor;
-      }
     });
 
-    camera.position.x = Math.sin(time * 0.15) * 0.4 * motionFactor + parallaxX * 0.6;
-    camera.position.y = 2.2 + Math.sin(time * 0.12) * 0.1 * motionFactor + parallaxY * 0.4;
-    camera.lookAt(parallaxX * 0.25, 0.5 + parallaxY * 0.18, 0);
+    camera.position.x = Math.sin(time * 0.12) * 0.25 * motionFactor + parallaxX * 0.5;
+    camera.position.y = 1.8 + Math.sin(time * 0.1) * 0.08 * motionFactor + parallaxY * 0.35;
+    camera.lookAt(parallaxX * 0.2, 0.45 + parallaxY * 0.15, 0);
 
     if (tooltip) {
       if (hoverState.object) {
         hoverState.object.getWorldPosition(tempVec);
-        tempVec.y += 0.35;
+        tempVec.y += 0.3;
         tempVec.project(camera);
         const rect = canvas.getBoundingClientRect();
         const x = (tempVec.x * 0.5 + 0.5) * rect.width;
@@ -300,13 +229,9 @@ import * as THREE from "https://cdn.jsdelivr.net/npm/three@0.161.0/build/three.m
     rafId = requestAnimationFrame(render);
   };
 
-  const renderStatic = () => {
-    renderFrame(0);
-  };
-
   const start = () => {
     if (prefersReducedMotion) {
-      renderStatic();
+      renderFrame(0);
       return;
     }
     if (!rafId) {

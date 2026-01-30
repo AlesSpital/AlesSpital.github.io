@@ -4,7 +4,7 @@
   const portfolioSection = document.querySelector("#portfolio");
   const projectList = document.querySelector("#project-list");
   const featuredList = document.querySelector("#featured-projects");
-  const featuredBlock = document.querySelector(".featured-block");
+  const featuredSwiperRoot = document.querySelector("#featured-swiper");
   const categoryList = document.querySelector("#portfolio-flters");
   const tagList = document.querySelector("#portfolio-tags");
   const summaryEl = document.querySelector("#portfolio-summary");
@@ -20,6 +20,8 @@
 
   let projects = [];
   let drawerSwiper = null;
+  let featuredSwiper = null;
+  let libraryCount = 0;
 
   const normalize = (value) => String(value || "").trim();
   const getAnchorId = (project) => `project-${project.id}`;
@@ -64,7 +66,7 @@
 
   const createProjectCard = (project, { compact = false } = {}) => {
     const item = document.createElement("div");
-    item.className = compact ? "featured-item" : "col-lg-4 col-md-6 portfolio-item";
+    item.className = compact ? "featured-item swiper-slide" : "col-lg-4 col-md-6 portfolio-item";
 
     item.dataset.projectId = project.id;
     item.dataset.category = project.category;
@@ -167,6 +169,7 @@
     projectList.innerHTML = "";
 
     const sortedProjects = sortProjects(projects.filter((project) => !project.featured));
+    libraryCount = sortedProjects.length;
     sortedProjects.forEach((project) => {
       const item = createProjectCard(project);
       projectList.appendChild(item);
@@ -185,44 +188,55 @@
       const item = createProjectCard(project, { compact: true });
       featuredList.appendChild(item);
     });
+
+    if (featuredSwiper) {
+      featuredSwiper.destroy(true, true);
+      featuredSwiper = null;
+    }
+
+    if (typeof Swiper !== "undefined" && featuredSwiperRoot) {
+      featuredSwiper = new Swiper(featuredSwiperRoot, {
+        speed: 700,
+        loop: featuredProjects.length > 1,
+        slidesPerView: 1,
+        spaceBetween: 18,
+        autoplay: {
+          delay: 5500,
+          disableOnInteraction: false,
+          pauseOnMouseEnter: true
+        },
+        grabCursor: true,
+        pagination: {
+          el: featuredSwiperRoot.querySelector(".swiper-pagination"),
+          clickable: true
+        },
+        navigation: {
+          nextEl: featuredSwiperRoot.querySelector(".swiper-button-next"),
+          prevEl: featuredSwiperRoot.querySelector(".swiper-button-prev")
+        }
+      });
+    }
   };
 
   const updateSummary = (visibleCount) => {
     if (!summaryEl) return;
-    summaryEl.textContent = `Showing ${visibleCount} of ${projects.length} projects`;
+    summaryEl.textContent = `Showing ${visibleCount} of ${libraryCount} projects`;
   };
 
   const applyFilters = () => {
     const items = projectList.querySelectorAll("[data-project-id]");
-    const featuredItems = featuredList ? featuredList.querySelectorAll("[data-project-id]") : [];
     let visibleCount = 0;
-    let featuredVisible = 0;
 
-    const applyToItem = (item) => {
+    items.forEach((item) => {
       const categoryMatch = state.category === "All" || item.dataset.category === state.category;
       const tags = (item.dataset.tags || "").split("|").filter(Boolean);
       const tagMatch = state.tags.size === 0 || tags.some((tag) => state.tags.has(tag));
       const show = categoryMatch && tagMatch;
       item.classList.toggle("is-hidden", !show);
-      return show;
-    };
-
-    items.forEach((item) => {
-      if (applyToItem(item)) {
+      if (show) {
         visibleCount += 1;
       }
     });
-
-    featuredItems.forEach((item) => {
-      if (applyToItem(item)) {
-        visibleCount += 1;
-        featuredVisible += 1;
-      }
-    });
-
-    if (featuredBlock) {
-      featuredBlock.classList.toggle("is-hidden", featuredItems.length > 0 && featuredVisible === 0);
-    }
 
     updateSummary(visibleCount);
   };
@@ -432,6 +446,15 @@
       setCategory(event.detail.category);
       if (portfolioSection) {
         portfolioSection.scrollIntoView({ behavior: "smooth" });
+      }
+    });
+
+    window.addEventListener("featured:select", (event) => {
+      if (!event.detail || !event.detail.id || !featuredSwiper || !featuredList) return;
+      const slides = Array.from(featuredList.querySelectorAll(".swiper-slide"));
+      const index = slides.findIndex((slide) => slide.dataset.projectId === event.detail.id);
+      if (index >= 0 && typeof featuredSwiper.slideToLoop === "function") {
+        featuredSwiper.slideToLoop(index);
       }
     });
   };
