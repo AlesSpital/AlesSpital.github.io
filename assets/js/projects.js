@@ -171,8 +171,9 @@
     if (typeof Swiper !== "undefined" && featuredSwiperRoot) {
       featuredSwiper = new Swiper(featuredSwiperRoot, {
         speed: 700,
-        loop: featuredProjects.length > 1,
-        slidesPerView: 1,
+        loop: featuredProjects.length > 2,
+        slidesPerView: 2,
+        slidesPerGroup: 1,
         spaceBetween: 18,
         autoplay: {
           delay: 5500,
@@ -180,6 +181,10 @@
           pauseOnMouseEnter: true
         },
         grabCursor: true,
+        breakpoints: {
+          0: { slidesPerView: 1, slidesPerGroup: 1 },
+          768: { slidesPerView: 2, slidesPerGroup: 1 }
+        },
         pagination: {
           el: featuredSwiperRoot.querySelector(".swiper-pagination"),
           clickable: true
