@@ -142,7 +142,7 @@
   const renderProjects = () => {
     projectList.innerHTML = "";
 
-    const sortedProjects = sortProjects(projects.filter((project) => !project.featured));
+    const sortedProjects = sortProjects(projects);
     libraryCount = sortedProjects.length;
     sortedProjects.forEach((project) => {
       const item = createProjectCard(project);
