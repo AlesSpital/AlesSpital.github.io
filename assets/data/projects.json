@@ -13,7 +13,7 @@
       {"label": "Google Play", "url": "https://play.google.com/store/apps/details?id=com.CriticalGlitch.ARnet"}
     ],
     "media": [
-      {"type": "image", "src": "assets/img/ARnet/thumbnail.png", "alt": "VR4LL 2.0 experience"}
+      {"type": "image", "src": "assets/img/ARnet/thumbnail.png", "alt": "VR4LL 2.0 experience"},
       {"type": "image", "src": "assets/img/ARnet/1.webp", "alt": "ARnet interface"},
       {"type": "image", "src": "assets/img/ARnet/2.webp", "alt": "ARnet AR visualization"},
       {"type": "image", "src": "assets/img/ARnet/3.webp", "alt": "ARnet topology view"},
