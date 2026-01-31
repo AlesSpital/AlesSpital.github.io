@@ -2,7 +2,7 @@
   {
     "id": "arnet",
     "title": "ARnet",
-    "category": ["XR", "Motion/Editing"],
+    "category": "XR",
     "platforms": [
       "Android",
       "XR"
@@ -146,7 +146,7 @@
   {
     "id": "xr-concepts",
     "title": "XR Concept Videos",
-    "category": "XR",
+    "category": ["XR", "Motion/Editing"],
     "platforms": [
       "XR"
     ],

@@ -414,6 +414,10 @@
     drawer.querySelectorAll("video").forEach((video) => {
       video.pause();
     });
+
+    if (window.location.hash.startsWith("#project-")) {
+      window.history.replaceState(null, "", window.location.pathname + window.location.search);
+    }
   };
 
   const handleHash = () => {

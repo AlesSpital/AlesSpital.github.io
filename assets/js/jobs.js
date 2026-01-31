@@ -57,8 +57,8 @@ var jobs = [
 //alert(jobs[0].Desc[0]);
 const jobItems = document.getElementById("job-items") || document.getElementById("job-list");
 if (!jobItems) {
-  return;
-}
+  // No target container on this page.
+} else {
 
 const VISIBLE_LIMIT = 3;
 let renderedCount = 0;
@@ -94,4 +94,5 @@ if (moreButton) {
       moreButton.classList.add("is-hidden");
     });
   }
+}
 }

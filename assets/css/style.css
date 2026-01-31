@@ -1531,10 +1531,12 @@ section {
   top: 16px;
   padding: 6px 12px;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.9);
+  background: rgba(249, 169, 70, 0.95);
   font-size: 12px;
   font-weight: 700;
-  color: #1a1c23;
+  color: #2a1a08;
+  border: 1px solid rgba(125, 75, 13, 0.25);
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.45);
 }
 
 .portfolio-badge.status {
