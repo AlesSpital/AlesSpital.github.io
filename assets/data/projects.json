@@ -2,7 +2,7 @@
   {
     "id": "arnet",
     "title": "ARnet",
-    "category": "XR",
+    "category": ["XR", "Motion/Editing"],
     "platforms": [
       "Android",
       "XR"

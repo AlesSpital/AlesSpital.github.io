@@ -55,6 +55,14 @@ var jobs = [
 	]
 }];
 //alert(jobs[0].Desc[0]);
+const jobItems = document.getElementById("job-items") || document.getElementById("job-list");
+if (!jobItems) {
+  return;
+}
+
+const VISIBLE_LIMIT = 3;
+let renderedCount = 0;
+
 for(let i = 0; i < jobs.length; i++ ){
 	let content = '<div class="resume-item tilt-card">';
     content += '<h4>'+jobs[i].Title+'</h4>';
@@ -66,5 +74,24 @@ for(let i = 0; i < jobs.length; i++ ){
     }
     content += '</ul>';
     content += '</div>';
-    $("#job-list").append(content);
+    renderedCount += 1;
+    const $content = $(content);
+    if (renderedCount > VISIBLE_LIMIT) {
+      $content.addClass("is-hidden");
+    }
+    $(jobItems).append($content);
+}
+
+const moreButton = document.getElementById("experience-more");
+if (moreButton) {
+  if (jobs.length <= VISIBLE_LIMIT) {
+    moreButton.classList.add("is-hidden");
+  } else {
+    moreButton.addEventListener("click", () => {
+      jobItems.querySelectorAll(".resume-item.is-hidden").forEach((item) => {
+        item.classList.remove("is-hidden");
+      });
+      moreButton.classList.add("is-hidden");
+    });
+  }
 }

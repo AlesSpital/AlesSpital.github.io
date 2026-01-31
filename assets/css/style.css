@@ -1478,6 +1478,16 @@ section {
   display: none;
 }
 
+.experience-more {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 8px;
+}
+
+.is-hidden {
+  display: none !important;
+}
+
 .portfolio-card {
   background: #fff;
   border-radius: 18px;

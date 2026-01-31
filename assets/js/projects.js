@@ -42,7 +42,9 @@
   };
 
   const buildFilters = () => {
-    const categories = uniqueSorted(projects.map((project) => project.category));
+    const categories = uniqueSorted(projects.flatMap((project) => (
+      Array.isArray(project.category) ? project.category : [project.category]
+    )));
     categoryList.innerHTML = "";
     ["All", ...categories].forEach((category) => {
       const item = document.createElement("li");
@@ -58,7 +60,8 @@
     item.className = compact ? "featured-item swiper-slide" : "col-lg-4 col-md-6 portfolio-item";
 
     item.dataset.projectId = project.id;
-    item.dataset.category = project.category;
+    const categoryValues = Array.isArray(project.category) ? project.category : [project.category];
+    item.dataset.category = categoryValues.join("|");
     item.dataset.tags = (project.tags || []).join("|");
     item.dataset.featured = project.featured ? "true" : "false";
 
@@ -80,7 +83,7 @@
 
     const categoryBadge = document.createElement("span");
     categoryBadge.className = "portfolio-badge";
-    categoryBadge.textContent = project.category;
+    categoryBadge.textContent = categoryValues.join(" • ");
     media.appendChild(categoryBadge);
 
     if (project.status) {
@@ -206,7 +209,10 @@
 
   const applyFilters = () => {
     const items = Array.from(projectList.querySelectorAll("[data-project-id]"));
-    const matching = items.filter((item) => state.category === "All" || item.dataset.category === state.category);
+    const matching = items.filter((item) => {
+      const categories = (item.dataset.category || "").split("|");
+      return state.category === "All" || categories.includes(state.category);
+    });
     const filteredCount = matching.length;
     let visibleCount = 0;
 
