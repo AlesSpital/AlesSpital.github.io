@@ -259,6 +259,21 @@
     drawer.querySelector("#drawer-title").textContent = project.title;
     drawer.querySelector("#drawer-summary").textContent = project.summary;
 
+    const detailsEl = drawer.querySelector("#drawer-details");
+    if (detailsEl) {
+      detailsEl.innerHTML = "";
+      if (project.details && project.details.length) {
+        const list = document.createElement("ul");
+        list.className = "drawer-list";
+        project.details.forEach((detail) => {
+          const item = document.createElement("li");
+          item.textContent = detail;
+          list.appendChild(item);
+        });
+        detailsEl.appendChild(list);
+      }
+    }
+
     const metaEl = drawer.querySelector("#drawer-meta");
     metaEl.innerHTML = "";
     if (project.status) {
