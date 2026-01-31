@@ -190,11 +190,29 @@
     "priority": 5
   },
   {
+    "id": "kinetic-rush",
+    "title": "Kinetic Rush - 3D Community Challenge",
+    "category": "Motion/Editing",
+    "platforms": ["DaVinci Resolve"],
+    "thumbnail": "assets/img/portfolio/pot.GIF",
+    "summary": "PArticipation in Kinetic Rush - 3D Community Challenge (2024).",
+    "role": "Motion + editing",
+    "tools": ["DaVinci Resolve", "Cinema 4D"],
+    "tags": ["Motion", "Editing", "Challange"],
+    "links": [
+      {"label": "Instagram", "url": "https://www.instagram.com/alesspital/"}
+    ],
+    "media": [
+      {"type": "image", "src": "assets/img/portfolio/pot.GIF", "alt": "Motion loop"}
+    ],
+    "featured": false
+  },
+  {
     "id": "motion-reel",
     "title": "Motion & Editing Reel",
     "category": "Motion/Editing",
     "platforms": ["DaVinci Resolve"],
-    "thumbnail": "assets/img/portfolio/pot.GIF",
+    "thumbnail": "assets/img/portfolio/vid2.mp4",
     "summary": "Motion experiments and promo edits with CGI accents, focused on rhythm and mood.",
     "role": "Motion + editing",
     "tools": ["DaVinci Resolve", "Cinema 4D"],
@@ -203,8 +221,7 @@
       {"label": "Instagram", "url": "https://www.instagram.com/alesspital/"}
     ],
     "media": [
-      {"type": "image", "src": "assets/img/portfolio/pot.GIF", "alt": "Motion loop"},
-      {"type": "video", "src": "assets/img/portfolio/vid2.mp4", "poster": "assets/img/portfolio/pot_img.jpg"}
+      {"type": "video", "src": "assets/img/portfolio/vid2.mp4"}
     ],
     "featured": false
   }
