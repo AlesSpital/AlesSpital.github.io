@@ -355,7 +355,14 @@
         if (media.poster) {
           video.poster = media.poster;
         }
-        video.addEventListener("loadedmetadata", updateDrawerHeight);
+        video.addEventListener("loadedmetadata", () => {
+          const ratio = video.videoWidth / video.videoHeight;
+          slide.style.setProperty("--media-ratio", ratio.toFixed(4));
+          const isPortrait = ratio < 1;
+          slide.classList.toggle("is-portrait", isPortrait);
+          slide.classList.toggle("is-landscape", !isPortrait);
+          updateDrawerHeight();
+        });
         const wrapper = document.createElement("div");
         wrapper.className = "drawer-video is-paused";
 
@@ -391,7 +398,14 @@
         img.src = media.src;
         img.alt = media.alt || project.title;
         img.loading = "lazy";
-        img.addEventListener("load", updateDrawerHeight);
+        img.addEventListener("load", () => {
+          const ratio = img.naturalWidth / img.naturalHeight;
+          slide.style.setProperty("--media-ratio", ratio.toFixed(4));
+          const isPortrait = ratio < 1;
+          slide.classList.toggle("is-portrait", isPortrait);
+          slide.classList.toggle("is-landscape", !isPortrait);
+          updateDrawerHeight();
+        });
         slide.appendChild(img);
       }
 
