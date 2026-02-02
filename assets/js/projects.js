@@ -328,6 +328,12 @@
     const swiperWrapper = drawer.querySelector("#drawer-swiper .swiper-wrapper");
     swiperWrapper.innerHTML = "";
 
+    const updateDrawerHeight = () => {
+      if (drawerSwiper && typeof drawerSwiper.updateAutoHeight === "function") {
+        drawerSwiper.updateAutoHeight(300);
+      }
+    };
+
     const mediaItems = project.media?.length ? project.media : [
       { type: "image", src: project.thumbnail, alt: project.title }
     ];
@@ -349,6 +355,7 @@
         if (media.poster) {
           video.poster = media.poster;
         }
+        video.addEventListener("loadedmetadata", updateDrawerHeight);
         const wrapper = document.createElement("div");
         wrapper.className = "drawer-video is-paused";
 
@@ -384,6 +391,7 @@
         img.src = media.src;
         img.alt = media.alt || project.title;
         img.loading = "lazy";
+        img.addEventListener("load", updateDrawerHeight);
         slide.appendChild(img);
       }
 
@@ -399,6 +407,9 @@
         speed: 600,
         loop: mediaItems.length > 1,
         slidesPerView: 1,
+        autoHeight: true,
+        observer: true,
+        observeParents: true,
         pagination: {
           el: drawer.querySelector(".swiper-pagination"),
           clickable: true
@@ -408,6 +419,8 @@
           prevEl: drawer.querySelector(".swiper-button-prev")
         }
       });
+      drawerSwiper.on("slideChangeTransitionEnd", updateDrawerHeight);
+      requestAnimationFrame(updateDrawerHeight);
     }
 
     if (project.id === "xr-concepts") {
