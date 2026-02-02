@@ -1701,29 +1701,30 @@ section {
 .drawer-media {
   display: flex;
   flex-direction: column;
-  --media-max-h: 62vh;
 }
 
 .drawer-media .swiper {
   width: 100%;
+  height: min(70vh, 520px);
 }
 
 .drawer-media .swiper-wrapper {
   align-items: center;
+  height: 100%;
 }
 
 .drawer-media .swiper-slide {
   display: flex;
   align-items: center;
   justify-content: center;
-  --media-ratio: 1;
+  height: 100%;
 }
 
 .drawer-media img,
 .drawer-media video {
   max-width: 100%;
-  max-height: var(--media-max-h);
-  width: min(100%, calc(var(--media-max-h) * var(--media-ratio)));
+  max-height: 100%;
+  width: auto;
   height: auto;
   border-radius: 16px;
   background: #111;
@@ -1738,28 +1739,8 @@ section {
 }
 
 .drawer-video video {
-  width: 100%;
-  height: auto;
-}
-
-.drawer-media .swiper-slide.is-portrait .drawer-video {
-  width: min(100%, calc(var(--media-max-h) * var(--media-ratio)));
-}
-
-.drawer-media .swiper-slide.is-portrait img,
-.drawer-media .swiper-slide.is-portrait video {
-  width: min(100%, calc(var(--media-max-h) * var(--media-ratio)));
-  max-height: var(--media-max-h);
-}
-
-.drawer-media .swiper-slide.is-portrait img {
   max-width: 100%;
-}
-
-.drawer-media .swiper-slide.is-landscape img,
-.drawer-media .swiper-slide.is-landscape video {
-  width: 100%;
-  max-height: 62vh;
+  max-height: 100%;
 }
 
 .drawer-video-toggle {
@@ -1850,17 +1831,8 @@ section {
     padding: 18px;
   }
 
-  .drawer-media img,
-  .drawer-media video {
-    max-height: 50vh;
-  }
-
-  .drawer-media .swiper-slide.is-portrait .drawer-video {
-    width: min(100%, calc(50vh * var(--media-ratio)));
-  }
-
-  .drawer-media {
-    --media-max-h: 50vh;
+  .drawer-media .swiper {
+    height: min(60vh, 420px);
   }
 }
 
