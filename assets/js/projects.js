@@ -349,7 +349,36 @@
         if (media.poster) {
           video.poster = media.poster;
         }
-        slide.appendChild(video);
+        const wrapper = document.createElement("div");
+        wrapper.className = "drawer-video is-paused";
+
+        const toggle = document.createElement("button");
+        toggle.type = "button";
+        toggle.className = "drawer-video-toggle";
+        toggle.textContent = "Play";
+
+        const syncState = () => {
+          const isPaused = video.paused;
+          wrapper.classList.toggle("is-paused", isPaused);
+          toggle.textContent = isPaused ? "Play" : "Pause";
+          toggle.setAttribute("aria-pressed", String(!isPaused));
+        };
+
+        toggle.addEventListener("click", () => {
+          if (video.paused) {
+            video.play().catch(() => {});
+          } else {
+            video.pause();
+          }
+        });
+
+        video.addEventListener("play", syncState);
+        video.addEventListener("pause", syncState);
+        video.addEventListener("ended", syncState);
+
+        wrapper.appendChild(video);
+        wrapper.appendChild(toggle);
+        slide.appendChild(wrapper);
       } else {
         const img = document.createElement("img");
         img.src = media.src;
