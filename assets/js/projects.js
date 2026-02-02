@@ -328,6 +328,12 @@
     const swiperWrapper = drawer.querySelector("#drawer-swiper .swiper-wrapper");
     swiperWrapper.innerHTML = "";
 
+    const updateDrawerHeight = () => {
+      if (drawerSwiper && typeof drawerSwiper.updateAutoHeight === "function") {
+        drawerSwiper.updateAutoHeight(200);
+      }
+    };
+
     const mediaItems = project.media?.length ? project.media : [
       { type: "image", src: project.thumbnail, alt: project.title }
     ];
@@ -342,51 +348,29 @@
         video.controls = true;
         video.preload = "metadata";
         video.playsInline = true;
-        video.muted = true;
         if (project.id === "xr-concepts") {
+          video.muted = true;
           video.autoplay = true;
         }
         if (media.poster) {
           video.poster = media.poster;
         }
-        video.addEventListener("loadedmetadata", () => {});
-        const wrapper = document.createElement("div");
-        wrapper.className = "drawer-video is-paused";
+        video.addEventListener("loadedmetadata", updateDrawerHeight);
 
-        const toggle = document.createElement("button");
-        toggle.type = "button";
-        toggle.className = "drawer-video-toggle";
-        toggle.textContent = "Play";
-
-        const syncState = () => {
-          const isPaused = video.paused;
-          wrapper.classList.toggle("is-paused", isPaused);
-          toggle.textContent = isPaused ? "Play" : "Pause";
-          toggle.setAttribute("aria-pressed", String(!isPaused));
-        };
-
-        toggle.addEventListener("click", () => {
-          if (video.paused) {
-            video.play().catch(() => {});
-          } else {
-            video.pause();
-          }
-        });
-
-        video.addEventListener("play", syncState);
-        video.addEventListener("pause", syncState);
-        video.addEventListener("ended", syncState);
-
-        wrapper.appendChild(video);
-        wrapper.appendChild(toggle);
-        slide.appendChild(wrapper);
+        const frame = document.createElement("div");
+        frame.className = "drawer-media-frame";
+        frame.appendChild(video);
+        slide.appendChild(frame);
       } else {
         const img = document.createElement("img");
         img.src = media.src;
         img.alt = media.alt || project.title;
         img.loading = "lazy";
-        img.addEventListener("load", () => {});
-        slide.appendChild(img);
+        img.addEventListener("load", updateDrawerHeight);
+        const frame = document.createElement("div");
+        frame.className = "drawer-media-frame";
+        frame.appendChild(img);
+        slide.appendChild(frame);
       }
 
       swiperWrapper.appendChild(slide);
@@ -401,6 +385,9 @@
         speed: 600,
         loop: mediaItems.length > 1,
         slidesPerView: 1,
+        autoHeight: true,
+        observer: true,
+        observeParents: true,
         pagination: {
           el: drawer.querySelector(".swiper-pagination"),
           clickable: true
@@ -410,6 +397,8 @@
           prevEl: drawer.querySelector(".swiper-button-prev")
         }
       });
+      drawerSwiper.on("slideChangeTransitionEnd", updateDrawerHeight);
+      requestAnimationFrame(updateDrawerHeight);
     }
 
     if (project.id === "xr-concepts") {

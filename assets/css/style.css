@@ -1705,65 +1705,36 @@ section {
 
 .drawer-media .swiper {
   width: 100%;
-  height: min(70vh, 520px);
+  height: auto;
 }
 
 .drawer-media .swiper-wrapper {
   align-items: center;
-  height: 100%;
 }
 
 .drawer-media .swiper-slide {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100%;
 }
 
 .drawer-media img,
 .drawer-media video {
   max-width: 100%;
-  max-height: 100%;
+  max-height: 65vh;
   width: auto;
-  height: 100%;
+  height: auto;
   border-radius: 16px;
-  background: #111;
+  background: transparent;
   object-fit: contain;
 }
 
-.drawer-video {
-  position: relative;
+.drawer-media-frame {
   width: 100%;
+  height: 100%;
   display: flex;
+  align-items: center;
   justify-content: center;
-  height: 100%;
-}
-
-.drawer-video video {
-  max-width: 100%;
-  max-height: 100%;
-  height: 100%;
-}
-
-.drawer-video-toggle {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  border: none;
-  padding: 10px 18px;
-  border-radius: 999px;
-  background: rgba(26, 28, 35, 0.75);
-  color: #fff;
-  font-weight: 600;
-  letter-spacing: 0.02em;
-  transition: opacity 0.2s ease, transform 0.2s ease;
-}
-
-.drawer-video:not(.is-paused) .drawer-video-toggle {
-  opacity: 0;
-  pointer-events: none;
-  transform: translate(-50%, -50%) scale(0.95);
 }
 
 .drawer-info h3 {
@@ -1834,7 +1805,12 @@ section {
   }
 
   .drawer-media .swiper {
-    height: min(60vh, 420px);
+    height: auto;
+  }
+
+  .drawer-media img,
+  .drawer-media video {
+    max-height: 55vh;
   }
 }
 
