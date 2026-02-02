@@ -1698,14 +1698,23 @@ section {
   gap: 24px;
 }
 
-.drawer-media img,
-.drawer-media video {
+.drawer-media {
+  display: flex;
+  flex-direction: column;
+}
+
+.drawer-media .swiper {
   width: 100%;
-  border-radius: 16px;
-  background: #111;
+  height: auto !important;
+}
+
+.drawer-media .swiper-wrapper {
+  align-items: center;
+  height: auto !important;
 }
 
 .drawer-media .swiper-slide {
+  height: auto !important;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1713,13 +1722,20 @@ section {
 
 .drawer-media img,
 .drawer-media video {
-  max-height: 60vh;
+  max-width: 100%;
+  max-height: 62vh;
+  width: auto;
+  height: auto;
+  border-radius: 16px;
+  background: #111;
   object-fit: contain;
 }
 
 .drawer-video {
   position: relative;
   width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 .drawer-video-toggle {
@@ -1812,7 +1828,7 @@ section {
 
   .drawer-media img,
   .drawer-media video {
-    max-height: 45vh;
+    max-height: 50vh;
   }
 }
 
