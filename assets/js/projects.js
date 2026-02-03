@@ -23,6 +23,41 @@
   let projects = [];
   let drawerSwiper = null;
   let featuredSwiper = null;
+  let drawerResizeAttached = false;
+
+  const getDrawerMaxHeight = () => {
+    const ratio = window.innerWidth <= 992 ? 0.6 : 0.7;
+    return Math.max(240, Math.round(window.innerHeight * ratio));
+  };
+
+  const fitDrawerFrame = (frame, width, height) => {
+    if (!frame || !width || !height) return;
+    const drawer = document.getElementById("project-drawer");
+    if (!drawer) return;
+    const mediaColumn = drawer.querySelector(".drawer-media");
+    if (!mediaColumn) return;
+    const maxWidth = mediaColumn.clientWidth || frame.parentElement?.clientWidth || width;
+    const maxHeight = getDrawerMaxHeight();
+    const scale = Math.min(maxWidth / width, maxHeight / height, 1);
+    frame.style.width = `${Math.max(1, Math.floor(width * scale))}px`;
+    frame.style.height = `${Math.max(1, Math.floor(height * scale))}px`;
+  };
+
+  const resizeDrawerMedia = () => {
+    const drawer = document.getElementById("project-drawer");
+    if (!drawer || drawer.getAttribute("aria-hidden") !== "false") return;
+    const frames = drawer.querySelectorAll(".drawer-media-frame[data-media-width]");
+    frames.forEach((frame) => {
+      const width = Number(frame.dataset.mediaWidth);
+      const height = Number(frame.dataset.mediaHeight);
+      if (width && height) {
+        fitDrawerFrame(frame, width, height);
+      }
+    });
+    if (drawerSwiper && typeof drawerSwiper.updateAutoHeight === "function") {
+      drawerSwiper.updateAutoHeight(200);
+    }
+  };
 
   const normalize = (value) => String(value || "").trim();
   const getAnchorId = (project) => `project-${project.id}`;
@@ -329,9 +364,7 @@
     swiperWrapper.innerHTML = "";
 
     const updateDrawerHeight = () => {
-      if (drawerSwiper && typeof drawerSwiper.updateAutoHeight === "function") {
-        drawerSwiper.updateAutoHeight(200);
-      }
+      resizeDrawerMedia();
     };
 
     const mediaItems = project.media?.length ? project.media : [
@@ -341,6 +374,8 @@
     mediaItems.forEach((media) => {
       const slide = document.createElement("div");
       slide.className = "swiper-slide";
+      const frame = document.createElement("div");
+      frame.className = "drawer-media-frame";
 
       if (media.type === "video") {
         const video = document.createElement("video");
@@ -355,24 +390,48 @@
         if (media.poster) {
           video.poster = media.poster;
         }
-        video.addEventListener("loadedmetadata", updateDrawerHeight);
+        const registerVideoFrame = () => {
+          const width = video.videoWidth || video.clientWidth;
+          const height = video.videoHeight || video.clientHeight;
+          if (width && height) {
+            frame.dataset.mediaWidth = width;
+            frame.dataset.mediaHeight = height;
+            fitDrawerFrame(frame, width, height);
+            updateDrawerHeight();
+          }
+        };
+        video.addEventListener("loadedmetadata", registerVideoFrame);
+        video.addEventListener("loadeddata", updateDrawerHeight);
+        if (video.readyState >= 1) {
+          registerVideoFrame();
+        }
+        video.load();
 
-        const frame = document.createElement("div");
-        frame.className = "drawer-media-frame";
         frame.appendChild(video);
-        slide.appendChild(frame);
       } else {
         const img = document.createElement("img");
         img.src = media.src;
         img.alt = media.alt || project.title;
-        img.loading = "lazy";
-        img.addEventListener("load", updateDrawerHeight);
-        const frame = document.createElement("div");
-        frame.className = "drawer-media-frame";
+        img.loading = "eager";
+        img.decoding = "async";
+        const registerImageFrame = () => {
+          const width = img.naturalWidth || img.width;
+          const height = img.naturalHeight || img.height;
+          if (width && height) {
+            frame.dataset.mediaWidth = width;
+            frame.dataset.mediaHeight = height;
+            fitDrawerFrame(frame, width, height);
+            updateDrawerHeight();
+          }
+        };
+        img.addEventListener("load", registerImageFrame);
+        if (img.complete) {
+          registerImageFrame();
+        }
         frame.appendChild(img);
-        slide.appendChild(frame);
       }
 
+      slide.appendChild(frame);
       swiperWrapper.appendChild(slide);
     });
 
@@ -398,7 +457,8 @@
         }
       });
       drawerSwiper.on("slideChangeTransitionEnd", updateDrawerHeight);
-      requestAnimationFrame(updateDrawerHeight);
+      drawerSwiper.on("slideChange", resizeDrawerMedia);
+      requestAnimationFrame(resizeDrawerMedia);
     }
 
     if (project.id === "xr-concepts") {
@@ -422,6 +482,11 @@
 
     drawer.setAttribute("aria-hidden", "false");
     document.body.classList.add("drawer-open");
+    if (!drawerResizeAttached) {
+      window.addEventListener("resize", resizeDrawerMedia);
+      drawerResizeAttached = true;
+    }
+    requestAnimationFrame(resizeDrawerMedia);
   };
 
   const closeDrawer = () => {
