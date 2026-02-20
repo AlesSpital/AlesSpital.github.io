@@ -454,7 +454,7 @@
     "platforms": [
       "DaVinci Resolve"
     ],
-    "thumbnail": "assets/img/portfolio/rampagerally.GIF",
+    "thumbnail": "assets/img/portfolio/rampagerally.gif",
     "summary": "Cinema 4D community challenge entry (2025) focused on motion, camera pacing, and timing; edited in DaVinci Resolve.",
     "role": "Motion + editing",
     "tools": [
@@ -474,7 +474,7 @@
     "media": [
       {
         "type": "image",
-        "src": "assets/img/portfolio/rampagerally.GIF",
+        "src": "assets/img/portfolio/rampagerally.gif",
         "alt": "Motion loop"
       }
     ],
