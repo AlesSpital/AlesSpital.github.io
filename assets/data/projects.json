@@ -8,8 +8,8 @@
       "XR"
     ],
     "thumbnail": "assets/img/ARnet/1.webp",
-    "summary": "Master's thesis XR Android app teaching computer networking through AR simulations (topologies, IP routing). Built for classroom use; reported ~20% grade improvement; published on Google Play.",
-    "role": "AR app developer",
+    "summary": "XR networking simulation app for classroom use, featuring AR topology and routing exercises that improve comprehension of core networking fundamentals.",
+    "role": "Lead Unity/XR engineer (design, simulation systems, deployment)",
     "tools": [
       "Unity",
       "C#",
@@ -18,7 +18,8 @@
       "ARKit"
     ],
     "tags": [
-      "Education"
+      "Education",
+      "Flagship"
     ],
     "links": [
       {
@@ -56,9 +57,10 @@
     "featured": true,
     "priority": 2,
     "details": [
-      "Designed AR topology builder and device simulations to explain TCP/IP, IP addressing, and routing.",
-      "Built for classroom use; improved average grades by ~20%.",
-      "Unity + AR Foundation (ARCore/ARKit), optimized for Android."
+      "Problem: Networking concepts were abstract and difficult to retain in traditional lessons.",
+      "Build: Created an AR topology builder and TCP/IP routing simulations in Unity using AR Foundation.",
+      "Impact: Reported ~20% grade improvement in classroom use and shipped on Google Play.",
+      "Hire signal: Demonstrates end-to-end delivery from pedagogy framing to production deployment."
     ]
   },
   {
@@ -112,15 +114,16 @@
       "VR"
     ],
     "thumbnail": "assets/img/VR4LL/thumbnail.jpeg",
-    "summary": "Multiplayer XR language-learning experience for Meta Quest 2+ with synced interactions and quest-based lessons; built network/grab sync and custom environments for immersive sessions.",
-    "role": "Unity XR developer \u2014 networking sync, grab sync, environment builds, and quest development",
+    "summary": "Multiplayer VR language-learning product for Meta Quest with synchronized interactions and quest-based practice in immersive social scenarios.",
+    "role": "Unity XR developer - networking sync, grab sync, environment builds, and quest development",
     "tools": [
       "Unity",
       "C#"
     ],
     "tags": [
       "Education",
-      "Freelance"
+      "Freelance",
+      "Flagship"
     ],
     "links": [
       {
@@ -138,9 +141,150 @@
     "featured": true,
     "priority": 1,
     "details": [
-      "Implemented networking sync for shared interactions and object grabs.",
-      "Built quest-based learning flow and interactive scenes; optimized for standalone VR.",
-      "Co-developed immersive environments and guidance systems for learners."
+      "Problem: Learners needed realistic speaking practice beyond static exercises and solo drills.",
+      "Build: Implemented multi-user interaction sync, object-grab synchronization, and quest-based lesson progression.",
+      "Impact: Delivered production-ready modules for immersive Meta Quest learning sessions.",
+      "Hire signal: Strong networked XR execution under real standalone VR performance constraints."
+    ]
+  },
+  {
+    "id": "ryftrealm",
+    "title": "RyftRealm",
+    "category": [
+      "XR",
+      "Mobile Games"
+    ],
+    "platforms": [
+      "Android",
+      "AR",
+      "Mobile"
+    ],
+    "thumbnail": "assets/img/RyftRealm/rr_thumbnail.png",
+    "summary": "Step-driven mobile AR game in active development where real-world walking fuels progression, crafting, and cozy world-building in a procedurally generated parallel world.",
+    "status": "In Development",
+    "statusType": "in-development",
+    "role": "Solo Unity/XR developer - gameplay systems, architecture, tooling, and content pipelines",
+    "tools": [
+      "Unity",
+      "C#",
+      "AR Foundation",
+      "GPS/Location Services",
+      "ScriptableObject Data Pipelines"
+    ],
+    "tags": [
+      "In Development",
+      "AR",
+      "Flagship"
+    ],
+    "links": [
+      {
+        "label": "TikTok Devlog",
+        "url": "https://www.tiktok.com/@hornbeam_studio?lang=en"
+      },
+      {
+        "label": "Instagram Devlog",
+        "url": "https://www.instagram.com/hornbeam.studio/"
+      }
+    ],
+    "media": [
+      {
+        "type": "image",
+        "src": "assets/img/RyftRealm/rr_thumbnail.png",
+        "alt": "RyftRealm gameplay overview"
+      },
+      {
+        "type": "image",
+        "src": "assets/img/RyftRealm/rr_screenshot_1.png",
+        "alt": "RyftRealm AR scene"
+      },
+      {
+        "type": "image",
+        "src": "assets/img/RyftRealm/rr_screenshot_2.png.png",
+        "alt": "RyftRealm systems and world view"
+      },
+      {
+        "type": "image",
+        "src": "assets/img/RyftRealm/rr_screenshot_3.png.png",
+        "alt": "RyftRealm building and customization"
+      }
+    ],
+    "featured": true,
+    "priority": 4,
+    "details": [
+      "Problem: Map-heavy location games are often expensive, inconsistent, and hard to optimize on mobile AR.",
+      "Build: Designed a step-driven AR loop where real walking fuels milestones, charges, gathering, crafting, and housing progression inside a procedurally generated world tied to GPS context.",
+      "Systems: Implemented scalable inventory, rarity-aware rewards, quests/recipes/placables catalogs, and architecture that separates data definitions from runtime state with a path toward server authority and anti-cheat hardening.",
+      "Impact direction: Weekly devlogs create active player feedback loops while developer tooling (validators, wizards, quick-start flows) enables maintainable long-term content growth."
+    ]
+  },
+  {
+    "id": "sebastjan-spital-website",
+    "title": "Sebastjan Spital Official Website",
+    "category": "Web Development",
+    "platforms": [
+      "Web"
+    ],
+    "thumbnail": "assets/img/sebatjanspital/sebastjanspital_thumbnail.png",
+    "summary": "Official site for stand-up comedian Sebastjan Spital combining event discovery, ticket reservations with QR entry, merch e-commerce, blog/gallery content, and production trust/compliance flows.",
+    "status": "Live",
+    "statusType": "live",
+    "role": "Full-stack web developer (product architecture, ticketing, e-commerce, content modules)",
+    "tools": [
+      "Laravel",
+      "PHP",
+      "PostgreSQL",
+      "Stripe",
+      "JavaScript",
+      "Blade",
+      "Google OAuth",
+      "QR Ticketing"
+    ],
+    "tags": [
+      "Production",
+      "Ticketing",
+      "E-commerce",
+      "CMS"
+    ],
+    "links": [
+      {
+        "label": "Website",
+        "url": "https://sebastjanspital.si"
+      }
+    ],
+    "media": [
+      {
+        "type": "image",
+        "src": "assets/img/sebatjanspital/sebastjanspital_thumbnail.png",
+        "alt": "Sebastjan Spital website landing page"
+      },
+      {
+        "type": "image",
+        "src": "assets/img/sebatjanspital/sebastjanspital_1.png",
+        "alt": "Events and ticket reservation interface"
+      },
+      {
+        "type": "image",
+        "src": "assets/img/sebatjanspital/sebastjanspital_2.png",
+        "alt": "Event detail and reservation flow"
+      },
+      {
+        "type": "image",
+        "src": "assets/img/sebatjanspital/sebastjanspital_3.png",
+        "alt": "Merch store catalog and filters"
+      },
+      {
+        "type": "image",
+        "src": "assets/img/sebatjanspital/sebastjanspital_4.png",
+        "alt": "Product detail, cart, and checkout flow"
+      }
+    ],
+    "featured": false,
+    "priority": 1,
+    "details": [
+      "Product: Built a multi-module production site with SEO-friendly event pages, long-form content, gallery/video modules, contact funnel, and legal/compliance pages.",
+      "Ticketing: Implemented conditional event logic (free, reservation, paid, ended), login-gated reservation flows, email ticket delivery, and QR-entry messaging/validation workflow.",
+      "Commerce: Delivered a full merch system with search, filters, sorting, variants (sizes), cart state, Stripe checkout, and order confirmation handling.",
+      "Architecture: Designed Laravel + PostgreSQL foundations for events, tickets, products, variants, orders/payments, and content entities with maintainable admin-oriented workflows."
     ]
   },
   {
@@ -151,14 +295,15 @@
       "XR"
     ],
     "thumbnail": "assets/vids/XRconcept/thumbnail.png",
-    "summary": "Cinema 4D CGI concept films exploring future XR devices and spatial UI; created to communicate vision and interaction design (no runtime app).",
-    "role": "Concept art + CGI",
+    "summary": "CGI concept films used to communicate future XR device ideas and spatial UX interactions before runtime prototyping.",
+    "role": "Concept strategy, CGI production, and edit direction",
     "tools": [
       "Cinema 4D",
       "DaVinci Resolve"
     ],
     "tags": [
-      "Motion"
+      "Motion",
+      "Flagship"
     ],
     "media": [
       {
@@ -189,9 +334,10 @@
     "featured": true,
     "priority": 3,
     "details": [
-      "Produced cinematic renders to visualize near-future devices, interfaces, and spaces.",
-      "Edited and color-graded in DaVinci Resolve.",
-      "Concept-only visual exploration (no runtime app)."
+      "Problem: Early-stage XR ideas are hard to evaluate with static decks and fragmented references.",
+      "Build: Produced cinematic CGI concept videos to visualize devices, UI patterns, and interaction intent.",
+      "Impact: Enabled faster stakeholder alignment before committing to runtime implementation.",
+      "Hire signal: Translates ambiguous ideas into shared product direction that teams can execute."
     ]
   },
   {
@@ -441,6 +587,7 @@
       }
     ],
     "featured": false,
+    "priority": -1,
     "details": [
       "Produced a stylized 3D sequence for the Kinetic Rush community challenge (2024).",
       "Focused on timing, camera movement, and visual rhythm.",
@@ -479,6 +626,7 @@
       }
     ],
     "featured": false,
+    "priority": -2,
     "details": [
       "Produced a stylized 3D sequence for the Rampage Rally community challenge (2025).",
       "Focused on timing, camera movement, and visual rhythm.",

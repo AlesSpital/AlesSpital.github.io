@@ -1,51 +1,78 @@
-var skills = [
-	"Unity",
-	"C#",
-	"Python",
-	"C++",
-	"JavaScript",
-	"Node.js",
-	"PHP",
-	"SQL",
-	"MySQL",
-	"MongoDB",
-	"HTML",
-	"CSS",
-	"Bootstrap",
-	"React",
-	"Laravel",
-	"jQuery",
-	"EJS",
-	"Ionic",
-	"Git",
-	"XR",
-	"AR Foundation",
-	"ARCore",
-	"ARKit",
-	"Machine Learning",
-	"AI",
-	"Game Development",
-	"Mobile Development",
-	"Computer Networks",
-	"Xamarin",
-	"Blender",
-	"Cinema 4D",
-	"Photoshop",
-	"Premiere Pro",
-	"After Effects",
-	"3D Modeling",
-	"3D Animation",
-	"Video Editing",
-	"Teaching & Workshops",
-	"AI Tools (ChatGPT, Copilot, Gemini, Claude, Poe, LumaAI)"
-]
+const skillGroups = [
+  {
+    title: "Core Engineering",
+    skills: [
+      "Unity",
+      "C#",
+      "XR",
+      "AR Foundation",
+      "ARCore",
+      "ARKit",
+      "AI Feature Integration",
+      "Multiplayer Interaction Sync",
+      "Meta Quest Optimization"
+    ]
+  },
+  {
+    title: "Product Delivery",
+    skills: [
+      "Rapid Prototyping",
+      "UX for Learning",
+      "Simulation Design",
+      "LLM-Powered UX Flows",
+      "Mobile Development",
+      "Computer Networks",
+      "Performance Tuning",
+      "Release Management"
+    ]
+  },
+  {
+    title: "Leadership & AI Enablement",
+    skills: [
+      "Technical Teaching",
+      "Workshop Facilitation",
+      "AI Adoption Strategy",
+      "GPT Wrapper Development",
+      "Agent Workflow Design",
+      "Custom Model Prototyping",
+      "Stakeholder Communication",
+      "MVP Planning",
+      "Responsible AI Framing"
+    ]
+  },
+  {
+    title: "Creative Production",
+    skills: [
+      "Cinema 4D",
+      "DaVinci Resolve",
+      "Photoshop",
+      "3D Modeling",
+      "3D Animation",
+      "Video Editing"
+    ]
+  }
+];
 
 const skillList = document.getElementById("skill-list");
 if (skillList) {
-  skills.forEach((skill) => {
-    const pill = document.createElement("span");
-    pill.className = "skill-pill";
-    pill.textContent = skill;
-    skillList.appendChild(pill);
+  skillGroups.forEach((group) => {
+    const section = document.createElement("section");
+    section.className = "skill-group tilt-card";
+
+    const heading = document.createElement("h3");
+    heading.textContent = group.title;
+    section.appendChild(heading);
+
+    const cloud = document.createElement("div");
+    cloud.className = "skill-cloud";
+    group.skills.forEach((skill) => {
+      const pill = document.createElement("span");
+      pill.className = "skill-pill";
+      pill.textContent = skill;
+      cloud.appendChild(pill);
+    });
+
+    section.appendChild(cloud);
+    skillList.appendChild(section);
   });
 }

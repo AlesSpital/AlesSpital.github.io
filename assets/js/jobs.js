@@ -4,17 +4,19 @@ var jobs = [
 	Years: "2025 - Present",
 	Location: "Telemach JobLab, Slovenia",
 	Desc: [
-	"Delivered professional AI workshops and advised schools/companies on use-case discovery, prioritization, and responsible adoption (value, feasibility, risk).",
-	"Guided participants from idea to MVP planning with practical workflows and professional usage patterns."
+	"Led AI adoption workshops for schools and companies from use-case discovery to MVP planning.",
+	"Helped teams prioritize value, feasibility, and risk for responsible rollout.",
+	"Built practical implementation workflows for non-technical and mixed-seniority teams."
 	]
 },
 {
 	Title: "Unity Developer",
 	Years: "2025 - Present",
-	Location: "Freelance · Slovenia",
+	Location: "Freelance - Slovenia",
 	Desc: [
-	"Developed VR4LL 2.0, a Unity-based VR platform for language learning with immersive scenarios.",
-	"Built interactive flows that help learners practice in realistic, supportive environments."
+	"Developed VR4LL 2.0 modules for Meta Quest, including shared interaction and object-grab synchronization.",
+	"Implemented quest-based learning flows and interactive scenarios for immersive language practice.",
+	"Optimized experiences for standalone VR constraints and session reliability."
 	]
 },
 {
@@ -22,9 +24,10 @@ var jobs = [
 	Years: "2021 - 2024",
 	Location: "School Center Velenje, Velenje, Slovenia",
 	Desc: [
-	"Taught 200+ students across AI, Web Development, Multimedia, and Computer Networks with a 95% pass rate.",
-	"Collaborated on EU initiatives to train educators and expand digital competencies in education.",
-	"Organized 5+ Game Jam events and supervised an RPG game plus an AI grading assistant in Python, reducing grading time by ~20%."
+	"Taught 300+ students in AI, web development, multimedia, and networking with a 95% pass rate.",
+	"Designed project-based curricula that turned theory into shipped prototypes.",
+	"Organized 5+ game jams and supervised an AI grading assistant in Python that reduced grading time by ~20%.",
+	"Contributed to EU initiatives expanding educator digital competencies."
 	]
 },
 {
@@ -32,8 +35,9 @@ var jobs = [
 	Years: "2019 - 2020",
 	Location: "Ministry of Public Administration, Slovenia",
 	Desc: [
-	"Supported modernization of IT infrastructure across 100+ government facilities, enabling up to 20% cost savings and faster service resolution.",
-	"Built Xamarin and MySQL solutions that improved archival workflows and organizational efficiency."
+	"Supported IT modernization across 100+ government facilities.",
+	"Contributed to process and cost optimization with reported savings up to ~20%.",
+	"Built Xamarin/MySQL tools that improved archival workflows and response efficiency."
 	]
 },
 {
@@ -42,7 +46,8 @@ var jobs = [
 	Location: "Mega M d.o.o., Velenje, Slovenia",
 	Desc: [
 	"Built an online shopping platform with HTML, jQuery, and Bootstrap.",
-	"Developed a Xamarin mobile app for a national grocery chain; loyalty-point integration and discount alerts boosted engagement by ~30%."
+	"Developed a Xamarin mobile app for a national grocery chain with loyalty-point integration and discount alerts.",
+	"Helped deliver engagement improvements reported around ~30%."
 	]
 },
 {
@@ -50,11 +55,11 @@ var jobs = [
 	Years: "Spring 2015",
 	Location: "bits & bytes, Malta",
 	Desc: [
-	"Contributed to an online retail platform for an electronics store.",
-	"Strengthened foundations in HTML, CSS, PHP, and MySQL."
+	"Contributed to online retail platform development for an electronics store.",
+	"Strengthened production foundations in HTML, CSS, PHP, and MySQL."
 	]
 }];
-//alert(jobs[0].Desc[0]);
+
 const jobItems = document.getElementById("job-items") || document.getElementById("job-list");
 if (!jobItems) {
   // No target container on this page.

@@ -1,26 +1,26 @@
 var jobs = [
 	{
-	Title: "Web Development Projects",
+	Title: "Product & Web Delivery",
 	Years: "",
 	Desc: "",
 	Points: [
-	"Created websites, portfolios, e-commerce platforms, and blogs using Git, Node.js, EJS, Ionic, JavaScript, Bootstrap, PHP, SQL, and MongoDB."
+	"Delivered websites, e-commerce features, and custom workflow tools using Node.js, JavaScript, PHP, SQL, and MongoDB."
 	]
 },
 {
-	Title: "Video & Photo Editing",
+	Title: "Creative Production Pipeline",
 	Years: "",
 	Desc: "",
 	Points: [
-	"Edited promotional materials across photo and video formats with Photoshop, Premiere Pro, After Effects, Blender, and Cinema 4D."
+	"Produced visual and motion assets in Cinema 4D, Photoshop, and editing suites to support product storytelling and launch content."
 	]
 },
 {
-	Title: "Mobile Games & Game Jams",
+	Title: "Rapid Prototyping Leadership",
 	Years: "",
 	Desc: "",
 	Points: [
-	"Built and published mobile games and RPG prototypes in Unity and C#, focusing on graphics optimization and polish."
+	"Led game jam and prototype cycles, turning ideas into testable Unity builds under tight deadlines."
 	]
 },
 ]

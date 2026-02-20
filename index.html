@@ -5,15 +5,37 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Aleš Spital</title>
-  <meta content="" name="description">
-  <meta content="" name="keywords">
+  <title>Ales Spital | Unity/XR Developer</title>
+  <meta content="Unity/XR developer building VR and AR products for Meta Quest and mobile, with shipped learning simulations and multiplayer interaction systems." name="description">
+  <meta content="Unity developer, XR developer, VR developer, AR developer, C#, Meta Quest, AR Foundation, multiplayer VR, simulation development" name="keywords">
+  <meta content="Ales Spital" name="author">
+  <meta content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" name="robots">
+  <meta content="#f29a5a" name="theme-color">
+  <link rel="canonical" href="https://alesspital.github.io/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Ales Spital Portfolio">
+  <meta property="og:title" content="Ales Spital | Unity/XR Developer">
+  <meta property="og:description" content="Unity/XR developer building VR and AR products for Meta Quest and mobile, with shipped learning simulations and multiplayer interaction systems.">
+  <meta property="og:url" content="https://alesspital.github.io/">
+  <meta property="og:image" content="https://alesspital.github.io/assets/img/profile-img.jpg">
+  <meta property="og:image:alt" content="Ales Spital portrait">
+  <meta property="og:locale" content="en_US">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Ales Spital | Unity/XR Developer">
+  <meta name="twitter:description" content="Unity/XR developer building VR and AR products for Meta Quest and mobile, with shipped learning simulations and multiplayer interaction systems.">
+  <meta name="twitter:url" content="https://alesspital.github.io/">
+  <meta name="twitter:image" content="https://alesspital.github.io/assets/img/profile-img.jpg">
+  <meta name="twitter:image:alt" content="Ales Spital portrait">
 
   <!-- Favicons -->
   <link href="assets/img/favicon.png" rel="icon">
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;600;700&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
@@ -26,6 +48,46 @@
 
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
+  <script type="module" src="https://unpkg.com/@google/model-viewer@3.5.0/dist/model-viewer.min.js"></script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": "https://alesspital.github.io/#person",
+        "name": "Ales Spital",
+        "jobTitle": "Unity/XR Developer",
+        "description": "Unity/XR developer building VR and AR products, interactive simulations, and multiplayer learning experiences.",
+        "url": "https://alesspital.github.io/",
+        "image": "https://alesspital.github.io/assets/img/profile-img.jpg",
+        "email": "mailto:ales.spital@gmail.com",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Velenje",
+          "addressCountry": "SI"
+        },
+        "sameAs": [
+          "https://www.linkedin.com/in/ales-spital/",
+          "https://github.com/AlesSpital",
+          "https://www.instagram.com/alesspital/"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://alesspital.github.io/#website",
+        "url": "https://alesspital.github.io/",
+        "name": "Ales Spital Portfolio",
+        "description": "Portfolio of Ales Spital, Unity/XR developer.",
+        "inLanguage": "en",
+        "publisher": {
+          "@id": "https://alesspital.github.io/#person"
+        }
+      }
+    ]
+  }
+  </script>
 
   <!-- =======================================================
   * Template Name: iPortfolio
@@ -41,8 +103,8 @@
   <div id="page-loader" class="page-loader" aria-hidden="false">
     <canvas id="loader-canvas" aria-hidden="true"></canvas>
     <div class="loader-ui" role="status" aria-live="polite">
-      <span class="loader-eyebrow">Booting the creator portfolio</span>
-      <span class="loader-title">Loading experience &amp; projects</span>
+      <span class="loader-eyebrow">Booting the engineering portfolio</span>
+      <span class="loader-title">Loading case studies &amp; results</span>
       <div class="loader-bar"><span></span></div>
       <span class="loader-percent" id="loader-percent">0%</span>
     </div>
@@ -55,10 +117,10 @@
   <header id="header" class="studio-nav">
     <div class="container nav-shell">
       <div class="nav-brand">
-        <img src="assets/img/profile-img.jpg" alt="Aleš Spital portrait" class="nav-avatar">
+        <img src="assets/img/profile-img.jpg" alt="Ales Spital portrait" class="nav-avatar">
         <div class="nav-identity">
-          <a class="nav-name" href="#portfolio">Aleš Spital</a>
-          <span class="nav-role">XR Developer / Game Maker / 3D Artist</span>
+          <a class="nav-name" href="#portfolio">Ales Spital</a>
+          <span class="nav-role">Unity/XR Developer | VR/AR Product Builder</span>
         </div>
       </div>
 
@@ -82,13 +144,68 @@
   </header><!-- End Header -->
 
   <main id="main">
+    <!-- ======= Hero Section ======= -->
+    <section id="hero" class="hero studio-section section-bg">
+      <div class="container">
+        <div class="hero-card" data-aos="fade-up">
+          <div class="hero-shell">
+            <div class="hero-main">
+              <p class="hero-tagline">Unity / XR Developer</p>
+              <h1 class="hero-title">I build VR and AR products in Unity that people can actually use.</h1>
+              <p class="hero-subtitle">
+                From prototype to production, I deliver immersive apps for Meta Quest and mobile. I also integrate AI-powered workflows, from GPT-style product features to custom-model prototypes, where they add real user value.
+              </p>
+              <div class="hero-actions">
+                <a class="btn-hero primary scrollto" href="#portfolio">View XR Work</a>
+                <a class="btn-hero ghost scrollto" href="#contact">Hire / Contact</a>
+                <a class="btn-hero ghost" href="assets/docs/Ales_Spital_CV.pdf">Download CV</a>
+              </div>
+            </div>
+            <aside class="hero-side">
+              <div class="hero-model-wrap">
+                <model-viewer class="hero-model"
+                  src="assets/3dmodels/Me_Sitting.glb"
+                  poster="assets/img/profile-img.jpg"
+                  alt="3D model of Ales Spital sitting"
+                  camera-controls
+                  disable-pan
+                  auto-rotate
+                  rotation-per-second="12deg"
+                  interaction-prompt="none"
+                  shadow-intensity="0.75"
+                  exposure="1"
+                  environment-image="neutral"
+                  loading="lazy"
+                  reveal="auto">
+                </model-viewer>
+              </div>
+              <h3>Hiring Signals</h3>
+              <ul class="hero-list">
+                <li>Unity/C# delivery for XR products, simulations, and interaction-heavy apps.</li>
+                <li>Meta Quest optimization plus multiplayer interaction and grab synchronization.</li>
+                <li>Applied AI in production: GPT wrappers, agent-style workflows, and custom model experimentation.</li>
+                <li>Professor background: proven onboarding design, clarity, and adoption outcomes.</li>
+              </ul>
+              <div class="hero-metrics">
+                <div class="hero-metric"><strong>300+</strong><span>Students taught</span></div>
+                <div class="hero-metric"><strong>95%</strong><span>Pass rate</span></div>
+                <div class="hero-metric"><strong>~20%</strong><span>Grade lift (ARnet)</span></div>
+                <div class="hero-metric"><strong>14</strong><span>Portfolio projects</span></div>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </div>
+    </section><!-- End Hero Section -->
+
     <!-- ======= Portfolio Section ======= -->
     <section id="portfolio" class="portfolio section-bg" data-portfolio-mode="custom">
       <div class="container">
         <div class="featured-block" data-aos="fade-up">
           <div class="featured-panel">
             <div class="featured-header">
-              <h2>Featured XR Projects</h2>
+              <h2>Flagship Case Studies</h2>
+              <p>Problem-to-product outcomes across XR learning, networked VR, and immersive interaction design.</p>
             </div>
             <div class="featured-swiper swiper" id="featured-swiper">
               <div class="swiper-wrapper" id="featured-projects"></div>
@@ -100,7 +217,8 @@
         </div>
 
         <div class="browse-header" data-aos="fade-up">
-          <h3>Browse the full library</h3>
+          <h3>Project Library</h3>
+          <p>Full archive including flagship and legacy work.</p>
         </div>
 
         <div class="portfolio-controls" data-aos="fade-up">
@@ -150,14 +268,14 @@
       <div class="container">
 
         <div class="section-title">
-          <h2>The Maker Behind the Desk</h2>
-          <p>I am Aleš Spital, an XR developer, Unity creator, and digital artist from Slovenia. I love cozy, creative, simulation-style experiences and building tools that make learning feel tangible.</p>
+          <h2>Unity/XR Developer Focused on Learnable Products</h2>
+          <p>I am Ales Spital, a Unity/XR developer with an M.Sc. in Computer Science and a background teaching AI, networks, and software development.</p>
         </div>
 
         <div class="row studio-about">
           <div class="col-lg-5" data-aos="fade-right">
             <div class="about-card">
-              <img src="assets/img/profile-img.jpg" class="img-fluid" alt="Aleš Spital portrait">
+              <img src="assets/img/profile-img.jpg" class="img-fluid" alt="Ales Spital portrait">
               <div class="about-caption">
                 <span>Based in Velenje, Slovenia</span>
                 <span>M.Sc. Computer Science</span>
@@ -166,27 +284,27 @@
           </div>
           <div class="col-lg-7" data-aos="fade-left">
             <div class="about-panel">
-              <h3>Builder of warm, tactile experiences</h3>
+              <h3>Technical delivery plus instructional design</h3>
               <p>
-                I design XR learning tools, games, and interactive demos that make complex systems feel tangible.
-                Recent work includes ARnet (network simulations), AR heritage reconstructions, and VR4LL 2.0 language learning spaces.
+                I build simulations, VR learning spaces, and interactive tools where usability and understanding are as important as technical execution.
+                Recent work includes ARnet network simulations and VR4LL 2.0 multiplayer language-learning experiences.
               </p>
               <p>
-                After teaching 200+ students and delivering AI workshops for schools and companies, I now focus on freelance Unity/XR work,
-                building experiences that feel warm, useful, and grounded in real people.
+                After teaching 300+ students and leading AI workshops for schools and companies, I now apply that directly in product work:
+                faster onboarding, clearer user flows, and AI-augmented XR experiences designed for real-world teams.
               </p>
               <div class="about-grid">
                 <div class="about-item">
-                  <h4>What I build</h4>
-                  <p>XR apps, VR learning spaces, PC &amp; mobile games, 3D art, and motion pieces.</p>
+                  <h4>What I deliver</h4>
+                  <p>Networked XR features, interaction sync, quest-based learning flows, and production-ready Unity builds.</p>
                 </div>
                 <div class="about-item">
-                  <h4>How I work</h4>
-                  <p>Unity-first prototyping, user-centered iteration, and tight feedback loops.</p>
+                  <h4>How I execute</h4>
+                  <p>Rapid Unity prototyping, user-centered iteration, and performance optimization for mobile and standalone VR.</p>
                 </div>
                 <div class="about-item">
-                  <h4>Values</h4>
-                  <p>Clarity, empathy, and playful discovery.</p>
+                  <h4>Business outcome</h4>
+                  <p>Complex topics become intuitive products that teams can deploy, teach, and scale with confidence.</p>
                 </div>
               </div>
             </div>
@@ -201,12 +319,12 @@
       <div class="container">
 
         <div class="section-title">
-          <h2>Toolbox</h2>
-          <p>A curated mix of engines, languages, and creative tools used to build cozy, interactive experiences.</p>
+          <h2>Capability Stack</h2>
+          <p>Focused stack for shipping XR products and enabling adoption across technical and non-technical teams.</p>
         </div>
 
         <div class="skills-content content">
-          <div class="skill-cloud" id="skill-list"></div>
+          <div class="skill-groups" id="skill-list"></div>
         </div>
 
       </div>
@@ -217,8 +335,8 @@
       <div class="container">
 
         <div class="section-title">
-          <h2>Experience & Education</h2>
-          <p>Highlights from my professional journey, teaching experience, and academic background.</p>
+          <h2>Experience & Impact</h2>
+          <p>Engineering, education, and AI enablement with measurable outcomes across classrooms, public sector systems, and commercial XR products.</p>
         </div>
 
         <div class="row">
@@ -244,7 +362,7 @@
 
             </div>
 
-            <h3 class="resume-title">Other Work &amp; Skills</h3>
+            <h3 class="resume-title">Additional Delivery Experience</h3>
           </div>
         </div>
 
@@ -256,7 +374,7 @@
 
         <div class="section-title">
           <h2>Let's Connect</h2>
-          <p>If you are hiring or collaborating, I would love to share more about my projects, process, and future ideas.</p>
+          <p>Hiring for Unity/XR, simulation, or technical education products? Let's discuss scope, outcomes, and delivery timeline.</p>
         </div>
 
         <div class="contact-grid" data-aos="fade-in">
@@ -288,6 +406,13 @@
               <p>Quick download</p>
             </div>
           </a>
+          <a class="contact-card" href="mailto:ales.spital@gmail.com?subject=20-minute%20intro%20call">
+            <i class="bi bi-calendar-check"></i>
+            <div>
+              <h4>Book Intro Call</h4>
+              <p>20-minute fit check</p>
+            </div>
+          </a>
         </div>
 
       </div>
@@ -299,7 +424,7 @@
   <footer id="footer">
     <div class="container">
       <div class="copyright">
-        &copy; Copyright <strong><span>Aleš Spital</span></strong>
+        &copy; Copyright <strong><span>Ales Spital</span></strong>
       </div>
     </div>
   </footer><!-- End  Footer -->
