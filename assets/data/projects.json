@@ -448,6 +448,44 @@
     ]
   },
   {
+    "id": "kinetic-rush",
+    "title": "Rampage Rally - 3D Community Challenge",
+    "category": "Motion/Editing",
+    "platforms": [
+      "DaVinci Resolve"
+    ],
+    "thumbnail": "assets/img/portfolio/rampagerally.GIF",
+    "summary": "Cinema 4D community challenge entry (2025) focused on motion, camera pacing, and timing; edited in DaVinci Resolve.",
+    "role": "Motion + editing",
+    "tools": [
+      "DaVinci Resolve",
+      "Cinema 4D"
+    ],
+    "tags": [
+      "Motion",
+      "Editing"
+    ],
+    "links": [
+      {
+        "label": "Instagram",
+        "url": "https://www.instagram.com/alesspital/"
+      }
+    ],
+    "media": [
+      {
+        "type": "image",
+        "src": "assets/img/portfolio/rampagerally.GIF",
+        "alt": "Motion loop"
+      }
+    ],
+    "featured": false,
+    "details": [
+      "Produced a stylized 3D sequence for the Rampage Rally community challenge (2025).",
+      "Focused on timing, camera movement, and visual rhythm.",
+      "Edited in DaVinci Resolve."
+    ]
+  },
+  {
     "id": "motion-reel",
     "title": "Motion & Editing Reel",
     "category": "Motion/Editing",
