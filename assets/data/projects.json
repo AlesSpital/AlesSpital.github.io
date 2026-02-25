@@ -428,9 +428,7 @@
       "Android"
     ],
     "thumbnail": "assets/img/portfolio/thearena.jpg",
-    "summary": "Android arena brawler published on Google Play; designed core combat loop, progression, and UI (deprecated).",
-    "status": "Deprecated",
-    "statusType": "deprecated",
+    "summary": "Android arena brawler published on Google Play; designed core combat loop, progression, and UI.",
     "role": "Gameplay, UI, release",
     "tools": [
       "Unity",
@@ -453,7 +451,7 @@
     "featured": false,
     "details": [
       "Designed core combat loop, progression tuning, and UI.",
-      "Published on Google Play; now deprecated.",
+      "Published on Google Play.",
       "Unity/C# on Android."
     ]
   },
@@ -502,9 +500,7 @@
       "Android"
     ],
     "thumbnail": "assets/img/portfolio/spezshooter.jpg",
-    "summary": "Arcade shooter for Android centered on reflex and precision; implemented scoring, progression, and release (deprecated).",
-    "status": "Deprecated",
-    "statusType": "deprecated",
+    "summary": "Arcade shooter for Android centered on reflex and precision; implemented scoring, progression, and release.",
     "role": "Gameplay + release",
     "tools": [
       "Unity",
@@ -527,7 +523,7 @@
     "featured": false,
     "details": [
       "Implemented shooting systems, scoring, and progression.",
-      "Published on Google Play; now deprecated.",
+      "Published on Google Play.",
       "Unity/C# on Android."
     ]
   },
