@@ -377,9 +377,39 @@
         "alt": "Echoes of Etra key art"
       },
       {
-        "type": "video",
-        "src": "assets/img/portfolio/vid1.mp4",
-        "poster": "assets/img/portfolio/eoe.jpg"
+        "type": "image",
+        "src": "assets/img/EchoesOfEtra/1.webp",
+        "alt": "Echoes of Etra Gameplay"
+      }
+      {
+        "type": "image",
+        "src": "assets/img/EchoesOfEtra/2.webp",
+        "alt": "Echoes of Etra Gameplay"
+      }
+      {
+        "type": "image",
+        "src": "assets/img/EchoesOfEtra/3.webp",
+        "alt": "Echoes of Etra Gameplay"
+      }
+      {
+        "type": "image",
+        "src": "assets/img/EchoesOfEtra/4.webp",
+        "alt": "Echoes of Etra Gameplay"
+      }
+      {
+        "type": "image",
+        "src": "assets/img/EchoesOfEtra/5.webp",
+        "alt": "Echoes of Etra Gameplay"
+      }
+      {
+        "type": "image",
+        "src": "assets/img/EchoesOfEtra/6.webp",
+        "alt": "Echoes of Etra Gameplay"
+      }
+      {
+        "type": "image",
+        "src": "assets/img/EchoesOfEtra/7.webp",
+        "alt": "Echoes of Etra Gameplay"
       }
     ],
     "featured": false,
