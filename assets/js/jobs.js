@@ -1,38 +1,3 @@
-document.title = "Aleš Spital | Unity/XR & Software Engineer";
-const profileDescription = "Unity/XR and software engineer building immersive, WebAR, mobile, and learning products. M.Sc. Computer Science, 5+ years production JavaScript, 1,000+ learners taught or trained.";
-const profileTitle = "Aleš Spital | Unity/XR & Software Engineer";
-
-const setMeta = (selector, content) => {
-  const meta = document.querySelector(selector);
-  if (meta) meta.setAttribute("content", content);
-};
-setMeta('meta[name="description"]', profileDescription);
-setMeta('meta[name="keywords"]', "Unity developer, XR developer, VR developer, AR developer, C#, Meta Quest, WebAR, WebXR, Three.js, React, Node.js, JavaScript, EdTech, simulation development");
-setMeta('meta[property="og:title"]', profileTitle);
-setMeta('meta[property="og:description"]', profileDescription);
-setMeta('meta[name="twitter:title"]', profileTitle);
-setMeta('meta[name="twitter:description"]', profileDescription);
-
-const structuredData = document.querySelector('script[type="application/ld+json"]');
-if (structuredData) {
-  try {
-    const data = JSON.parse(structuredData.textContent);
-    const graph = Array.isArray(data['@graph']) ? data['@graph'] : [];
-    const person = graph.find((entry) => entry['@type'] === 'Person');
-    const website = graph.find((entry) => entry['@type'] === 'WebSite');
-    if (person) {
-      person.jobTitle = "Unity/XR & Software Engineer";
-      person.description = "Unity/XR and software engineer building immersive, WebAR, mobile, and learning products, with an M.Sc. in Computer Science and a technical-education background.";
-    }
-    if (website) {
-      website.description = "Portfolio of Aleš Spital, Unity/XR and software engineer focused on immersive technology, learning products, and interactive systems.";
-    }
-    structuredData.textContent = JSON.stringify(data);
-  } catch (error) {
-    console.warn("Could not refresh structured profile metadata", error);
-  }
-}
-
 var jobs = [
 {
 	Title: "Senior JavaScript Developer | Višji JavaScript Razvijalec",
