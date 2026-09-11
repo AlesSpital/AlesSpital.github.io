@@ -1,3 +1,26 @@
+(() => {
+  const setText = (selector, value) => {
+    const element = document.querySelector(selector);
+    if (element) element.textContent = value;
+  };
+
+  setText(".hero-tagline", "Unity / XR · Software Products · EdTech");
+  setText(".hero-title", "I build XR and learning products from prototype to real use.");
+  setText(".hero-subtitle", "M.Sc. in Computer Science with 5+ years of production JavaScript experience, current Quest 3 mixed-reality delivery, and 1,000+ learners taught or trained across schools and professional education.");
+
+  const signals = document.querySelectorAll(".hero-list li");
+  if (signals[0]) signals[0].textContent = "Current Kore Meta work: major Unity systems, Quest 3 optimization, and coordination across a 10-person multidisciplinary team.";
+  if (signals[1]) signals[1].textContent = "Networked Meta Quest delivery through VR4LL 2.0, including grab and interaction synchronization.";
+  if (signals[2]) signals[2].textContent = "Sole product ownership on eMind and RyftRealm, spanning WebAR/full-stack architecture and mobile gameplay.";
+  if (signals[3]) signals[3].textContent = "XR work since 2020, from geospatial AR and Kinect installations to current mixed-reality products.";
+
+  const metrics = document.querySelectorAll(".hero-metric");
+  if (metrics[0]) metrics[0].innerHTML = "<strong>1,000+</strong><span>Learners taught / trained</span>";
+  if (metrics[1]) metrics[1].innerHTML = "<strong>5+ yrs</strong><span>Production JavaScript</span>";
+  if (metrics[2]) metrics[2].innerHTML = "<strong>10-person</strong><span>XR team coordination</span>";
+  if (metrics[3]) metrics[3].innerHTML = "<strong>2× Finalist</strong><span>SIA + POPRI 2026</span>";
+})();
+
 var jobs = [
 {
 	Title: "Unity/XR Developer — Kore Meta Inc.",
