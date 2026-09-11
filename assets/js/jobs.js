@@ -1,5 +1,16 @@
 var jobs = [
 {
+	Title: "Unity/XR Developer — Kore Meta Inc.",
+	Years: "Mar 2026 - Present",
+	Location: "Ontario, Canada · Remote",
+	Desc: [
+	"Develop major Unity features, workflows, optimization, and bug fixes for Multiverse Kaitenzushi, a mixed-reality Japanese-learning game for Meta Quest.",
+	"Built data-oriented Unity tooling with ScriptableObjects, custom inspectors/editor windows, JSON/configuration, reusable prefabs, and custom editor tools to make content iteration faster and more consistent.",
+	"Coordinate a 10-person multidisciplinary team across task planning, meetings, technical direction, mentoring/reviews, cross-discipline coordination, and reporting.",
+	"Optimize for Quest 3 using object pooling, shader/draw-call reduction, profiling, and runtime cleanup with a 72 FPS performance target."
+	]
+},
+{
 	Title: "Senior JavaScript Developer | Višji JavaScript Razvijalec",
 	Years: "Sep 2020 - Mar 2026",
 	Location: "RSLabs, Slovenia",
