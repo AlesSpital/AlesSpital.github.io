@@ -38,12 +38,22 @@
     role: "Sole Unity/C# developer, researcher, and educator",
     tools: ["Unity", "C#", "AR Foundation", "ARCore", "Android"],
     tags: ["Education", "Flagship", "Google Play", "Master's Thesis"],
+    featured: true,
+    priority: 3,
     details: [
       "Problem: Networking concepts can stay abstract when learners only see diagrams and configuration examples.",
       "Build: Created an AR topology builder and network simulation workflow where learners place devices, connect them, configure IPv4 settings, and test communication paths.",
       "Evidence: My 2024 master's thesis evaluated the AR learning approach with students against traditional learning methods.",
       "Delivery: Published on Google Play and still maintained; the current app supports 10 languages and explicitly documents the limits of its foundational network simulation scope."
     ]
+  });
+
+  const refreshVr4ll = (project) => ({
+    ...project,
+    featured: true,
+    priority: 2,
+    summary: "Multiplayer Meta Quest language-learning experience where I delivered synchronized interaction, grab networking, environment work, and quest-based practice for real immersive sessions.",
+    role: "Unity XR developer · multiplayer interaction, grab sync, environments, and quest development"
   });
 
   const refreshRyftRealm = (project) => ({
@@ -56,6 +66,8 @@
     role: "Sole creator and developer · product design, Unity/C# systems, UX, economy, art direction, testing, and validation",
     tools: ["Unity", "C#", "StepTracker Pro", "PlayerPrefs", "JSON", "ScriptableObjects", "Addressables", "AssetBundles"],
     tags: ["Flagship", "Mobile", "Founder", "MVP"],
+    featured: true,
+    priority: 4,
     details: [
       "Product: Designed the core loop, progression, economy, world/tile systems, home decoration, pets, rewards, and step-based motivation model.",
       "Architecture: Offline-first mobile gameplay with local persistence via PlayerPrefs, JSON/files, and serialized ScriptableObjects; network use is limited to asset delivery through Addressables/AssetBundles.",
@@ -77,7 +89,9 @@
     statusType: "archived",
     role: "Sole developer · research, Unity/C#, backend/API/database, geospatial logic, and 3D reconstruction",
     tools: ["Unity", "C#", "AR Foundation", "ARCore", "PHP", "MySQL", "JSON", "OBJ Runtime Loading"],
-    tags: ["Heritage", "Geospatial AR", "Thesis"],
+    tags: ["Heritage", "Geospatial AR", "Thesis", "Flagship"],
+    featured: true,
+    priority: 5,
     details: [
       "Built an end-to-end location-aware AR content system, not only an AR scene: browser admin tools, PHP/MySQL backend, JSON interfaces, runtime OBJ/PNG delivery, and geographic placement.",
       "Personally reconstructed the Church of St. Michael in Družmirje from historical photographs/postcards and optimized it to roughly 2,540 polygons for mobile delivery.",
@@ -95,8 +109,10 @@
       const projects = await response.clone().json();
       const refreshed = projects.map((project) => {
         if (project.id === "arnet") return refreshArnet(project);
+        if (project.id === "vr4ll-2") return refreshVr4ll(project);
         if (project.id === "ryftrealm") return refreshRyftRealm(project);
         if (project.id === "ar-tourist-guide") return refreshTouristGuide(project);
+        if (project.id === "xr-concepts") return { ...project, featured: false };
         return project;
       });
 
@@ -124,7 +140,9 @@
   setText(".hero-tagline", "Unity / XR · Software Products · EdTech");
   setText(".hero-title", "I build XR and learning products from prototype to real use.");
   setText(".hero-subtitle", "M.Sc. in Computer Science with 5+ years of production JavaScript experience, Unity/XR work dating to 2020, and 1,000+ learners taught or trained across schools and professional education.");
-  setText(".featured-header p", "Selected work across XR, WebAR, mobile products, and learning technology — with clear ownership, evidence, and current status.");
+  setText(".featured-header p", "Five selected case studies showing XR delivery, full-stack/WebAR architecture, mobile product ownership, and long-term technical depth.");
+  setText(".browse-header h3", "More Work");
+  setText(".browse-header p", "Earlier releases, web work, game prototypes, 3D/motion studies, and supporting projects.");
   setText("#about .section-title h2", "XR Engineer, Software Builder, and Technical Educator");
   setText("#about .section-title p", "I am Aleš Spital, an M.Sc. in Computer Science working across Unity/XR, software products, and technical education.");
   setText("#skills .section-title p", "A practical stack spanning Unity/XR, full-stack product engineering, testing, deployment, and learning-focused UX.");
@@ -179,7 +197,8 @@ var jobs = [
     Years: "",
     Desc: "",
     Points: [
-      "Built interactive Unity work beyond the flagship case studies, including the ClearSpace Unity/Kinect space-debris experience for Center Noordung and multiple Android games released on Google Play."
+      "Built interactive Unity work beyond the flagship case studies, including the ClearSpace Unity/Kinect space-debris experience for Center Noordung and multiple Android games released on Google Play.",
+      "Additional immersive learning work includes Multiverse Kaitenzushi, a passthrough-based Japanese-language learning experience."
     ]
   },
   {
