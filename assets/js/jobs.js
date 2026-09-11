@@ -23,7 +23,7 @@
 
 var jobs = [
 {
-	Title: "Unity/XR Developer — Kore Meta Inc.",
+	Title: "Unity/XR Development — Kore Meta Inc.",
 	Years: "Mar 2026 - Present",
 	Location: "Ontario, Canada · Remote",
 	Desc: [
