@@ -1,15 +1,37 @@
-document.title = "Aleš Spital | Unity/XR & Product Engineer";
-const profileDescription = "Unity/XR and product engineer building immersive, full-stack learning, WebAR, and mobile products, with an M.Sc. in Computer Science and a technical-education background.";
-const descriptionMeta = document.querySelector('meta[name="description"]');
-if (descriptionMeta) descriptionMeta.setAttribute("content", profileDescription);
-const ogTitle = document.querySelector('meta[property="og:title"]');
-if (ogTitle) ogTitle.setAttribute("content", "Aleš Spital | Unity/XR & Product Engineer");
-const ogDescription = document.querySelector('meta[property="og:description"]');
-if (ogDescription) ogDescription.setAttribute("content", profileDescription);
-const twitterTitle = document.querySelector('meta[name="twitter:title"]');
-if (twitterTitle) twitterTitle.setAttribute("content", "Aleš Spital | Unity/XR & Product Engineer");
-const twitterDescription = document.querySelector('meta[name="twitter:description"]');
-if (twitterDescription) twitterDescription.setAttribute("content", profileDescription);
+document.title = "Aleš Spital | Unity/XR & Software Engineer";
+const profileDescription = "Unity/XR and software engineer building immersive, WebAR, mobile, and learning products. M.Sc. Computer Science, 5+ years production JavaScript, 1,000+ learners taught or trained.";
+const profileTitle = "Aleš Spital | Unity/XR & Software Engineer";
+
+const setMeta = (selector, content) => {
+  const meta = document.querySelector(selector);
+  if (meta) meta.setAttribute("content", content);
+};
+setMeta('meta[name="description"]', profileDescription);
+setMeta('meta[name="keywords"]', "Unity developer, XR developer, VR developer, AR developer, C#, Meta Quest, WebAR, WebXR, Three.js, React, Node.js, JavaScript, EdTech, simulation development");
+setMeta('meta[property="og:title"]', profileTitle);
+setMeta('meta[property="og:description"]', profileDescription);
+setMeta('meta[name="twitter:title"]', profileTitle);
+setMeta('meta[name="twitter:description"]', profileDescription);
+
+const structuredData = document.querySelector('script[type="application/ld+json"]');
+if (structuredData) {
+  try {
+    const data = JSON.parse(structuredData.textContent);
+    const graph = Array.isArray(data['@graph']) ? data['@graph'] : [];
+    const person = graph.find((entry) => entry['@type'] === 'Person');
+    const website = graph.find((entry) => entry['@type'] === 'WebSite');
+    if (person) {
+      person.jobTitle = "Unity/XR & Software Engineer";
+      person.description = "Unity/XR and software engineer building immersive, WebAR, mobile, and learning products, with an M.Sc. in Computer Science and a technical-education background.";
+    }
+    if (website) {
+      website.description = "Portfolio of Aleš Spital, Unity/XR and software engineer focused on immersive technology, learning products, and interactive systems.";
+    }
+    structuredData.textContent = JSON.stringify(data);
+  } catch (error) {
+    console.warn("Could not refresh structured profile metadata", error);
+  }
+}
 
 var jobs = [
 {
@@ -43,7 +65,7 @@ var jobs = [
 	]
 },
 {
-	Title: "High School Professor of Computer Science",
+	Title: "Computer Science Teacher",
 	Years: "2021 - 2024",
 	Location: "School Center Velenje, Velenje, Slovenia",
 	Desc: [
