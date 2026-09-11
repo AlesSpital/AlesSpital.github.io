@@ -111,12 +111,8 @@ import * as THREE from "https://cdn.jsdelivr.net/npm/three@0.161.0/build/three.m
     if (done) return;
     const percent = total ? Math.min(100, Math.round((loaded / total) * 100)) : 100;
     bar.style.transform = `scaleX(${percent / 100})`;
-    if (percentEl) {
-      percentEl.textContent = `${percent}%`;
-    }
-    if (percent >= 100) {
-      finish();
-    }
+    if (percentEl) percentEl.textContent = `${percent}%`;
+    if (percent >= 100) finish();
   };
 
   const track = (promise) => {
@@ -134,47 +130,29 @@ import * as THREE from "https://cdn.jsdelivr.net/npm/three@0.161.0/build/three.m
     img.src = url;
   });
 
-  const preloadVideoMetadata = (url) => new Promise((resolve) => {
-    const video = document.createElement("video");
-    video.preload = "metadata";
-    const finish = () => {
-      video.remove();
-      resolve();
-    };
-    video.addEventListener("loadedmetadata", finish, { once: true });
-    video.addEventListener("error", finish, { once: true });
-    video.src = url;
-  });
-
   const collectAssets = async () => {
     const imageUrls = new Set();
-    const videoUrls = new Set();
 
-    document.querySelectorAll("img").forEach((img) => {
-      if (img.currentSrc || img.src) {
-        imageUrls.add(img.currentSrc || img.src);
-      }
+    // Only preload imagery that contributes to the first screen or flagship carousel.
+    document.querySelectorAll(".nav-avatar, .about-card img").forEach((img) => {
+      if (img.currentSrc || img.src) imageUrls.add(img.currentSrc || img.src);
     });
 
     try {
       const response = await fetch("assets/data/projects.json", { cache: "no-store" });
       const data = await response.json();
-      data.forEach((project) => {
-        if (project.thumbnail) imageUrls.add(project.thumbnail);
-        (project.media || []).forEach((media) => {
-          if (media.type === "image" && media.src) {
-            imageUrls.add(media.src);
-          }
-          if (media.type === "video" && media.src) {
-            videoUrls.add(media.src);
-          }
+      data
+        .filter((project) => project.featured)
+        .sort((a, b) => (a.priority || 0) - (b.priority || 0))
+        .slice(0, 5)
+        .forEach((project) => {
+          if (project.thumbnail) imageUrls.add(project.thumbnail);
         });
-      });
     } catch (error) {
-      // Ignore and continue with whatever we already have.
+      // Continue with first-screen assets only.
     }
 
-    if (!imageUrls.size && !videoUrls.size) {
+    if (!imageUrls.size) {
       total = 1;
       loaded = 1;
       updateProgress();
@@ -182,7 +160,6 @@ import * as THREE from "https://cdn.jsdelivr.net/npm/three@0.161.0/build/three.m
     }
 
     imageUrls.forEach((url) => track(preloadImage(url)));
-    videoUrls.forEach((url) => track(preloadVideoMetadata(url)));
   };
 
   const finish = () => {
@@ -191,26 +168,18 @@ import * as THREE from "https://cdn.jsdelivr.net/npm/three@0.161.0/build/three.m
     loader.classList.add("is-done");
     document.body.classList.remove("is-loading");
     if (rafId) cancelAnimationFrame(rafId);
-    setTimeout(() => {
-      loader.remove();
-    }, 600);
+    setTimeout(() => loader.remove(), 400);
   };
 
-  const fallback = setTimeout(() => {
-    finish();
-  }, 9000);
+  const fallback = setTimeout(finish, 3500);
 
   collectAssets().finally(() => {
     updateProgress();
     clearTimeout(fallback);
-    if (total === 0) {
-      finish();
-    }
+    if (total === 0) finish();
   });
 
   window.addEventListener("load", () => {
-    if (loaded >= total) {
-      finish();
-    }
+    if (loaded >= total) finish();
   });
 })();
