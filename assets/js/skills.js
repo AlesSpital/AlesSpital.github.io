@@ -1,54 +1,66 @@
 const skillGroups = [
   {
-    title: "Core Engineering",
+    title: "XR & Interactive Engineering",
     skills: [
       "Unity",
       "C#",
       "XR",
       "AR Foundation",
       "ARCore",
-      "ARKit",
-      "AI Feature Integration",
+      "Meta Quest",
       "Multiplayer Interaction Sync",
-      "Meta Quest Optimization"
+      "Three.js",
+      "WebAR / WebXR",
+      "MediaPipe",
+      "3D Interaction Systems"
     ]
   },
   {
-    title: "Product Delivery",
+    title: "Full-Stack Product Engineering",
     skills: [
+      "JavaScript",
+      "React / Vite",
+      "Node.js / Express",
+      "MySQL / SQL",
+      "Knex",
+      "PHP",
+      "IndexedDB",
+      "Authentication & Sessions",
+      "REST / JSON APIs",
+      "Persistence Architecture",
+      "CI/CD",
+      "GitHub Actions"
+    ]
+  },
+  {
+    title: "Product Delivery & Quality",
+    skills: [
+      "Product Architecture",
       "Rapid Prototyping",
+      "Technical Research",
       "UX for Learning",
       "Simulation Design",
-      "LLM-Powered UX Flows",
       "Mobile Development",
-      "Computer Networks",
       "Performance Tuning",
-      "Release Management"
+      "Source-Level Review",
+      "Vitest",
+      "Playwright",
+      "Deployment & Release Management"
     ]
   },
   {
-    title: "Leadership & AI Enablement",
+    title: "Education, AI & Communication",
     skills: [
       "Technical Teaching",
       "Workshop Facilitation",
+      "Instructional Design",
+      "AI-Assisted Development",
       "AI Adoption Strategy",
-      "GPT Wrapper Development",
-      "Agent Workflow Design",
-      "Custom Model Prototyping",
       "Stakeholder Communication",
       "MVP Planning",
-      "Responsible AI Framing"
-    ]
-  },
-  {
-    title: "Creative Production",
-    skills: [
+      "Computer Networks",
       "Cinema 4D",
-      "DaVinci Resolve",
-      "Photoshop",
-      "3D Modeling",
-      "3D Animation",
-      "Video Editing"
+      "DaVinci Resolve"
     ]
   }
 ];
