@@ -143,3 +143,19 @@ if (moreButton) {
   }
 }
 }
+
+(() => {
+  const freshCvHref = "assets/docs/Ales_Spital_Resume_2026.pdf";
+  document.querySelectorAll('a[href="assets/docs/Ales_Spital_CV.pdf"]').forEach((link) => {
+    link.setAttribute("href", freshCvHref);
+  });
+
+  const heroActions = document.querySelector(".hero-actions");
+  if (heroActions && !heroActions.querySelector('a[href="evidence.html"]')) {
+    const evidenceLink = document.createElement("a");
+    evidenceLink.className = "btn-hero ghost";
+    evidenceLink.href = "evidence.html";
+    evidenceLink.textContent = "Evidence";
+    heroActions.appendChild(evidenceLink);
+  }
+})();
