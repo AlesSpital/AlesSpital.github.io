@@ -3,100 +3,46 @@
     "id": "arnet",
     "title": "ARnet",
     "category": "XR",
-    "platforms": [
-      "Android",
-      "XR"
-    ],
+    "platforms": ["Android", "XR"],
     "thumbnail": "assets/img/ARnet/1.webp",
-    "summary": "XR networking simulation app for classroom use, featuring AR topology and routing exercises that improve comprehension of core networking fundamentals.",
+    "summary": "XR networking simulation app for classroom use, featuring AR topology and routing exercises for core networking fundamentals.",
     "role": "Lead Unity/XR engineer (design, simulation systems, deployment)",
-    "tools": [
-      "Unity",
-      "C#",
-      "AR Foundation",
-      "ARCore",
-      "ARKit"
-    ],
-    "tags": [
-      "Education",
-      "Flagship"
-    ],
+    "tools": ["Unity", "C#", "AR Foundation", "ARCore", "ARKit"],
+    "tags": ["Education", "Flagship"],
     "links": [
-      {
-        "label": "Google Play",
-        "url": "https://play.google.com/store/apps/details?id=com.CriticalGlitch.ARnet"
-      }
+      {"label": "Google Play", "url": "https://play.google.com/store/apps/details?id=com.CriticalGlitch.ARnet"},
+      {"label": "Master's thesis", "url": "https://dk.um.si/IzpisGradiva.php?id=88793&lang=slv"}
     ],
     "media": [
-      {
-        "type": "image",
-        "src": "assets/img/ARnet/1.webp",
-        "alt": "ARnet interface"
-      },
-      {
-        "type": "image",
-        "src": "assets/img/ARnet/2.webp",
-        "alt": "ARnet AR visualization"
-      },
-      {
-        "type": "image",
-        "src": "assets/img/ARnet/3.webp",
-        "alt": "ARnet topology view"
-      },
-      {
-        "type": "image",
-        "src": "assets/img/ARnet/4.webp",
-        "alt": "ARnet simulation"
-      },
-      {
-        "type": "image",
-        "src": "assets/img/ARnet/5.webp",
-        "alt": "ARnet learning scene"
-      }
+      {"type": "image", "src": "assets/img/ARnet/1.webp", "alt": "ARnet interface"},
+      {"type": "image", "src": "assets/img/ARnet/2.webp", "alt": "ARnet AR visualization"},
+      {"type": "image", "src": "assets/img/ARnet/3.webp", "alt": "ARnet topology view"},
+      {"type": "image", "src": "assets/img/ARnet/4.webp", "alt": "ARnet simulation"},
+      {"type": "image", "src": "assets/img/ARnet/5.webp", "alt": "ARnet learning scene"}
     ],
     "featured": true,
     "priority": 2,
     "details": [
-      "Problem: Networking concepts were abstract and difficult to retain in traditional lessons.",
+      "Problem: Networking concepts were abstract and difficult to apply through theory alone.",
       "Build: Created an AR topology builder and TCP/IP routing simulations in Unity using AR Foundation.",
-      "Impact: Reported ~20% grade improvement in classroom use and shipped on Google Play.",
-      "Hire signal: Demonstrates end-to-end delivery from pedagogy framing to production deployment."
+      "Evidence: Evaluated in a comparative student study as part of my 2024 University of Maribor master's thesis and published on Google Play.",
+      "Hire signal: Demonstrates end-to-end delivery from pedagogy framing to implementation, evaluation, and public deployment."
     ]
   },
   {
     "id": "ar-tourist-guide",
     "title": "AR Tourist Guide",
     "category": "XR",
-    "platforms": [
-      "Android",
-      "XR"
-    ],
+    "platforms": ["Android", "XR"],
     "thumbnail": "assets/img/portfolio/artouristguide.png",
     "summary": "Heritage XR mobile app for the Municipality of Sostanj that reconstructs the submerged village of Druzmirje in AR for tourism; public-facing prototype, now deprecated.",
     "status": "Deprecated",
     "statusType": "deprecated",
     "role": "Research, 3D reconstruction, app development",
-    "tools": [
-      "Unity",
-      "C#",
-      "Cinema 4D"
-    ],
-    "tags": [
-      "Heritage"
-    ],
-    "links": [
-      {
-        "label": "Thesis",
-        "url": "https://dk.um.si/Dokument.php?id=145960"
-      }
-    ],
-    "media": [
-      {
-        "type": "image",
-        "src": "assets/img/portfolio/artouristguide.png",
-        "alt": "AR Tourist Guide"
-      }
-    ],
+    "tools": ["Unity", "C#", "Cinema 4D"],
+    "tags": ["Heritage"],
+    "links": [{"label": "Thesis", "url": "https://dk.um.si/Dokument.php?id=145960"}],
+    "media": [{"type": "image", "src": "assets/img/portfolio/artouristguide.png", "alt": "AR Tourist Guide"}],
     "featured": false,
     "priority": 3,
     "details": [
@@ -109,98 +55,48 @@
     "id": "vr4ll-2",
     "title": "VR4LL 2.0",
     "category": "XR",
-    "platforms": [
-      "Meta Quest 2+",
-      "VR"
-    ],
+    "platforms": ["Meta Quest 2+", "VR"],
     "thumbnail": "assets/img/VR4LL/thumbnail.jpeg",
     "summary": "Multiplayer VR language-learning product for Meta Quest with synchronized interactions and quest-based practice in immersive social scenarios.",
     "role": "Unity XR developer - networking sync, grab sync, environment builds, and quest development",
-    "tools": [
-      "Unity",
-      "C#"
-    ],
-    "tags": [
-      "Education",
-      "Freelance",
-      "Flagship"
-    ],
+    "tools": ["Unity", "C#"],
+    "tags": ["Education", "Freelance", "Flagship"],
     "links": [
-      {
-        "label": "Website",
-        "url": "https://vr4ll.com/"
-      }
+      {"label": "Website", "url": "https://vr4ll.com/"},
+      {"label": "Official project context", "url": "https://www.tp-lj.si/en/projects/vr4ll-2-0-virtual-reality-for-language-learning-2-0-2023-11-01"}
     ],
-    "media": [
-      {
-        "type": "image",
-        "src": "assets/img/VR4LL/thumbnail.jpeg",
-        "alt": "VR4LL 2.0 experience"
-      }
-    ],
+    "media": [{"type": "image", "src": "assets/img/VR4LL/thumbnail.jpeg", "alt": "VR4LL 2.0 experience"}],
     "featured": true,
     "priority": 1,
     "details": [
       "Problem: Learners needed realistic speaking practice beyond static exercises and solo drills.",
       "Build: Implemented multi-user interaction sync, object-grab synchronization, and quest-based lesson progression.",
-      "Impact: Delivered production-ready modules for immersive Meta Quest learning sessions.",
-      "Hire signal: Strong networked XR execution under real standalone VR performance constraints."
+      "Impact: Delivered modules for immersive Meta Quest learning sessions within standalone-VR constraints.",
+      "Evidence boundary: Technology Park Ljubljana independently verifies the VR4LL 2.0 project; my exact implementation responsibilities remain professional-experience claims."
     ]
   },
   {
     "id": "ryftrealm",
     "title": "RyftRealm",
     "category": "Mobile Games",
-    "platforms": [
-      "Mobile"
-    ],
+    "platforms": ["Mobile"],
     "thumbnail": "assets/img/RyftRealm/rr_thumbnail.png",
     "summary": "Step-driven cozy mobile MVP in private development where device step history powers realm restoration, home furnishing, avatar customization, and cat companion progression.",
     "status": "Private MVP / In Development",
     "statusType": "in-development",
     "role": "Creator and lead Unity developer - gameplay systems, architecture, tooling, and content pipelines",
-    "tools": [
-      "Unity",
-      "C#",
-      "Native Step/Activity APIs",
-      "ScriptableObject Data Pipelines"
-    ],
-    "tags": [
-      "In Development",
-      "Mobile",
-      "Flagship"
-    ],
+    "tools": ["Unity", "C#", "Native Step/Activity APIs", "ScriptableObject Data Pipelines"],
+    "tags": ["In Development", "Mobile", "Flagship"],
     "links": [
-      {
-        "label": "Website",
-        "url": "https://ryftrealm.com/"
-      },
-      {
-        "label": "Instagram Devlog",
-        "url": "https://www.instagram.com/ryft.realm/"
-      }
+      {"label": "Website", "url": "https://ryftrealm.com/"},
+      {"label": "POPRI 2026 finalist proof", "url": "https://popri.si/wp-content/uploads/2026/03/finalisti-POPRI-2026_SASA-inkubator-ZRS-Bistra-Ptuj.pdf"},
+      {"label": "Instagram Devlog", "url": "https://www.instagram.com/ryft.realm/"}
     ],
     "media": [
-      {
-        "type": "image",
-        "src": "assets/img/RyftRealm/rr_thumbnail.png",
-        "alt": "RyftRealm mobile gameplay overview"
-      },
-      {
-        "type": "image",
-        "src": "assets/img/RyftRealm/rr_screenshot_1.png",
-        "alt": "RyftRealm realm restoration screen"
-      },
-      {
-        "type": "image",
-        "src": "assets/img/RyftRealm/rr_screenshot_2.png.png",
-        "alt": "RyftRealm systems and world view"
-      },
-      {
-        "type": "image",
-        "src": "assets/img/RyftRealm/rr_screenshot_3.png.png",
-        "alt": "RyftRealm home furnishing and customization"
-      }
+      {"type": "image", "src": "assets/img/RyftRealm/rr_thumbnail.png", "alt": "RyftRealm mobile gameplay overview"},
+      {"type": "image", "src": "assets/img/RyftRealm/rr_screenshot_1.png", "alt": "RyftRealm realm restoration screen"},
+      {"type": "image", "src": "assets/img/RyftRealm/rr_screenshot_2.png.png", "alt": "RyftRealm systems and world view"},
+      {"type": "image", "src": "assets/img/RyftRealm/rr_screenshot_3.png.png", "alt": "RyftRealm home furnishing and customization"}
     ],
     "featured": true,
     "priority": 4,
@@ -215,62 +111,21 @@
     "id": "sebastjan-spital-website",
     "title": "Sebastjan Spital Official Website",
     "category": "Web Development",
-    "platforms": [
-      "Web"
-    ],
+    "platforms": ["Web"],
     "thumbnail": "assets/img/sebatjanspital/sebastjanspital_thumbnail.png",
     "summary": "Official site for stand-up comedian Sebastjan Spital combining event discovery, ticket reservations with QR entry, merch e-commerce, blog/gallery content, and production trust/compliance flows.",
     "status": "Live",
     "statusType": "live",
     "role": "Full-stack web developer (product architecture, ticketing, e-commerce, content modules)",
-    "tools": [
-      "Laravel",
-      "PHP",
-      "PostgreSQL",
-      "Stripe",
-      "JavaScript",
-      "Blade",
-      "Google OAuth",
-      "QR Ticketing"
-    ],
-    "tags": [
-      "Production",
-      "Ticketing",
-      "E-commerce",
-      "CMS"
-    ],
-    "links": [
-      {
-        "label": "Website",
-        "url": "https://sebastjanspital.si"
-      }
-    ],
+    "tools": ["Laravel", "PHP", "PostgreSQL", "Stripe", "JavaScript", "Blade", "Google OAuth", "QR Ticketing"],
+    "tags": ["Production", "Ticketing", "E-commerce", "CMS"],
+    "links": [{"label": "Website", "url": "https://sebastjanspital.si"}],
     "media": [
-      {
-        "type": "image",
-        "src": "assets/img/sebatjanspital/sebastjanspital_thumbnail.png",
-        "alt": "Sebastjan Spital website landing page"
-      },
-      {
-        "type": "image",
-        "src": "assets/img/sebatjanspital/sebastjanspital_1.png",
-        "alt": "Events and ticket reservation interface"
-      },
-      {
-        "type": "image",
-        "src": "assets/img/sebatjanspital/sebastjanspital_2.png",
-        "alt": "Event detail and reservation flow"
-      },
-      {
-        "type": "image",
-        "src": "assets/img/sebatjanspital/sebastjanspital_3.png",
-        "alt": "Merch store catalog and filters"
-      },
-      {
-        "type": "image",
-        "src": "assets/img/sebatjanspital/sebastjanspital_4.png",
-        "alt": "Product detail, cart, and checkout flow"
-      }
+      {"type": "image", "src": "assets/img/sebatjanspital/sebastjanspital_thumbnail.png", "alt": "Sebastjan Spital website landing page"},
+      {"type": "image", "src": "assets/img/sebatjanspital/sebastjanspital_1.png", "alt": "Events and ticket reservation interface"},
+      {"type": "image", "src": "assets/img/sebatjanspital/sebastjanspital_2.png", "alt": "Event detail and reservation flow"},
+      {"type": "image", "src": "assets/img/sebatjanspital/sebastjanspital_3.png", "alt": "Merch store catalog and filters"},
+      {"type": "image", "src": "assets/img/sebatjanspital/sebastjanspital_4.png", "alt": "Product detail, cart, and checkout flow"}
     ],
     "featured": false,
     "priority": 1,
@@ -285,45 +140,19 @@
     "id": "xr-concepts",
     "title": "XR Concept Videos",
     "category": ["XR", "Motion/Editing"],
-    "platforms": [
-      "XR"
-    ],
+    "platforms": ["XR"],
     "thumbnail": "assets/vids/XRconcept/thumbnail.png",
     "summary": "CGI concept films used to communicate future XR device ideas and spatial UX interactions before runtime prototyping.",
     "role": "Concept strategy, CGI production, and edit direction",
-    "tools": [
-      "Cinema 4D",
-      "DaVinci Resolve"
-    ],
-    "tags": [
-      "Motion",
-      "Flagship"
-    ],
+    "tools": ["Cinema 4D", "DaVinci Resolve"],
+    "tags": ["Motion", "Flagship"],
     "media": [
-      {
-        "type": "video",
-        "src": "assets/vids/XRconcept/AQMy7GllHKqWJIImUvT2AVG6wO9DxfhApSQoneBkAlT5Wgyxrz1OJBrIZDcNYTSqmxWgwdP5paoJKbCap1WYzBpnkWiA6dQ8bKHNX_o.mp4"
-      },
-      {
-        "type": "video",
-        "src": "assets/vids/XRconcept/AQMZ8C6k_iIxLPVokCx8shrpiL6Fp7QckcyjfuI1tBmwoXq7H0ADPJb8vUlsGNhQP4KQ6VQUQ3vy0r3uCmncXrg2PN6d7SuNwcxjtME.mp4"
-      },
-      {
-        "type": "video",
-        "src": "assets/vids/XRconcept/AQPhk2zsMJzo7aImoWkZEIpiNer9K4vB2pxxIJXSMXouMkYhlEoZMFhRqT4jtRvs_C3qkxeK-6b-vVBRwn8dQOokOYzhJppRvhoFics.mp4"
-      },
-      {
-        "type": "video",
-        "src": "assets/vids/XRconcept/AQNkwXd7cIApsJZCFEtUUrmGIFcESdlXJgk8-5DPgQPxF3a1dAreoNMQK8mJtxkRAXv4Jt5iB0QiLjtwam-kiINy0EM20hLIxJVNWeU.mp4"
-      },
-      {
-        "type": "video",
-        "src": "assets/vids/XRconcept/AQOQhz0Inc9PCZbVBVpgBGdOQ3rl5gMtkntd6pqLhnteqRecEk1lyuMLkF6M3djWJbZtdOi2YmMTT_Bhx4y0bBhB_rLt-HtwWaUO04Q.mp4"
-      },
-      {
-        "type": "video",
-        "src": "assets/vids/XRconcept/AQMgTiSFuCe-B22weOeIX2CWxe3mHQ7LWPCeDkF72pfhOVK6yVKQH6OJ_zeyplJUBnTplSUt21sbvUfdDmRWsxSsTW30C4ikOR4w2BM.mp4"
-      }
+      {"type": "video", "src": "assets/vids/XRconcept/AQMy7GllHKqWJIImUvT2AVG6wO9DxfhApSQoneBkAlT5Wgyxrz1OJBrIZDcNYTSqmxWgwdP5paoJKbCap1WYzBpnkWiA6dQ8bKHNX_o.mp4"},
+      {"type": "video", "src": "assets/vids/XRconcept/AQMZ8C6k_iIxLPVokCx8shrpiL6Fp7QckcyjfuI1tBmwoXq7H0ADPJb8vUlsGNhQP4KQ6VQUQ3vy0r3uCmncXrg2PN6d7SuNwcxjtME.mp4"},
+      {"type": "video", "src": "assets/vids/XRconcept/AQPhk2zsMJzo7aImoWkZEIpiNer9K4vB2pxxIJXSMXouMkYhlEoZMFhRqT4jtRvs_C3qkxeK-6b-vVBRwn8dQOokOYzhJppRvhoFics.mp4"},
+      {"type": "video", "src": "assets/vids/XRconcept/AQNkwXd7cIApsJZCFEtUUrmGIFcESdlXJgk8-5DPgQPxF3a1dAreoNMQK8mJtxkRAXv4Jt5iB0QiLjtwam-kiINy0EM20hLIxJVNWeU.mp4"},
+      {"type": "video", "src": "assets/vids/XRconcept/AQOQhz0Inc9PCZbVBVpgBGdOQ3rl5gMtkntd6pqLhnteqRecEk1lyuMLkF6M3djWJbZtdOi2YmMTT_Bhx4y0bBhB_rLt-HtwWaUO04Q.mp4"},
+      {"type": "video", "src": "assets/vids/XRconcept/AQMgTiSFuCe-B22weOeIX2CWxe3mHQ7LWPCeDkF72pfhOVK6yVKQH6OJ_zeyplJUBnTplSUt21sbvUfdDmRWsxSsTW30C4ikOR4w2BM.mp4"}
     ],
     "featured": true,
     "priority": 3,
@@ -338,356 +167,145 @@
     "id": "echoes-of-etra",
     "title": "Echoes of Etra",
     "category": "PC Games",
-    "platforms": [
-      "Windows"
-    ],
+    "platforms": ["Windows"],
     "thumbnail": "assets/img/portfolio/eoe.jpg",
     "summary": "Playable Unity RPG demo built with a student team; delivered gameplay systems and UI, shipped a playable build and trailer (archived).",
     "status": "Playable (no longer in development)",
     "statusType": "archived",
     "role": "Gameplay + UI development",
-    "tools": [
-      "Unity",
-      "C#",
-      "Cinema 4D"
-    ],
-    "tags": [
-      "Playable"
-    ],
+    "tools": ["Unity", "C#", "Cinema 4D"],
+    "tags": ["Playable"],
     "links": [
-      {
-        "label": "Trailer",
-        "url": "https://youtu.be/byq_hVzCsZA?si=p9StZG92jRCq2R1Q"
-      },
-      {
-        "label": "Demo",
-        "url": "https://drive.google.com/file/d/1NezLAz30O-LDiyqCaF3XH9QalngPJ1uI/view?usp=sharing"
-      }
+      {"label": "Trailer", "url": "https://youtu.be/byq_hVzCsZA?si=p9StZG92jRCq2R1Q"},
+      {"label": "Demo", "url": "https://drive.google.com/file/d/1NezLAz30O-LDiyqCaF3XH9QalngPJ1uI/view?usp=sharing"}
     ],
     "media": [
-      {
-        "type": "image",
-        "src": "assets/img/portfolio/eoe.jpg",
-        "alt": "Echoes of Etra key art"
-      },
-      {
-        "type": "image",
-        "src": "assets/img/EchoesOfEtra/1.webp",
-        "alt": "Echoes of Etra Gameplay"
-      },
-      {
-        "type": "image",
-        "src": "assets/img/EchoesOfEtra/2.webp",
-        "alt": "Echoes of Etra Gameplay"
-      },
-      {
-        "type": "image",
-        "src": "assets/img/EchoesOfEtra/3.webp",
-        "alt": "Echoes of Etra Gameplay"
-      },
-      {
-        "type": "image",
-        "src": "assets/img/EchoesOfEtra/4.webp",
-        "alt": "Echoes of Etra Gameplay"
-      },
-      {
-        "type": "image",
-        "src": "assets/img/EchoesOfEtra/5.webp",
-        "alt": "Echoes of Etra Gameplay"
-      },
-      {
-        "type": "image",
-        "src": "assets/img/EchoesOfEtra/6.webp",
-        "alt": "Echoes of Etra Gameplay"
-      },
-      {
-        "type": "image",
-        "src": "assets/img/EchoesOfEtra/7.webp",
-        "alt": "Echoes of Etra Gameplay"
-      }
+      {"type": "image", "src": "assets/img/portfolio/eoe.jpg", "alt": "Echoes of Etra key art"},
+      {"type": "image", "src": "assets/img/EchoesOfEtra/1.webp", "alt": "Echoes of Etra Gameplay"},
+      {"type": "image", "src": "assets/img/EchoesOfEtra/2.webp", "alt": "Echoes of Etra Gameplay"},
+      {"type": "image", "src": "assets/img/EchoesOfEtra/3.webp", "alt": "Echoes of Etra Gameplay"},
+      {"type": "image", "src": "assets/img/EchoesOfEtra/4.webp", "alt": "Echoes of Etra Gameplay"},
+      {"type": "image", "src": "assets/img/EchoesOfEtra/5.webp", "alt": "Echoes of Etra Gameplay"},
+      {"type": "image", "src": "assets/img/EchoesOfEtra/6.webp", "alt": "Echoes of Etra Gameplay"},
+      {"type": "image", "src": "assets/img/EchoesOfEtra/7.webp", "alt": "Echoes of Etra Gameplay"}
     ],
     "featured": false,
     "priority": 4,
-    "details": [
-      "Developed gameplay systems and UI, collaborating across art and design.",
-      "Shipped a playable build; project archived.",
-      "Built in Unity/C#."
-    ]
+    "details": ["Developed gameplay systems and UI, collaborating across art and design.", "Shipped a playable build; project archived.", "Built in Unity/C#."]
   },
   {
     "id": "the-arena",
     "title": "The Arena",
     "category": "Mobile Games",
-    "platforms": [
-      "Android"
-    ],
+    "platforms": ["Android"],
     "thumbnail": "assets/img/portfolio/thearena.jpg",
     "summary": "Android arena brawler published on Google Play; designed core combat loop, progression, and UI.",
     "role": "Gameplay, UI, release",
-    "tools": [
-      "Unity",
-      "C#"
-    ],
+    "tools": ["Unity", "C#"],
     "tags": [],
-    "links": [
-      {
-        "label": "Google Play",
-        "url": "https://play.google.com/store/apps/details?id=com.CriticalGlitch.TheArena"
-      }
-    ],
-    "media": [
-      {
-        "type": "image",
-        "src": "assets/img/portfolio/thearena.jpg",
-        "alt": "The Arena"
-      }
-    ],
+    "links": [{"label": "Google Play", "url": "https://play.google.com/store/apps/details?id=com.CriticalGlitch.TheArena"}],
+    "media": [{"type": "image", "src": "assets/img/portfolio/thearena.jpg", "alt": "The Arena"}],
     "featured": false,
-    "details": [
-      "Designed core combat loop, progression tuning, and UI.",
-      "Published on Google Play.",
-      "Unity/C# on Android."
-    ]
+    "details": ["Designed core combat loop, progression tuning, and UI.", "Published on Google Play.", "Unity/C# on Android."]
   },
   {
     "id": "void",
     "title": "Void",
     "category": "Mobile Games",
-    "platforms": [
-      "Android"
-    ],
+    "platforms": ["Android"],
     "thumbnail": "assets/img/portfolio/thevoid.jpg",
     "summary": "Minimalist Android survival game focused on timing; built core gameplay and performance polish, published on Google Play (deprecated).",
     "status": "Deprecated",
     "statusType": "deprecated",
     "role": "Gameplay + polish",
-    "tools": [
-      "Unity",
-      "C#"
-    ],
+    "tools": ["Unity", "C#"],
     "tags": [],
-    "links": [
-      {
-        "label": "Google Play",
-        "url": "https://play.google.com/store/apps/details?id=com.CriticalGlitch.Void"
-      }
-    ],
-    "media": [
-      {
-        "type": "image",
-        "src": "assets/img/portfolio/thevoid.jpg",
-        "alt": "Void"
-      }
-    ],
+    "links": [{"label": "Google Play", "url": "https://play.google.com/store/apps/details?id=com.CriticalGlitch.Void"}],
+    "media": [{"type": "image", "src": "assets/img/portfolio/thevoid.jpg", "alt": "Void"}],
     "featured": false,
-    "details": [
-      "Built core gameplay and polish; optimized for mobile performance.",
-      "Published on Google Play; now deprecated.",
-      "Unity/C# on Android."
-    ]
+    "details": ["Built core gameplay and polish; optimized for mobile performance.", "Published on Google Play; now deprecated.", "Unity/C# on Android."]
   },
   {
     "id": "spez-shooter",
     "title": "Spez Shooter",
     "category": "Mobile Games",
-    "platforms": [
-      "Android"
-    ],
+    "platforms": ["Android"],
     "thumbnail": "assets/img/portfolio/spezshooter.jpg",
     "summary": "Arcade shooter for Android centered on reflex and precision; implemented scoring, progression, and release.",
     "role": "Gameplay + release",
-    "tools": [
-      "Unity",
-      "C#"
-    ],
+    "tools": ["Unity", "C#"],
     "tags": [],
-    "links": [
-      {
-        "label": "Google Play",
-        "url": "https://play.google.com/store/apps/details?id=com.CriticalGlitch.SpezShooter"
-      }
-    ],
-    "media": [
-      {
-        "type": "image",
-        "src": "assets/img/portfolio/spezshooter.jpg",
-        "alt": "Spez Shooter"
-      }
-    ],
+    "links": [{"label": "Google Play", "url": "https://play.google.com/store/apps/details?id=com.CriticalGlitch.SpezShooter"}],
+    "media": [{"type": "image", "src": "assets/img/portfolio/spezshooter.jpg", "alt": "Spez Shooter"}],
     "featured": false,
-    "details": [
-      "Implemented shooting systems, scoring, and progression.",
-      "Published on Google Play.",
-      "Unity/C# on Android."
-    ]
+    "details": ["Implemented shooting systems, scoring, and progression.", "Published on Google Play.", "Unity/C# on Android."]
   },
   {
     "id": "digital-art-collection",
     "title": "Digital Art Collection",
     "category": "Digital Art",
-    "platforms": [
-      "C4D",
-      "Photoshop"
-    ],
+    "platforms": ["C4D", "Photoshop"],
     "thumbnail": "assets/img/portfolio/digart.jpg",
     "summary": "Cinema 4D + Photoshop renders and promotional visuals across product, character, and stylized studies for social campaigns.",
     "role": "3D + compositing",
-    "tools": [
-      "Cinema 4D",
-      "Photoshop"
-    ],
-    "tags": [
-      "3D"
-    ],
-    "links": [
-      {
-        "label": "Instagram",
-        "url": "https://www.instagram.com/alesspital/"
-      }
-    ],
+    "tools": ["Cinema 4D", "Photoshop"],
+    "tags": ["3D"],
+    "links": [{"label": "Instagram", "url": "https://www.instagram.com/alesspital/"}],
     "media": [
-      {
-        "type": "image",
-        "src": "assets/img/portfolio/digart.jpg",
-        "alt": "Digital art render"
-      },
-      {
-        "type": "image",
-        "src": "assets/img/portfolio/photoart.jpg",
-        "alt": "Photo edit"
-      },
-      {
-        "type": "image",
-        "src": "assets/img/portfolio/pot_img.jpg",
-        "alt": "3D still"
-      },
-      {
-        "type": "image",
-        "src": "assets/img/portfolio/3Ddancer.jpg",
-        "alt": "3D dancer"
-      }
+      {"type": "image", "src": "assets/img/portfolio/digart.jpg", "alt": "Digital art render"},
+      {"type": "image", "src": "assets/img/portfolio/photoart.jpg", "alt": "Photo edit"},
+      {"type": "image", "src": "assets/img/portfolio/pot_img.jpg", "alt": "3D still"},
+      {"type": "image", "src": "assets/img/portfolio/3Ddancer.jpg", "alt": "3D dancer"}
     ],
     "featured": false,
     "priority": 5,
-    "details": [
-      "Modeling, lighting, and rendering in Cinema 4D.",
-      "Compositing and polish in Photoshop.",
-      "Includes promotional graphics and stylized experiments."
-    ]
+    "details": ["Modeling, lighting, and rendering in Cinema 4D.", "Compositing and polish in Photoshop.", "Includes promotional graphics and stylized experiments."]
   },
   {
     "id": "kinetic-rush",
     "title": "Kinetic Rush - 3D Community Challenge",
     "category": "Motion/Editing",
-    "platforms": [
-      "DaVinci Resolve"
-    ],
+    "platforms": ["DaVinci Resolve"],
     "thumbnail": "assets/img/portfolio/pot.GIF",
     "summary": "Cinema 4D community challenge entry (2024) focused on motion, camera pacing, and timing; edited in DaVinci Resolve.",
     "role": "Motion + editing",
-    "tools": [
-      "DaVinci Resolve",
-      "Cinema 4D"
-    ],
-    "tags": [
-      "Motion",
-      "Editing"
-    ],
-    "links": [
-      {
-        "label": "Instagram",
-        "url": "https://www.instagram.com/alesspital/"
-      }
-    ],
-    "media": [
-      {
-        "type": "image",
-        "src": "assets/img/portfolio/pot.GIF",
-        "alt": "Motion loop"
-      }
-    ],
+    "tools": ["DaVinci Resolve", "Cinema 4D"],
+    "tags": ["Motion", "Editing"],
+    "links": [{"label": "Instagram", "url": "https://www.instagram.com/alesspital/"}],
+    "media": [{"type": "image", "src": "assets/img/portfolio/pot.GIF", "alt": "Motion loop"}],
     "featured": false,
     "priority": -1,
-    "details": [
-      "Produced a stylized 3D sequence for the Kinetic Rush community challenge (2024).",
-      "Focused on timing, camera movement, and visual rhythm.",
-      "Edited in DaVinci Resolve."
-    ]
+    "details": ["Produced a stylized 3D sequence for the Kinetic Rush community challenge (2024).", "Focused on timing, camera movement, and visual rhythm.", "Edited in DaVinci Resolve."]
   },
   {
     "id": "rampage-rally",
     "title": "Rampage Rally - 3D Community Challenge",
     "category": "Motion/Editing",
-    "platforms": [
-      "DaVinci Resolve"
-    ],
+    "platforms": ["DaVinci Resolve"],
     "thumbnail": "assets/img/portfolio/rampagerally.gif",
     "summary": "Cinema 4D community challenge entry (2025) focused on motion, camera pacing, and timing; edited in DaVinci Resolve.",
     "role": "Motion + editing",
-    "tools": [
-      "DaVinci Resolve",
-      "Cinema 4D"
-    ],
-    "tags": [
-      "Motion",
-      "Editing"
-    ],
-    "links": [
-      {
-        "label": "Instagram",
-        "url": "https://www.instagram.com/alesspital/"
-      }
-    ],
-    "media": [
-      {
-        "type": "image",
-        "src": "assets/img/portfolio/rampagerally.gif",
-        "alt": "Motion loop"
-      }
-    ],
+    "tools": ["DaVinci Resolve", "Cinema 4D"],
+    "tags": ["Motion", "Editing"],
+    "links": [{"label": "Instagram", "url": "https://www.instagram.com/alesspital/"}],
+    "media": [{"type": "image", "src": "assets/img/portfolio/rampagerally.gif", "alt": "Motion loop"}],
     "featured": false,
     "priority": -2,
-    "details": [
-      "Produced a stylized 3D sequence for the Rampage Rally community challenge (2025).",
-      "Focused on timing, camera movement, and visual rhythm.",
-      "Edited in DaVinci Resolve."
-    ]
+    "details": ["Produced a stylized 3D sequence for the Rampage Rally community challenge (2025).", "Focused on timing, camera movement, and visual rhythm.", "Edited in DaVinci Resolve."]
   },
   {
     "id": "motion-reel",
     "title": "Motion & Editing Reel",
     "category": "Motion/Editing",
-    "platforms": [
-      "DaVinci Resolve"
-    ],
+    "platforms": ["DaVinci Resolve"],
     "thumbnail": "assets/img/portfolio/motion.jpg",
     "summary": "Short motion experiments with CGI accents; edited in DaVinci Resolve to showcase rhythm, mood, and compositing.",
     "role": "Motion + editing",
-    "tools": [
-      "DaVinci Resolve",
-      "Cinema 4D"
-    ],
-    "tags": [
-      "Motion",
-      "Editing"
-    ],
-    "links": [
-      {
-        "label": "Instagram",
-        "url": "https://www.instagram.com/alesspital/"
-      }
-    ],
-    "media": [
-      {
-        "type": "video",
-        "src": "assets/img/portfolio/vid2.mp4"
-      }
-    ],
+    "tools": ["DaVinci Resolve", "Cinema 4D"],
+    "tags": ["Motion", "Editing"],
+    "links": [{"label": "Instagram", "url": "https://www.instagram.com/alesspital/"}],
+    "media": [{"type": "video", "src": "assets/img/portfolio/vid2.mp4"}],
     "featured": false,
-    "details": [
-      "CGI elements created in Cinema 4D and integrated into edits.",
-      "Edited and graded in DaVinci Resolve.",
-      "Focused on rhythm, mood, and visual storytelling."
-    ]
+    "details": ["CGI elements created in Cinema 4D and integrated into edits.", "Edited and graded in DaVinci Resolve.", "Focused on rhythm, mood, and visual storytelling."]
   }
 ]
