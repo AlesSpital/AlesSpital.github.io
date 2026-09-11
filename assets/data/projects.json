@@ -150,52 +150,46 @@
   {
     "id": "ryftrealm",
     "title": "RyftRealm",
-    "category": [
-      "XR",
-      "Mobile Games"
-    ],
+    "category": "Mobile Games",
     "platforms": [
-      "Android",
-      "AR",
       "Mobile"
     ],
     "thumbnail": "assets/img/RyftRealm/rr_thumbnail.png",
-    "summary": "Step-driven mobile AR game in active development where real-world walking fuels progression, crafting, and cozy world-building in a procedurally generated parallel world.",
-    "status": "In Development",
+    "summary": "Step-driven cozy mobile MVP in private development where device step history powers realm restoration, home furnishing, avatar customization, and cat companion progression.",
+    "status": "Private MVP / In Development",
     "statusType": "in-development",
-    "role": "Solo Unity/XR developer - gameplay systems, architecture, tooling, and content pipelines",
+    "role": "Creator and lead Unity developer - gameplay systems, architecture, tooling, and content pipelines",
     "tools": [
       "Unity",
       "C#",
-      "AR Foundation",
-      "GPS/Location Services",
+      "Native Step/Activity APIs",
       "ScriptableObject Data Pipelines"
     ],
     "tags": [
       "In Development",
-      "AR",
+      "Mobile",
       "Flagship"
     ],
     "links": [
       {
-        "label": "TikTok Devlog",
-        "url": "https://www.tiktok.com/@hornbeam_studio?lang=en"
+        "label": "Website",
+        "url": "https://ryftrealm.com/"
       },
       {
         "label": "Instagram Devlog",
-        "url": "https://www.instagram.com/hornbeam.studio/"
+        "url": "https://www.instagram.com/ryft.realm/"
       }
     ],
     "media": [
       {
         "type": "image",
         "src": "assets/img/RyftRealm/rr_thumbnail.png",
-        "alt": "RyftRealm gameplay overview"
+        "alt": "RyftRealm mobile gameplay overview"
       },
       {
         "type": "image",
         "src": "assets/img/RyftRealm/rr_screenshot_1.png",
-        "alt": "RyftRealm AR scene"
+        "alt": "RyftRealm realm restoration screen"
       },
       {
         "type": "image",
@@ -205,16 +199,16 @@
       {
         "type": "image",
         "src": "assets/img/RyftRealm/rr_screenshot_3.png.png",
-        "alt": "RyftRealm building and customization"
+        "alt": "RyftRealm home furnishing and customization"
       }
     ],
     "featured": true,
     "priority": 4,
     "details": [
-      "Problem: Map-heavy location games are often expensive, inconsistent, and hard to optimize on mobile AR.",
-      "Build: Designed a step-driven AR loop where real walking fuels milestones, charges, gathering, crafting, and housing progression inside a procedurally generated world tied to GPS context.",
-      "Systems: Implemented scalable inventory, rarity-aware rewards, quests/recipes/placables catalogs, and architecture that separates data definitions from runtime state with a path toward server authority and anti-cheat hardening.",
-      "Impact direction: Weekly devlogs create active player feedback loops while developer tooling (validators, wizards, quick-start flows) enables maintainable long-term content growth."
+      "Problem: Activity trackers can record steps without giving users a lasting sense of progress or a reason to return.",
+      "Build: Created a step-driven loop where permitted device step history converts everyday movement into Gold, realm restoration, route choices, home furnishing, and companion progression without GPS route chasing.",
+      "Systems: Implemented avatar personalization, locally saved home editing, step milestones/rewards, realm progression, companion naming/petting, and long-term relationship progress with data-driven content architecture and tooling.",
+      "Current scope: Private single-player mobile MVP; gathering, crafting, shared realms, social play, and AR are explicitly outside the current playable prototype and are not launch promises."
     ]
   },
   {
