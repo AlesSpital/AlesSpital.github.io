@@ -32,6 +32,67 @@
     ]
   };
 
+  const multiverseProject = {
+    id: "multiverse-kaitenzushi",
+    title: "Multiverse Kaitenzushi",
+    category: "XR",
+    platforms: ["Meta Quest 3", "Mixed Reality", "XR"],
+    thumbnail: "https://cdn.sidequestvr.com/file/3151009/491822723_2074996513251488_8847006516908403311_n.webp?size=1000",
+    summary: "Mixed-reality Japanese-learning game for Meta Quest where I currently develop major Unity systems, tooling, optimization, and production workflows while coordinating a 10-person multidisciplinary team.",
+    status: "Early Access",
+    statusType: "live",
+    role: "Unity/XR developer · major features, tooling, optimization, and team coordination since Mar 2026",
+    tools: ["Unity", "C#", "Quest 3", "ScriptableObjects", "Custom Editors", "JSON", "Object Pooling", "Profiler"],
+    tags: ["Flagship", "Client Work", "Mixed Reality", "EdTech", "Quest 3"],
+    links: [
+      { label: "Kore Meta", url: "https://www.koremeta.com" },
+      { label: "SideQuest", url: "https://sidequestvr.com/app/47323/multiverse-kaitenzushi-learn-japanese-alphabet" },
+      { label: "ShapesXR case study", url: "https://www.shapesxr.com/case-studies/how-kore-meta-used-shapesxr-to-design-spatial-gameplay-for-multiverse-kaitenzushi" }
+    ],
+    media: [
+      { type: "image", src: "https://cdn.sidequestvr.com/file/3151009/491822723_2074996513251488_8847006516908403311_n.webp?size=1000", alt: "Multiverse Kaitenzushi mixed-reality Japanese learning game" }
+    ],
+    featured: true,
+    priority: 2,
+    details: [
+      "Product context: A mixed-reality Japanese alphabet learning game in Early Access for Meta Quest. The original project predates my involvement; my work began in March 2026.",
+      "Engineering scope: Implement major gameplay features and workflows, fix bugs, and improve maintainability across the Unity project.",
+      "Tooling: Built data-oriented content workflows using ScriptableObjects, custom inspectors/editor windows, JSON/configuration, reusable prefabs, and custom editor tools.",
+      "Gameplay systems: Worked on conveyor/customer flows, 3D characters with 2D face animation, tip windows, lists/grids, and drag-and-drop UI interactions.",
+      "Performance: Optimize for Quest 3 through object pooling, shader and draw-call reduction, profiler-driven work, and runtime cleanup with a 72 FPS target.",
+      "Team coordination: Coordinate a 10-person multidisciplinary team across tasks, meetings, technical direction, mentoring/reviews, cross-discipline coordination, and reporting."
+    ]
+  };
+
+  const clearSpaceProject = {
+    id: "clearspace-noordung",
+    title: "ClearSpace — Center Noordung",
+    category: "XR",
+    platforms: ["Interactive Installation", "Kinect", "Projection"],
+    thumbnail: "https://gcdn.picsart.com/pipeline-output/89a0df68-c77a-4417-a2be-3df78c1f0593.png",
+    summary: "Interactive museum installation built in Unity with Kinect and dual projection: a wall display for information/control and floor gameplay where visitors physically move to collect projected space debris.",
+    status: "Museum Installation",
+    statusType: "live",
+    role: "Sole Unity developer for the ClearSpace installation",
+    tools: ["Unity", "C#", "Kinect", "Dual Projection", "Calibration", "Interactive Installation"],
+    tags: ["Museum", "Kinect", "Installation", "Physical Interaction"],
+    links: [
+      { label: "Center Noordung", url: "https://www.center-noordung.si/en/" }
+    ],
+    media: [
+      { type: "image", src: "https://gcdn.picsart.com/pipeline-output/89a0df68-c77a-4417-a2be-3df78c1f0593.png", alt: "Illustrative reconstruction of the ClearSpace museum installation setup" }
+    ],
+    featured: false,
+    priority: 2,
+    details: [
+      "Interaction: Visitors collect projected space debris by physically moving to its floor position while Kinect tracks movement.",
+      "Display setup: One projector supports wall-based information/control and another drives the floor gameplay surface.",
+      "Implementation: Built calibration, tracking-to-game mapping, interaction logic, animations, and projection-related behavior in Unity/C#.",
+      "Ownership: I built ClearSpace as the sole developer for this installation; two other developers created separate games for the same museum room.",
+      "Visual note: The portfolio image is an illustrative reconstruction of the installation setup, not a photograph of the deployed exhibit."
+    ]
+  };
+
   const refreshArnet = (project) => ({
     ...project,
     platforms: ["Android", "AR"],
@@ -40,7 +101,7 @@
     tools: ["Unity", "C#", "AR Foundation", "ARCore", "Android"],
     tags: ["Education", "Flagship", "Google Play", "Master's Thesis"],
     featured: true,
-    priority: 3,
+    priority: 4,
     details: [
       "Problem: Networking concepts can remain abstract when learners only see diagrams and configuration examples.",
       "Build: Created an AR topology builder and network simulation workflow where learners place devices, connect them, configure IPv4 settings, and test communication paths.",
@@ -52,7 +113,7 @@
   const refreshVr4ll = (project) => ({
     ...project,
     featured: true,
-    priority: 2,
+    priority: 3,
     summary: "Multiplayer Meta Quest language-learning experience where I delivered synchronized interaction, grab networking, environment work, and quest-based practice for real immersive sessions.",
     role: "Unity XR developer · multiplayer interaction, grab sync, environments, and quest development",
     details: [
@@ -74,7 +135,7 @@
     tools: ["Unity", "C#", "StepTracker Pro", "PlayerPrefs", "JSON", "ScriptableObjects", "Addressables", "AssetBundles"],
     tags: ["Flagship", "Mobile", "Founder", "MVP", "SIA Finalist", "POPRI Finalist"],
     featured: true,
-    priority: 4,
+    priority: 5,
     details: [
       "Problem: Activity trackers often record behavior without creating a strong reason to come back; RyftRealm tests whether walking can feel like meaningful game progression.",
       "Build: Designed the core loop, progression, economy, world/tile systems, home decoration, pets, rewards, and step-based motivation model.",
@@ -100,9 +161,9 @@
     statusType: "archived",
     role: "Sole developer · research, Unity/C#, backend/API/database, geospatial logic, and 3D reconstruction",
     tools: ["Unity", "C#", "AR Foundation", "ARCore", "PHP", "MySQL", "JSON", "OBJ Runtime Loading"],
-    tags: ["Heritage", "Geospatial AR", "Thesis", "Flagship"],
-    featured: true,
-    priority: 5,
+    tags: ["Heritage", "Geospatial AR", "Thesis"],
+    featured: false,
+    priority: 1,
     details: [
       "Problem: Cultural-heritage sites that disappeared or changed are difficult to experience in context once the physical object is gone.",
       "Build: Created an end-to-end location-aware AR content system: browser admin tools, PHP/MySQL backend, JSON interfaces, runtime OBJ/PNG delivery, and geographic placement on Android.",
@@ -128,9 +189,9 @@
         return project;
       });
 
-      if (!refreshed.some((project) => project.id === "emind")) {
-        refreshed.push(eMindProject);
-      }
+      if (!refreshed.some((project) => project.id === "emind")) refreshed.push(eMindProject);
+      if (!refreshed.some((project) => project.id === "multiverse-kaitenzushi")) refreshed.push(multiverseProject);
+      if (!refreshed.some((project) => project.id === "clearspace-noordung")) refreshed.push(clearSpaceProject);
 
       return new Response(JSON.stringify(refreshed), {
         status: response.status,
@@ -149,7 +210,7 @@
   };
 
   setText(".browse-header h3", "More Work");
-  setText(".browse-header p", "Earlier releases, web work, game prototypes, 3D/motion studies, and supporting projects.");
+  setText(".browse-header p", "Earlier releases, installations, web work, game prototypes, 3D/motion studies, and supporting projects.");
   setText("#contact .section-title p", "Open to Unity/XR, immersive learning, EdTech, technical-training, and software product work. Based in Slovenia and available for international collaboration.");
 })();
 
@@ -159,8 +220,7 @@ var jobs = [
     Years: "",
     Desc: "",
     Points: [
-      "ClearSpace — Center Noordung: Unity + Kinect interactive experience focused on space debris.",
-      "Multiverse Kaitenzushi — Canada: immersive Japanese-language learning through passthrough play.",
+      "ClearSpace — Center Noordung: solo-built Unity/Kinect interactive installation using wall and floor projection for a physical space-debris collection experience.",
       "Earlier Android game work includes multiple Unity/C# releases published on Google Play."
     ]
   },
