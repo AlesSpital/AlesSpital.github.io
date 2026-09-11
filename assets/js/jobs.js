@@ -1,16 +1,3 @@
-document.title = "Aleš Spital | Unity/XR & Product Engineer";
-const profileDescription = "Unity/XR and product engineer building immersive, full-stack learning, WebAR, and mobile products, with an M.Sc. in Computer Science and a technical-education background.";
-const descriptionMeta = document.querySelector('meta[name="description"]');
-if (descriptionMeta) descriptionMeta.setAttribute("content", profileDescription);
-const ogTitle = document.querySelector('meta[property="og:title"]');
-if (ogTitle) ogTitle.setAttribute("content", "Aleš Spital | Unity/XR & Product Engineer");
-const ogDescription = document.querySelector('meta[property="og:description"]');
-if (ogDescription) ogDescription.setAttribute("content", profileDescription);
-const twitterTitle = document.querySelector('meta[name="twitter:title"]');
-if (twitterTitle) twitterTitle.setAttribute("content", "Aleš Spital | Unity/XR & Product Engineer");
-const twitterDescription = document.querySelector('meta[name="twitter:description"]');
-if (twitterDescription) twitterDescription.setAttribute("content", profileDescription);
-
 var jobs = [
 {
 	Title: "Senior JavaScript Developer | Višji JavaScript Razvijalec",
@@ -43,7 +30,7 @@ var jobs = [
 	]
 },
 {
-	Title: "High School Professor of Computer Science",
+	Title: "Computer Science Teacher",
 	Years: "2021 - 2024",
 	Location: "School Center Velenje, Velenje, Slovenia",
 	Desc: [
