@@ -7,7 +7,7 @@
     title: "eMind / AR Studio",
     category: ["Web Development", "XR"],
     platforms: ["Web", "WebAR", "XR"],
-    thumbnail: "https://emind.si/assets/brand/emind-logo-512.png",
+    thumbnail: "https://emind.si/assets/xr/ar-studio/intro-hero.webp",
     summary: "Live AI/XR learning platform with a browser-based AR authoring studio for face, image, and world tracking. AR Studio is in beta / early access and already used in my teaching.",
     status: "Live · AR Studio Beta",
     statusType: "live",
@@ -18,7 +18,10 @@
       { label: "Live platform", url: "https://emind.si" }
     ],
     media: [
-      { type: "image", src: "https://emind.si/assets/brand/emind-logo-512.png", alt: "eMind learning platform" }
+      { type: "image", src: "https://emind.si/assets/xr/ar-studio/intro-hero.webp", alt: "eMind AR Studio introduction" },
+      { type: "image", src: "https://emind.si/assets/xr/ar-studio/mode-face.webp", alt: "eMind AR Studio face-tracking mode" },
+      { type: "image", src: "https://emind.si/assets/xr/ar-studio/mode-image.webp", alt: "eMind AR Studio image-tracking mode" },
+      { type: "image", src: "https://emind.si/assets/xr/ar-studio/mode-space.webp", alt: "eMind AR Studio world and space tracking mode" }
     ],
     featured: true,
     priority: 1,
