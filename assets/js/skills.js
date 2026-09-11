@@ -4,15 +4,19 @@ const skillGroups = [
     skills: [
       "Unity",
       "C#",
-      "XR",
+      "Meta Quest / Quest 3",
+      "Mixed Reality",
       "AR Foundation",
       "ARCore",
-      "Meta Quest",
       "Multiplayer Interaction Sync",
+      "Unity Editor Tooling",
+      "ScriptableObject Pipelines",
+      "Profiling & Quest Optimization",
+      "Object Pooling",
+      "Kinect / Physical Interaction",
       "Three.js",
       "WebAR / WebXR",
-      "MediaPipe",
-      "3D Interaction Systems"
+      "MediaPipe"
     ]
   },
   {
@@ -36,8 +40,8 @@ const skillGroups = [
     title: "Product Delivery & Quality",
     skills: [
       "Product Architecture",
-      "Rapid Prototyping",
       "Technical Research",
+      "Rapid Prototyping",
       "UX for Learning",
       "Simulation Design",
       "Mobile Development",
@@ -49,8 +53,10 @@ const skillGroups = [
     ]
   },
   {
-    title: "Education, AI & Communication",
+    title: "Leadership, Education & AI",
     skills: [
+      "Multidisciplinary Team Coordination",
+      "Technical Direction & Reviews",
       "Technical Teaching",
       "Workshop Facilitation",
       "Instructional Design",
