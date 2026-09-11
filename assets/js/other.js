@@ -71,28 +71,38 @@
     id: "clearspace-noordung",
     title: "ClearSpace — Center Noordung",
     category: "XR",
-    platforms: ["Interactive Installation", "Kinect", "Projection"],
-    thumbnail: "https://gcdn.picsart.com/pipeline-output/89a0df68-c77a-4417-a2be-3df78c1f0593.png",
-    summary: "Interactive museum installation built in Unity with Kinect and dual projection: a wall display for information/control and floor gameplay where visitors physically move to collect projected space debris.",
+    platforms: ["Interactive Installation", "Kinect", "Dual Projection"],
+    thumbnail: "https://gcdn.picsart.com/editing-temp/11c206bd-0eca-4505-9caf-aa45e6cf52b4.jpeg",
+    summary: "Interactive Unity/Kinect museum installation in a deliberately dark projection room: the wall presents mission/orbital context while the floor becomes a tracked physical playfield for clearing space debris.",
     status: "Museum Installation",
     statusType: "live",
     role: "Sole Unity developer for the ClearSpace installation",
-    tools: ["Unity", "C#", "Kinect", "Dual Projection", "Calibration", "Interactive Installation"],
-    tags: ["Museum", "Kinect", "Installation", "Physical Interaction"],
+    tools: ["Unity", "C#", "Kinect", "Dual Projection", "Calibration", "Physical Interaction"],
+    tags: ["Museum", "Kinect", "Installation", "Real Footage", "Physical Interaction"],
     links: [
       { label: "Center Noordung", url: "https://www.center-noordung.si/en/" }
     ],
     media: [
-      { type: "image", src: "https://gcdn.picsart.com/pipeline-output/89a0df68-c77a-4417-a2be-3df78c1f0593.png", alt: "Illustrative reconstruction of the ClearSpace museum installation setup" }
+      {
+        type: "video",
+        src: "https://gcdn.picsart.com/editing-temp/74581184-26ee-4e3c-bb21-c94f9b1e5400.mp4",
+        poster: "https://gcdn.picsart.com/editing-temp/11c206bd-0eca-4505-9caf-aa45e6cf52b4.jpeg"
+      },
+      { type: "image", src: "https://gcdn.picsart.com/editing-temp/11c206bd-0eca-4505-9caf-aa45e6cf52b4.jpeg", alt: "ClearSpace real installation footage showing wall mission projection and floor tracking" },
+      { type: "image", src: "https://gcdn.picsart.com/editing-temp/f83f0d15-6a78-4130-918c-e96d03dc9a35.jpeg", alt: "ClearSpace how-it-works visual built from real installation footage" },
+      { type: "image", src: "https://gcdn.picsart.com/editing-temp/6d23be62-02d9-4e62-80d1-b3b70cabdf75.jpeg", alt: "ClearSpace system architecture from visitor tracking to wall and floor projection" },
+      { type: "image", src: "https://gcdn.picsart.com/pipeline-output/ef14dd8a-64ae-4fc9-9b59-b3576b83f32e.png", alt: "Illustrative reconstruction of the ClearSpace room and projection setup" }
     ],
     featured: false,
     priority: 2,
     details: [
-      "Interaction: Visitors collect projected space debris by physically moving to its floor position while Kinect tracks movement.",
-      "Display setup: One projector supports wall-based information/control and another drives the floor gameplay surface.",
-      "Implementation: Built calibration, tracking-to-game mapping, interaction logic, animations, and projection-related behavior in Unity/C#.",
+      "How it works: The room is intentionally black and the projections are the interface. The wall projection provides mission/orbital context; the floor projection is the physical playfield.",
+      "Tracking: Kinect maps the visitor's physical position and movement into a tracked marker on the projected floor in real time.",
+      "Interaction: Visitors move toward and into projected debris targets to clear/collect them; successful interactions trigger immediate visual feedback and updated information.",
+      "Projection system: Separate wall and floor projectors required calibration and consistent mapping between the tracked physical space and Unity's game space.",
+      "Implementation: Built calibration, tracking-to-game mapping, gameplay/collection logic, animations, feedback, and projection behavior in Unity/C#.",
       "Ownership: I built ClearSpace as the sole developer for this installation; two other developers created separate games for the same museum room.",
-      "Visual note: The portfolio image is an illustrative reconstruction of the installation setup, not a photograph of the deployed exhibit."
+      "Evidence: The first four media items use real installation footage or visuals derived directly from it. The final room view is explicitly an illustrative reconstruction used only to clarify the physical setup."
     ]
   };
 
