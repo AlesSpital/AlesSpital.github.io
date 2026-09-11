@@ -91,7 +91,12 @@
       { type: "image", src: "https://gcdn.picsart.com/editing-temp/11c206bd-0eca-4505-9caf-aa45e6cf52b4.jpeg", alt: "ClearSpace real installation footage showing wall mission projection and floor tracking" },
       { type: "image", src: "https://gcdn.picsart.com/editing-temp/f83f0d15-6a78-4130-918c-e96d03dc9a35.jpeg", alt: "ClearSpace how-it-works visual built from real installation footage" },
       { type: "image", src: "https://gcdn.picsart.com/editing-temp/6d23be62-02d9-4e62-80d1-b3b70cabdf75.jpeg", alt: "ClearSpace system architecture from visitor tracking to wall and floor projection" },
-      { type: "image", src: "https://gcdn.picsart.com/pipeline-output/ef14dd8a-64ae-4fc9-9b59-b3576b83f32e.png", alt: "Illustrative reconstruction of the ClearSpace room and projection setup" }
+      {
+        type: "video",
+        src: "https://gcdn.picsart.com/editing-temp/849a812c-dc50-48b9-a90e-077f55e63dce.mp4",
+        poster: "https://gcdn.picsart.com/editing-temp/f8fbb4ab-6c84-470f-bc94-f038f5843cf7.png"
+      },
+      { type: "image", src: "https://gcdn.picsart.com/editing-temp/f8fbb4ab-6c84-470f-bc94-f038f5843cf7.png", alt: "AI-assisted illustrative environment visualization based on the real ClearSpace installation" }
     ],
     featured: false,
     priority: 2,
@@ -102,7 +107,7 @@
       "Projection system: Separate wall and floor projectors required calibration and consistent mapping between the tracked physical space and Unity's game space.",
       "Implementation: Built calibration, tracking-to-game mapping, gameplay/collection logic, animations, feedback, and projection behavior in Unity/C#.",
       "Ownership: I built ClearSpace as the sole developer for this installation; two other developers created separate games for the same museum room.",
-      "Evidence: The first four media items use real installation footage or visuals derived directly from it. The final room view is explicitly an illustrative reconstruction used only to clarify the physical setup."
+      "Evidence: The first four media items are real installation footage or visuals derived directly from it. The final video and still are explicitly AI-assisted illustrative environment visualizations based on the real installation; they clarify the intended visitor-facing room without being presented as deployment evidence."
     ]
   };
 
