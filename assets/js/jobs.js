@@ -1,12 +1,12 @@
 var jobs = [
 {
-	Title: "AI Workshop Instructor & Advisor",
-	Years: "2025 - Present",
-	Location: "Telemach JobLab, Slovenia",
+	Title: "Senior JavaScript Developer | Višji JavaScript Razvijalec",
+	Years: "Sep 2020 - Mar 2026",
+	Location: "RSLabs, Slovenia",
 	Desc: [
-	"Led AI adoption workshops for schools and companies from use-case discovery to MVP planning.",
-	"Helped teams prioritize value, feasibility, and risk for responsible rollout.",
-	"Built practical implementation workflows for non-technical and mixed-seniority teams."
+	"Built and maintained production web features in JavaScript/jQuery, including frontend/backend integration and product-facing workflows.",
+	"Handled refactoring, optimization, maintainability decisions, and full-cycle technical delivery from problem analysis through implementation and iteration.",
+	"Worked with technical and non-technical stakeholders to translate product and UX requirements into practical software solutions."
 	]
 },
 {
@@ -15,8 +15,18 @@ var jobs = [
 	Location: "Freelance - Slovenia",
 	Desc: [
 	"Developed VR4LL 2.0 modules for Meta Quest, including shared interaction and object-grab synchronization.",
-	"Implemented quest-based learning flows and interactive scenarios for immersive language practice.",
-	"Optimized experiences for standalone VR constraints and session reliability."
+	"Implemented quest-based learning flows, environment work, and interactive scenarios for immersive language practice.",
+	"Worked within standalone-VR constraints where interaction reliability, usability, and performance all matter."
+	]
+},
+{
+	Title: "AI Workshop Instructor & Advisor",
+	Years: "2025 - Present",
+	Location: "Slovenia",
+	Desc: [
+	"Deliver practical AI training for schools, adult learners, and business audiences.",
+	"Translate current AI tools and workflows into exercises people can apply directly in teaching and professional work.",
+	"Use the same instructional experience to inform eMind, my own AI/XR learning platform."
 	]
 },
 {
@@ -24,10 +34,9 @@ var jobs = [
 	Years: "2021 - 2024",
 	Location: "School Center Velenje, Velenje, Slovenia",
 	Desc: [
-	"Taught 300+ students in AI, web development, multimedia, and networking with a 95% pass rate.",
-	"Designed project-based curricula that turned theory into shipped prototypes.",
-	"Organized 5+ game jams and supervised an AI grading assistant in Python that reduced grading time by ~20%.",
-	"Contributed to EU initiatives expanding educator digital competencies."
+	"Taught computer science topics including AI, web development, multimedia, and computer networks.",
+	"Designed project-based learning activities, practical assignments, and technical workshops around real software and emerging technologies.",
+	"Used teaching experience to identify recurring learning problems that later informed products such as ARnet and eMind."
 	]
 },
 {
@@ -35,9 +44,8 @@ var jobs = [
 	Years: "2019 - 2020",
 	Location: "Ministry of Public Administration, Slovenia",
 	Desc: [
-	"Supported IT modernization across 100+ government facilities.",
-	"Contributed to process and cost optimization with reported savings up to ~20%.",
-	"Built Xamarin/MySQL tools that improved archival workflows and response efficiency."
+	"Supported public-sector IT and modernization work across technical and administrative workflows.",
+	"Built software tools with Xamarin/MySQL and contributed to improving archival and operational processes."
 	]
 },
 {
@@ -45,9 +53,8 @@ var jobs = [
 	Years: "2018 - 2019",
 	Location: "Mega M d.o.o., Velenje, Slovenia",
 	Desc: [
-	"Built an online shopping platform with HTML, jQuery, and Bootstrap.",
-	"Developed a Xamarin mobile app for a national grocery chain with loyalty-point integration and discount alerts.",
-	"Helped deliver engagement improvements reported around ~30%."
+	"Built web functionality with HTML, JavaScript/jQuery, and Bootstrap.",
+	"Contributed to Xamarin mobile development for retail/loyalty use cases."
 	]
 },
 {
@@ -55,17 +62,18 @@ var jobs = [
 	Years: "Spring 2015",
 	Location: "bits & bytes, Malta",
 	Desc: [
-	"Contributed to online retail platform development for an electronics store.",
-	"Strengthened production foundations in HTML, CSS, PHP, and MySQL."
+	"Contributed to web development for an online electronics retail project.",
+	"Worked with HTML, CSS, PHP, and MySQL in an international internship environment."
 	]
-}];
+}
+];
 
 const jobItems = document.getElementById("job-items") || document.getElementById("job-list");
 if (!jobItems) {
   // No target container on this page.
 } else {
 
-const VISIBLE_LIMIT = 3;
+const VISIBLE_LIMIT = 4;
 let renderedCount = 0;
 
 for(let i = 0; i < jobs.length; i++ ){
