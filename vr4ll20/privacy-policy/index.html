@@ -103,7 +103,7 @@
         <li><a href="#sharing">4. Services &amp; sharing</a></li>
         <li><a href="#retention">5. Storage &amp; retention</a></li>
         <li><a href="#choices">6. Your controls</a></li>
-        <li><a href="#deletion">7. Local data &amp; deletion</a></li>
+        <li><a href="#deletion">7. Local data &amp; privacy requests</a></li>
         <li><a href="#rights">8. Your privacy rights</a></li>
         <li><a href="#children">9. Younger users</a></li>
         <li><a href="#international">10. International processing</a></li>
@@ -114,10 +114,9 @@
     <main id="policy" tabindex="-1">
       <div class="summary" aria-labelledby="summary-title">
         <h2 id="summary-title">At a glance</h2>
-        <p><strong>Just choose a username.</strong> No sign-up, email address, password, or Ready Player Me account is required to use the app. You select an avatar from those provided in the app.</p>
+        <p><strong>Choose a username and select an avatar provided in the app.</strong> No registration is required.</p>
         <p>Voice chat sends microphone audio to other participants through a communications provider. AI speaking practice sends speech for recognition and processes the resulting dialogue with AI services.</p>
-        <p>The app uses player and session information to connect participants and saves preferences and authentication information on your headset. Conversation context is held in memory; there is no saved conversation-history feature. Diagnostic logs and service-provider records are separate and may contain information from your use of the app.</p>
-        <p><strong>You can request deletion free of charge:</strong> email <a href="mailto:ales.spital@gmail.com">ales.spital@gmail.com</a>. See <a href="#deletion">the deletion instructions</a> below.</p>
+        <p>Multiplayer uses player and session identifiers. Preferences are saved on your headset, while AI conversations use temporary memory. Diagnostic logs and service-provider records may also contain information from your use of the app.</p>
       </div>
 
       <section id="operator">
@@ -135,13 +134,13 @@
           <dt>AI dialogue and language practice</dt>
           <dd>Recognized speech, conversation context, selected language, learning prompts, and AI responses are processed to understand your input and produce relevant replies. This includes OpenAI dialogue processing and Microsoft/Azure speech generation. When the AI browsing feature is triggered, a query derived from your dialogue is sent to Kagi to help produce a response. Dialogue may contain personal information if you say it.</dd>
           <dt>Player identity and multiplayer activity</dt>
-          <dd>You choose a username (display name), which the app remembers on your headset and shares in multiplayer sessions. You do not register a separate app account or provide an email address or password. Behind the scenes, Unity automatically authenticates the app anonymously and assigns a player identifier for multiplayer services. The app processes that identifier, lobby/session identifiers and codes, participant membership, readiness, and connection information. Avatar movement, headset/controller poses, and object interactions are processed to represent you and synchronize the shared activity. A service-generated or “anonymous” player ID can still be personal data.</dd>
+          <dd>You choose a username (display name), which the app remembers on your headset and shares in multiplayer sessions. Unity automatically authenticates the app anonymously and assigns a player identifier for multiplayer services. The app processes that identifier, lobby/session identifiers and codes, participant membership, readiness, and connection information. Avatar movement, headset/controller poses, and object interactions are processed to represent you and synchronize the shared activity.</dd>
           <dt>Avatars and preferences</dt>
-          <dd>You select from avatars provided in the app. The app processes your selection and saves avatar and practice-language preferences on your device. The current avatar-selection experience uses bundled resources and does not require Ready Player Me sign-in or offer online avatar creation. If an older installation has a saved online-avatar reference, legacy handling may restore that reference and attempt to load the avatar from the external service.</dd>
+          <dd>The app saves your selected avatar and practice-language preferences on your headset.</dd>
           <dt>Downloaded resources and local caches</dt>
-          <dd>The language selector downloads flag images from FlagCDN when they are not already cached. These requests include the requested image path and connection information such as your IP address. Flag images and avatar thumbnails may be cached on your headset; these image caches are not recordings of your conversations.</dd>
+          <dd>The language selector downloads flag images from FlagCDN when they are not already cached. These requests include the requested image path and connection information such as your IP address. Flag images and avatar thumbnails may be cached on your headset.</dd>
           <dt>Technical and diagnostic information</dt>
-          <dd>The app and its service providers process connection, device/software, usage, error, and performance information needed to operate and troubleshoot their services. Network services receive connection information such as IP addresses. App diagnostic output can include session identifiers, AI request/response content, and error details. These diagnostic messages are separate from conversation history; their presence does not mean the operator automatically receives or maintains a central copy of headset logs.</dd>
+          <dd>The app and its service providers process connection, device/software, usage, error, and performance information needed to operate and troubleshoot their services. Network services receive connection information such as IP addresses. App diagnostic output can include session identifiers, AI request/response content, and error details.</dd>
           <dt>Support, privacy requests, and conduct reports</dt>
           <dd>If you contact us or submit a report that is delivered to us, we process your contact details, the information you provide, relevant identifiers, and any accompanying evidence or report metadata to investigate and respond.</dd>
         </dl>
@@ -157,7 +156,7 @@
 
       <section id="sharing">
         <h2>4. Services and sharing</h2>
-        <p>Information is transmitted to the services needed for the feature you use. Providers may process information on our behalf and may separately process service and security information under their own terms. The app does not ask you to supply an email address or register an account with these providers.</p>
+        <p>Information is transmitted to the services needed for the feature you use. Providers may process information on our behalf and may separately process service and security information under their own terms.</p>
         <ul>
           <li><strong>Unity services:</strong> automatic anonymous authentication and player identifiers (without user registration), lobby membership and session data, and Relay/network traffic for connecting participants. <a href="https://unity.com/legal/privacy-policy">Unity Privacy Policy</a>.</li>
           <li><strong>Agora:</strong> live voice audio and the channel, connection, and technical information needed to deliver communications. <a href="https://www.agora.io/en/privacy-policy/">Agora Privacy Policy</a>.</li>
@@ -165,25 +164,23 @@
           <li><strong>OpenAI:</strong> transcribed dialogue, relevant conversation context and prompts, and generated responses for AI language practice. <a href="https://developers.openai.com/api/docs/guides/your-data">OpenAI API data controls</a>.</li>
           <li><strong>Kagi:</strong> when AI browsing is triggered, Kagi receives a query derived from the dialogue and technical request information to generate a search-assisted response. Its processing can involve its own AI providers. <a href="https://kagi.com/privacy">Kagi Privacy Policy</a>.</li>
           <li><strong>FlagCDN / Flagpedia:</strong> delivers flag images used by the language selector. The service and its hosting provider receive image requests and connection information; the app does not send voice audio or AI dialogue in these image requests. <a href="https://flagcdn.com/">FlagCDN service information</a> and its linked <a href="https://flagpedia.net/privacy-policy">Flagpedia Privacy Policy</a>.</li>
-          <li><strong>Legacy online avatars:</strong> if a previously saved online-avatar reference is restored and used, the avatar service receives that reference and connection information needed to request the asset. This does not require a new avatar account or make retired avatar creation available.</li>
           <li><strong>Meta:</strong> Meta handles platform use, Store distribution, and platform reporting under its own policies. Information included in a conduct report may be made available to us for moderation. <a href="https://www.meta.com/legal/privacy-policy/">Meta Privacy Policy</a>.</li>
           <li><strong>Other participants:</strong> participants receive information shared in the session, such as your display name, avatar, movement/interactions, and voice when transmitted. They may retain information they hear or see independently of the app.</li>
         </ul>
-        <p>The app does not request your email address during normal use. If you voluntarily email us for support or a privacy request, Google/Gmail processes your email address and message sent to our contact address; see the <a href="https://policies.google.com/privacy">Google Privacy Policy</a>. We may also disclose relevant information when required by law or necessary to address abuse, protect people’s rights or safety, or establish or defend legal claims. Provider links supplement this policy; you can contact us about app-related privacy requests.</p>
+        <p>If you email us for support or a privacy request, Google/Gmail processes your email address and message; see the <a href="https://policies.google.com/privacy">Google Privacy Policy</a>. We may also disclose relevant information when required by law or necessary to address abuse, protect people’s rights or safety, or establish or defend legal claims.</p>
       </section>
 
       <section id="retention">
         <h2>5. Storage and retention</h2>
-        <p>Processing a live conversation does not mean that every related record immediately disappears. Retention differs by data type and service:</p>
+        <p>Retention depends on the type of information:</p>
         <ul>
           <li><strong>Local preferences, authentication, and caches:</strong> your username, avatar/language choices, lobby-code visibility setting, Unity authentication information, and cached images are stored on your headset. They remain until replaced, invalidated, or cleared as applicable. Device backups, where enabled by the platform, may have their own retention.</li>
           <li><strong>Session and dialogue memory:</strong> the app holds conversation context in memory while features run and clears or replaces it as conversations change or the app closes. It does not provide a saved conversation-history feature. This does not prevent dialogue from appearing in diagnostic output or provider records.</li>
-          <li><strong>Device diagnostics:</strong> app and SDK diagnostic logs may include identifiers, errors, and AI request/response content. Retention depends on the device and logging system. These logs are not a user conversation archive, and this policy does not assume they are centrally collected by the operator.</li>
+          <li><strong>Device diagnostics:</strong> app and SDK diagnostic logs may include identifiers, errors, and AI request/response content. Retention depends on the device and logging system.</li>
           <li><strong>Provider-held records:</strong> providers may retain identifiers, request content or metadata, and diagnostic records for service operation, security, abuse prevention, and legal obligations. Retention depends on the service, its configuration, and the type of record. Ending a session or clearing headset data does not automatically delete these records.</li>
           <li><strong>Support and reports:</strong> we keep information for as long as needed to resolve the request or report and any related safety, follow-up, or legal issue. When those purposes end, we delete or anonymize information under our control unless a legal retention obligation applies.</li>
         </ul>
         <p>Microsoft documents that audio submitted to its real-time speech-to-text service is processed in server memory without storage at rest. This does not cover the app’s transcripts, diagnostic output, or other services. OpenAI documents that API abuse-monitoring logs can contain prompts and responses and are generally kept for up to 30 days, with legal and safety exceptions; other retention depends on the endpoint and configuration. These provider descriptions are not a guarantee that all app-related data has those retention periods.</p>
-        <p>You may ask us which records can be associated with you and request their deletion using the process below.</p>
       </section>
 
       <section id="choices">
@@ -198,29 +195,15 @@
       </section>
 
       <section id="deletion">
-        <h2>7. Clearing local data and requesting deletion</h2>
-        <p>The app does not require account registration or provide a saved conversation-history feature. Your username, preferences, cached resources, and Unity authentication information are stored on your headset. Conversation memory, diagnostic logs, and provider-held records are handled separately as described above.</p>
-        <h3>Clear data on your headset</h3>
-        <p>You can clear local app data through the headset's app-management options, where available. This resets saved settings and cached authentication information; it does not delete the corresponding Unity service identity or other cloud records. Uninstalling generally removes local app storage but does not itself request deletion of provider records or platform backups. Contact us if you need help.</p>
-        <h3>Request deletion of identifiable records</h3>
-        <p><strong>Requests are free and available to all users worldwide.</strong> No app account is required. A request concerns identifiable records actually held, such as support correspondence, reports delivered to us, or records that can be associated with your use of the app. It does not assume that we maintain a database of your conversations.</p>
-        <div class="contact">
-          <p><strong>Email:</strong> <a href="mailto:ales.spital@gmail.com">ales.spital@gmail.com</a><br>
-          <strong>Subject:</strong> VR4LL 2.0 VLE &mdash; Data deletion request</p>
-          <a class="button" href="mailto:ales.spital@gmail.com?subject=VR4LL%202.0%20VLE%20%E2%80%94%20Data%20deletion%20request">Email a deletion request</a>
-        </div>
-        <ol>
-          <li>Tell us what you want deleted. Include your chosen username and approximate dates of use if known. A player identifier or support/report reference can help, but you can contact us without them.</li>
-          <li>We may ask for limited information needed to identify the records and verify the request. Do not send passwords, authentication tokens, or service credentials.</li>
-          <li>We will check whether we hold identifiable records and delete personal data under our control where required. If we hold no matching records or cannot identify them, we will explain that. For relevant provider-held records, we will investigate the applicable request process and explain the available steps and limitations; we cannot promise access to or deletion of every provider record.</li>
-        </ol>
-        <p><strong>Limits and exceptions:</strong> a display name alone may not identify a record. Some information may need to be retained to meet legal obligations, address an ongoing safety/abuse matter, or establish or defend legal claims. We will explain any applicable exception and respond within the period required by law. We cannot remove copies independently held by other participants or directly delete records controlled independently by another platform; we can direct you to its request process. These limitations do not remove any applicable privacy rights.</p>
+        <h2>7. Local data and privacy requests</h2>
+        <p>Your username and preferences are stored on your headset. You can clear local app data through the headset’s app-management options, where available. This does not delete service-provider records.</p>
+        <p>For privacy questions or deletion requests, email <a href="mailto:ales.spital@gmail.com">ales.spital@gmail.com</a>. Requests are free and available worldwide. We will explain what identifiable information we hold, what can be deleted, and any legal or technical limitations.</p>
       </section>
 
       <section id="rights">
         <h2>8. Your privacy rights</h2>
         <p>Depending on applicable law, you may have rights to access your personal data, correct it, request deletion, restrict processing, object to processing based on legitimate interests, and receive portable data. Where processing is based on consent, you may withdraw it without affecting the lawfulness of earlier processing.</p>
-        <p>Contact <a href="mailto:ales.spital@gmail.com">ales.spital@gmail.com</a> to exercise these rights. Where the GDPR applies, we normally must respond within one month; if a lawful extension is necessary, we will explain it within that initial period. Our deletion-request channel is available worldwide regardless of whether the GDPR applies to you.</p>
+        <p>Contact <a href="mailto:ales.spital@gmail.com">ales.spital@gmail.com</a> to exercise these rights. Where the GDPR applies, we normally must respond within one month; if a lawful extension is necessary, we will explain it within that initial period.</p>
         <p>You may complain to your local data-protection authority. In Slovenia, this is the <a href="https://www.ip-rs.si/en/">Information Commissioner</a>.</p>
       </section>
 
